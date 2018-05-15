@@ -1,0 +1,29 @@
+------------------------------------------
+ -- VGA控制程序
+ -- 创建日期：2018-5-15
+ -- 负责人：wyf
+ -- 信号说明：
+ --
+------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity vga_ctrl is
+	port(
+		clk: in std_logic; --100MHz
+		rst: in std_logic;
+		rgb: in std_logic_vector(8 downto 0);
+		clk25: out std_logic; --25MHz
+		hs, vs: out std_logic;
+		r, g, b: out std_logic;
+		x: out std_logic_vector(9 downto 0);
+		y: out std_logic_vector(8 downto 0)
+	);
+end vga_ctrl;
+
+architecture bhv of vga_ctrl is
+begin
+end bhv;
