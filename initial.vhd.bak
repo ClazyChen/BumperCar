@@ -1,0 +1,20 @@
+------------------------------------------
+ -- 选择模式状态
+ -- 创建日期：2018-5-15
+ -- 负责人：czk
+ -- 信号说明：
+ --
+------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity initial is
+	port(
+		clk: in std_logic; --100MHz
+		rst: in std_logic;
+		data: in std_logic_vector(7 downto 0); --键盘输入，对应WSAD上下左右
+	);
+end initial;
