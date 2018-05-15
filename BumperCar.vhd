@@ -17,7 +17,7 @@ entity BumperCar is
 		rst: in std_logic;
 		
 		hs, vs: out std_logic; --VGA
-		r, g, b: out std_logic_vector(2 downto 0); --VGA
+		r, g, b: out std_logic_vector(2 downto 0) --VGA
 		
 		--clk_key: in std_logic; --keyboard
 		--data_key: in std_logic --keyboard
@@ -32,15 +32,15 @@ architecture bhv of BumperCar is
 			rgb: in std_logic_vector(8 downto 0);
 			clk25: out std_logic;
 			hs, vs: out std_logic;
-			r, g, b: out std_logic;
+			r, g, b: out std_logic_vector(2 downto 0);
 			x: out std_logic_vector(9 downto 0);
 			y: out std_logic_vector(8 downto 0)
 		);
 	end component;
 signal color: std_logic_vector(8 downto 0):=(others=>'1');
 signal clk25: std_logic;
-signal x: std_logic(9 downto 0);
-signal y: std_logic(8 downto 0);
+signal x: std_logic_vector(9 downto 0);
+signal y: std_logic_vector(8 downto 0);
 begin
 	u1: vga_ctrl port map(clk, rst, color, clk25, hs, vs, r, g, b, x, y);
 end bhv;

@@ -18,7 +18,7 @@ entity vga_ctrl is
 		rgb: in std_logic_vector(8 downto 0);
 		clk25: out std_logic; --25MHz
 		hs, vs: out std_logic;
-		r, g, b: out std_logic;
+		r, g, b: out std_logic_vector(2 downto 0);
 		x: out std_logic_vector(9 downto 0);
 		y: out std_logic_vector(8 downto 0)
 	);
@@ -66,7 +66,7 @@ y <= vy;
 	process(clk4, rst) --当前y坐标
 	begin
 		if rst = '0' then
-			vy <= (others = >'0');
+			vy <= (others =>'0');
 		elsif rising_edge(clk4) then
 			if vx = 799 then
 				if vy = 524 then
