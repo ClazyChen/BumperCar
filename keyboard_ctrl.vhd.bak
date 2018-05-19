@@ -1,4 +1,4 @@
-------------------------------------------
+﻿------------------------------------------
  -- 键盘控制模块
  -- 创建日期：2018-5-19
  -- 负责人：吴一凡
@@ -56,7 +56,7 @@ begin
 							key_pressing_vector(7) <= '0';
 							key_release <= '0';
 						else
-							key_pressing_vector(7) <= '1';
+							key_pressing_vevtor(7) <= '1';
 						end if;
 					--A, 1C
 					when "00111000" =>
@@ -69,8 +69,8 @@ begin
 					--S, 1B
 					when "11011000" =>
 						if (key_release = '1') then
-							key_pressing_vector(5) <= '0';
-							key_release <= '0';
+							key_pressing_vector(5) <= '0'
+							key_release <= '0'
 						else
 							key_pressing_vector(5) <= '1';
 						end if;

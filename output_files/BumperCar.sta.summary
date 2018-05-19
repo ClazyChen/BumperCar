@@ -1,0 +1,53 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clk'
+Slack : -4.145
+TNS   : -68.427
+
+Type  : Slow Model Setup 'keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization|allow_t'
+Slack : -1.716
+TNS   : -6.661
+
+Type  : Slow Model Hold 'clk'
+Slack : -1.682
+TNS   : -2.296
+
+Type  : Slow Model Hold 'keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization|allow_t'
+Slack : -0.010
+TNS   : -0.024
+
+Type  : Slow Model Minimum Pulse Width 'clk'
+Slack : -1.941
+TNS   : -52.397
+
+Type  : Slow Model Minimum Pulse Width 'keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization|allow_t'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'clk'
+Slack : -0.680
+TNS   : -5.291
+
+Type  : Fast Model Setup 'keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization|allow_t'
+Slack : -0.373
+TNS   : -1.029
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.220
+TNS   : -8.185
+
+Type  : Fast Model Hold 'keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization|allow_t'
+Slack : 0.589
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -35.380
+
+Type  : Fast Model Minimum Pulse Width 'keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization|allow_t'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

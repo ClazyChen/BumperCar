@@ -1,0 +1,76 @@
+|BumperCar
+ps2_clk_in => keyboard_ctrl:keyboard_ctrl_realization.ps2_clk_in
+ps2_data_in => keyboard_ctrl:keyboard_ctrl_realization.ps2_data_in
+clk => keyboard_ctrl:keyboard_ctrl_realization.clk
+rst => keyboard_ctrl:keyboard_ctrl_realization.rst
+key_pressing_vector[0] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[0]
+key_pressing_vector[1] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[1]
+key_pressing_vector[2] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[2]
+key_pressing_vector[3] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[3]
+key_pressing_vector[4] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[4]
+key_pressing_vector[5] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[5]
+key_pressing_vector[6] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[6]
+key_pressing_vector[7] <= keyboard_ctrl:keyboard_ctrl_realization.key_pressing_vector[7]
+
+
+|BumperCar|keyboard_ctrl:keyboard_ctrl_realization
+ps2_data_in => ps2_keyboard:ps2_keyboard_realization.ps2_data_in
+ps2_clk_in => ps2_keyboard:ps2_keyboard_realization.ps2_clk_in
+clk => ps2_keyboard:ps2_keyboard_realization.clk
+clk => key_pressing_vector[0]~reg0.CLK
+clk => key_pressing_vector[1]~reg0.CLK
+clk => key_pressing_vector[2]~reg0.CLK
+clk => key_pressing_vector[3]~reg0.CLK
+clk => key_pressing_vector[4]~reg0.CLK
+clk => key_pressing_vector[5]~reg0.CLK
+clk => key_pressing_vector[6]~reg0.CLK
+clk => key_pressing_vector[7]~reg0.CLK
+clk => key_release.CLK
+rst => ps2_keyboard:ps2_keyboard_realization.rst
+key_pressing_vector[0] <= key_pressing_vector[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_pressing_vector[1] <= key_pressing_vector[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_pressing_vector[2] <= key_pressing_vector[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_pressing_vector[3] <= key_pressing_vector[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_pressing_vector[4] <= key_pressing_vector[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_pressing_vector[5] <= key_pressing_vector[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_pressing_vector[6] <= key_pressing_vector[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_pressing_vector[7] <= key_pressing_vector[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BumperCar|keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization
+ps2_data_in => ps2_data.DATAIN
+ps2_clk_in => clk1.DATAIN
+clk => code[0].CLK
+clk => code[1].CLK
+clk => code[2].CLK
+clk => code[3].CLK
+clk => code[4].CLK
+clk => code[5].CLK
+clk => code[6].CLK
+clk => code[7].CLK
+clk => allow_t.CLK
+clk => ps2_data.CLK
+clk => clk2.CLK
+clk => clk1.CLK
+clk => cur~14.DATAIN
+rst => code[0].ACLR
+rst => code[1].ACLR
+rst => code[2].ACLR
+rst => code[3].ACLR
+rst => code[4].ACLR
+rst => code[5].ACLR
+rst => code[6].ACLR
+rst => code[7].ACLR
+rst => allow_t.ACLR
+rst => cur~16.DATAIN
+allow <= allow_t.DB_MAX_OUTPUT_PORT_TYPE
+scancode[0] <= scancode[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+scancode[1] <= scancode[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+scancode[2] <= scancode[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+scancode[3] <= scancode[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+scancode[4] <= scancode[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+scancode[5] <= scancode[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+scancode[6] <= scancode[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+scancode[7] <= scancode[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

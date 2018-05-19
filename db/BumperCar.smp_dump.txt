@@ -1,0 +1,16 @@
+
+State Machine - |BumperCar|keyboard_ctrl:keyboard_ctrl_realization|ps2_keyboard:ps2_keyboard_realization|cur
+Name cur.finish cur.stop cur.parity cur.d7 cur.d6 cur.d5 cur.d4 cur.d3 cur.d2 cur.d1 cur.d0 cur.start cur.delay 
+cur.delay 0 0 0 0 0 0 0 0 0 0 0 0 0 
+cur.start 0 0 0 0 0 0 0 0 0 0 0 1 1 
+cur.d0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+cur.d1 0 0 0 0 0 0 0 0 0 1 0 0 1 
+cur.d2 0 0 0 0 0 0 0 0 1 0 0 0 1 
+cur.d3 0 0 0 0 0 0 0 1 0 0 0 0 1 
+cur.d4 0 0 0 0 0 0 1 0 0 0 0 0 1 
+cur.d5 0 0 0 0 0 1 0 0 0 0 0 0 1 
+cur.d6 0 0 0 0 1 0 0 0 0 0 0 0 1 
+cur.d7 0 0 0 1 0 0 0 0 0 0 0 0 1 
+cur.parity 0 0 1 0 0 0 0 0 0 0 0 0 1 
+cur.stop 0 1 0 0 0 0 0 0 0 0 0 0 1 
+cur.finish 1 0 0 0 0 0 0 0 0 0 0 0 1 
