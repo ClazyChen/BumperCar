@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BumperCar
-Tue May 15 18:20:42 2018
+Tue May 22 11:58:19 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -13,12 +13,16 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Port Connectivity Checks: "vga_ctrl:u1"
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. State Machine - |BumperCar|ps2_keyboard:u2|cur
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Port Connectivity Checks: "modify:p2"
+ 14. Port Connectivity Checks: "initial:p1"
+ 15. Port Connectivity Checks: "vga_ctrl:u1"
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -44,7 +48,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 15 18:20:42 2018      ;
+; Analysis & Synthesis Status        ; Successful - Tue May 22 11:58:19 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; BumperCar                                  ;
 ; Top-level Entity Name              ; BumperCar                                  ;
@@ -53,7 +57,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 36                                         ;
 ;     Dedicated logic registers      ; 26                                         ;
 ; Total registers                    ; 26                                         ;
-; Total pins                         ; 13                                         ;
+; Total pins                         ; 23                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -157,14 +161,18 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                       ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
-; BumperCar.vhd                    ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/BumperCar.vhd ;         ;
-; vga_ctrl.vhd                     ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/vga_ctrl.vhd  ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                          ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                   ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
+; BumperCar.vhd                    ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/BumperCar.vhd    ;         ;
+; vga_ctrl.vhd                     ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/vga_ctrl.vhd     ;         ;
+; initial.vhd                      ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/initial.vhd      ;         ;
+; clk60.vhd                        ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/clk60.vhd        ;         ;
+; modify.vhd                       ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/modify.vhd       ;         ;
+; ps2_keyboard.vhd                 ; yes             ; User VHDL File  ; E:/Quartus/Homework/BumperCar/ps2_keyboard.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------+
@@ -188,12 +196,12 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- Dedicated logic registers            ; 26               ;
 ;     -- I/O registers                        ; 0                ;
 ;                                             ;                  ;
-; I/O pins                                    ; 13               ;
+; I/O pins                                    ; 23               ;
 ; Embedded Multiplier 9-bit elements          ; 0                ;
 ; Maximum fan-out node                        ; vga_ctrl:u1|clk4 ;
 ; Maximum fan-out                             ; 25               ;
 ; Total fan-out                               ; 177              ;
-; Average fan-out                             ; 2.36             ;
+; Average fan-out                             ; 2.08             ;
 +---------------------------------------------+------------------+
 
 
@@ -202,27 +210,104 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
-; |BumperCar                 ; 36 (0)            ; 26 (0)       ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |BumperCar             ;              ;
+; |BumperCar                 ; 36 (0)            ; 26 (0)       ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |BumperCar             ;              ;
 ;    |vga_ctrl:u1|           ; 36 (36)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:u1 ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------+
-; Registers Removed During Synthesis                                    ;
-+---------------------------------------+-------------------------------+
-; Register name                         ; Reason for Removal            ;
-+---------------------------------------+-------------------------------+
-; vga_ctrl:u1|b1[1]                     ; Merged with vga_ctrl:u1|b1[2] ;
-; vga_ctrl:u1|b1[2]                     ; Merged with vga_ctrl:u1|g1[0] ;
-; vga_ctrl:u1|g1[0]                     ; Merged with vga_ctrl:u1|g1[1] ;
-; vga_ctrl:u1|g1[1]                     ; Merged with vga_ctrl:u1|g1[2] ;
-; vga_ctrl:u1|g1[2]                     ; Merged with vga_ctrl:u1|r1[0] ;
-; vga_ctrl:u1|r1[0]                     ; Merged with vga_ctrl:u1|r1[1] ;
-; vga_ctrl:u1|r1[1]                     ; Merged with vga_ctrl:u1|r1[2] ;
-; vga_ctrl:u1|r1[2]                     ; Merged with vga_ctrl:u1|b1[0] ;
-; Total Number of Removed Registers = 8 ;                               ;
-+---------------------------------------+-------------------------------+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |BumperCar|ps2_keyboard:u2|cur                                                                                                  ;
++------------+------------+----------+------------+--------+--------+--------+--------+--------+--------+--------+--------+-----------+-----------+
+; Name       ; cur.finish ; cur.stop ; cur.parity ; cur.d7 ; cur.d6 ; cur.d5 ; cur.d4 ; cur.d3 ; cur.d2 ; cur.d1 ; cur.d0 ; cur.start ; cur.delay ;
++------------+------------+----------+------------+--------+--------+--------+--------+--------+--------+--------+--------+-----------+-----------+
+; cur.delay  ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ; 0         ;
+; cur.start  ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1         ; 1         ;
+; cur.d0     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0         ; 1         ;
+; cur.d1     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0         ; 1         ;
+; cur.d2     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0         ; 1         ;
+; cur.d3     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0         ; 1         ;
+; cur.d4     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0         ; 1         ;
+; cur.d5     ; 0          ; 0        ; 0          ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ; 1         ;
+; cur.d6     ; 0          ; 0        ; 0          ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ; 1         ;
+; cur.d7     ; 0          ; 0        ; 0          ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ; 1         ;
+; cur.parity ; 0          ; 0        ; 1          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ; 1         ;
+; cur.stop   ; 0          ; 1        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ; 1         ;
+; cur.finish ; 1          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ; 1         ;
++------------+------------+----------+------------+--------+--------+--------+--------+--------+--------+--------+--------+-----------+-----------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; modify:p2|arrow_ready                  ; Stuck at GND due to stuck port clock   ;
+; modify:p2|temp[0..7]                   ; Stuck at GND due to stuck port clock   ;
+; vga_ctrl:u1|b1[1]                      ; Merged with vga_ctrl:u1|b1[2]          ;
+; vga_ctrl:u1|b1[2]                      ; Merged with vga_ctrl:u1|g1[0]          ;
+; vga_ctrl:u1|g1[0]                      ; Merged with vga_ctrl:u1|g1[1]          ;
+; vga_ctrl:u1|g1[1]                      ; Merged with vga_ctrl:u1|g1[2]          ;
+; vga_ctrl:u1|g1[2]                      ; Merged with vga_ctrl:u1|r1[0]          ;
+; vga_ctrl:u1|r1[0]                      ; Merged with vga_ctrl:u1|r1[1]          ;
+; vga_ctrl:u1|r1[1]                      ; Merged with vga_ctrl:u1|r1[2]          ;
+; vga_ctrl:u1|r1[2]                      ; Merged with vga_ctrl:u1|b1[0]          ;
+; test[1..7]                             ; Merged with test[0]                    ;
+; state[2,3]                             ; Merged with state[1]                   ;
+; test[0]                                ; Stuck at GND due to stuck port data_in ;
+; state[1]                               ; Stuck at GND due to stuck port data_in ;
+; state[0]                               ; Lost fanout                            ;
+; modify_rst                             ; Lost fanout                            ;
+; initial:p1|com                         ; Lost fanout                            ;
+; initial_rst                            ; Lost fanout                            ;
+; clk60:myclock|output                   ; Lost fanout                            ;
+; ps2_keyboard:u2|allow_t                ; Lost fanout                            ;
+; clk60:myclock|count[0..14]             ; Lost fanout                            ;
+; ps2_keyboard:u2|ps2_data               ; Lost fanout                            ;
+; ps2_keyboard:u2|clk1                   ; Lost fanout                            ;
+; ps2_keyboard:u2|clk2                   ; Lost fanout                            ;
+; ps2_keyboard:u2|code[0..7]             ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.delay              ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.start              ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d0                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d1                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d2                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d3                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d4                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d5                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d6                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.d7                 ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.parity             ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.stop               ; Lost fanout                            ;
+; ps2_keyboard:u2|cur.finish             ; Lost fanout                            ;
+; Total Number of Removed Registers = 73 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                ;
++-------------------------+---------------------------+--------------------------------------------------------------------------------------+
+; Register name           ; Reason for Removal        ; Registers Removed due to This Register                                               ;
++-------------------------+---------------------------+--------------------------------------------------------------------------------------+
+; modify:p2|arrow_ready   ; Stuck at GND              ; modify:p2|temp[3], modify:p2|temp[2], modify:p2|temp[1], modify:p2|temp[0], test[0], ;
+;                         ; due to stuck port clock   ; clk60:myclock|output, ps2_keyboard:u2|allow_t, clk60:myclock|count[4],               ;
+;                         ;                           ; clk60:myclock|count[3], clk60:myclock|count[2], clk60:myclock|count[1],              ;
+;                         ;                           ; clk60:myclock|count[0], clk60:myclock|count[5], clk60:myclock|count[6],              ;
+;                         ;                           ; clk60:myclock|count[7], clk60:myclock|count[8], clk60:myclock|count[9],              ;
+;                         ;                           ; clk60:myclock|count[10], clk60:myclock|count[11], clk60:myclock|count[12],           ;
+;                         ;                           ; clk60:myclock|count[13], clk60:myclock|count[14], ps2_keyboard:u2|clk1,              ;
+;                         ;                           ; ps2_keyboard:u2|clk2                                                                 ;
+; state[1]                ; Stuck at GND              ; initial:p1|com, initial_rst, ps2_keyboard:u2|code[0], ps2_keyboard:u2|code[3],       ;
+;                         ; due to stuck port data_in ; ps2_keyboard:u2|code[2], ps2_keyboard:u2|code[1], ps2_keyboard:u2|cur.d0,            ;
+;                         ;                           ; ps2_keyboard:u2|cur.d1, ps2_keyboard:u2|cur.d2, ps2_keyboard:u2|cur.d3               ;
+; modify:p2|temp[7]       ; Stuck at GND              ; state[0], modify_rst                                                                 ;
+;                         ; due to stuck port clock   ;                                                                                      ;
+; ps2_keyboard:u2|code[7] ; Lost Fanouts              ; ps2_keyboard:u2|cur.d7                                                               ;
+; ps2_keyboard:u2|code[6] ; Lost Fanouts              ; ps2_keyboard:u2|cur.d6                                                               ;
+; ps2_keyboard:u2|code[5] ; Lost Fanouts              ; ps2_keyboard:u2|cur.d5                                                               ;
+; ps2_keyboard:u2|code[4] ; Lost Fanouts              ; ps2_keyboard:u2|cur.d4                                                               ;
++-------------------------+---------------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -249,6 +334,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; vga_ctrl:u1|vst                        ; 2       ;
 ; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "modify:p2"                                                                                                                                  ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; clk  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "initial:p1"                                                                         ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; con  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -278,7 +381,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Tue May 15 18:20:41 2018
+    Info: Processing started: Tue May 22 11:58:17 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BumperCar -c BumperCar
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file bumpercar.vhd
@@ -287,24 +390,65 @@ Info (12021): Found 2 design units, including 1 entities, in source file bumperc
 Info (12021): Found 2 design units, including 1 entities, in source file vga_ctrl.vhd
     Info (12022): Found design unit 1: vga_ctrl-bhv
     Info (12023): Found entity 1: vga_ctrl
+Info (12021): Found 2 design units, including 1 entities, in source file initial.vhd
+    Info (12022): Found design unit 1: initial-bhv
+    Info (12023): Found entity 1: initial
+Info (12021): Found 2 design units, including 1 entities, in source file clk60.vhd
+    Info (12022): Found design unit 1: clk60-bhv
+    Info (12023): Found entity 1: clk60
+Info (12021): Found 2 design units, including 1 entities, in source file modify.vhd
+    Info (12022): Found design unit 1: modify-bhv
+    Info (12023): Found entity 1: modify
+Info (12021): Found 2 design units, including 1 entities, in source file ps2_keyboard.vhd
+    Info (12022): Found design unit 1: ps2_keyboard-implementation
+    Info (12023): Found entity 1: ps2_keyboard
 Info (12127): Elaborating entity "BumperCar" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at BumperCar.vhd(40): used explicit default value for signal "color" because signal was never assigned a value
-Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(41): object "clk25" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(42): object "x" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(43): object "y" assigned a value but never read
+Warning (10540): VHDL Signal Declaration warning at BumperCar.vhd(77): used explicit default value for signal "color" because signal was never assigned a value
+Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(78): object "clk25" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(79): object "x" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(80): object "y" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(93): object "initial_con" assigned a value but never read
+Info (12128): Elaborating entity "clk60" for hierarchy "clk60:myclock"
 Info (12128): Elaborating entity "vga_ctrl" for hierarchy "vga_ctrl:u1"
+Info (12128): Elaborating entity "ps2_keyboard" for hierarchy "ps2_keyboard:u2"
+Info (10041): Inferred latch for "scancode[0]" at ps2_keyboard.vhd(46)
+Info (10041): Inferred latch for "scancode[1]" at ps2_keyboard.vhd(46)
+Info (10041): Inferred latch for "scancode[2]" at ps2_keyboard.vhd(46)
+Info (10041): Inferred latch for "scancode[3]" at ps2_keyboard.vhd(46)
+Info (10041): Inferred latch for "scancode[4]" at ps2_keyboard.vhd(46)
+Info (10041): Inferred latch for "scancode[5]" at ps2_keyboard.vhd(46)
+Info (10041): Inferred latch for "scancode[6]" at ps2_keyboard.vhd(46)
+Info (10041): Inferred latch for "scancode[7]" at ps2_keyboard.vhd(46)
+Info (12128): Elaborating entity "initial" for hierarchy "initial:p1"
+Info (12128): Elaborating entity "modify" for hierarchy "modify:p2"
+Warning (10631): VHDL Process Statement warning at modify.vhd(35): inferring latch(es) for signal or variable "com", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "com" at modify.vhd(35)
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "test_out[0]" is stuck at GND
+    Warning (13410): Pin "test_out[1]" is stuck at GND
+    Warning (13410): Pin "test_out[2]" is stuck at GND
+    Warning (13410): Pin "test_out[3]" is stuck at GND
+    Warning (13410): Pin "test_out[4]" is stuck at GND
+    Warning (13410): Pin "test_out[5]" is stuck at GND
+    Warning (13410): Pin "test_out[6]" is stuck at GND
+    Warning (13410): Pin "test_out[7]" is stuck at GND
+Info (17049): 45 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 50 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 11 output pins
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "data_key"
+    Warning (15610): No output dependent on input pin "clk_key"
+Info (21057): Implemented 60 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 19 output pins
     Info (21061): Implemented 37 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 569 megabytes
-    Info: Processing ended: Tue May 15 18:20:42 2018
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 566 megabytes
+    Info: Processing ended: Tue May 22 11:58:19 2018
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 
