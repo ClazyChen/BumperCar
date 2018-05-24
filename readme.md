@@ -30,15 +30,31 @@ rx, ry, vx, vy, ax, ay
 
  
 
-ps2_keyboard.vhd:
+clk60.vhd
+
+输入：clk（100MHz时钟）
+
+输出：clk60（60Hz时钟）
+
+
+
+**ps2_keyboard.vhd**:
 
 输入：clk_in（键盘时钟），data（键盘输入）
 
-输出：keydown（长度为8的向量，是否按下）
+输出：key（长度为8的向量，ps2码）
 
  
 
-para.vhd:
+**keyboard_ctrl.vhd**
+
+输入：clk（时钟），data（键盘输入）
+
+输出：down（长度为8的向量，是否按下）
+
+
+
+**para.vhd:**
 
 输入：clk, address
 
@@ -46,7 +62,7 @@ para.vhd:
 
  
 
-各种图形.vhd 
+**各种图形.vhd** 
 
 输入：clk, address
 
@@ -54,7 +70,7 @@ para.vhd:
 
  
 
-vga_ctrl.vhd
+**vga_ctrl.vhd** 
 
 输入：clk（100M时钟输入）, rst, state（状态机）, q, rgb（当前颜色）
 
@@ -62,7 +78,7 @@ vga_ctrl.vhd
 
  
 
-paint.vhd
+**paint.vhd**
 
 输入：clk, rst, state（状态机）, q, graph（当前逻辑状态）, x, y（当前坐标）
 
@@ -94,7 +110,7 @@ wait.vhd
 
  
 
-collide.vhd
+**collide.vhd**
 
 输入：clk, rst, graph（逻辑状态）
 
