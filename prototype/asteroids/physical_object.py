@@ -28,7 +28,6 @@ class PhysicalObject(pyglet.sprite.Sprite):
             self.y = 0.0
         if self.y < 0.0:
             self.y = height
-
         self.rotation += self.omega * dt
         self.vx += self.ax * dt
         self.vy += self.ay * dt

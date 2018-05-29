@@ -67,17 +67,29 @@ architecture bhv of BumperCar is
 			rst: in std_logic;
 			con: in std_logic_vector(1 downto 0);
 			com: out std_logic;
-			graph: out std_logic_vector(767 downto 0)
+			graph: out std_logic_vector(959 downto 0)
 		);
 	end component;
 	component modify
 		port(
-			clk: in std_logic;
+			clk: in std_logic; --100MHz
 			clk_0: in std_logic; --60Hz
 			rst: in std_logic;
+			
 			data: in std_logic_vector(7 downto 0);
+			graph: in std_logic_vector(959 downto 0);
+			
 			com: out std_logic;
-			res: out std_logic_vector(7 downto 0)
+			res: out std_logic_vector(959 downto 0)
+		);
+	end component;
+	component motion
+		port(
+			clk: in std_logic; --50MHz
+			rst: in std_logic;
+			graph: in std_logic_vector(959 downto 0);
+			com: out std_logic;
+			res: out std_logic_vector(959 downto 0)
 		);
 	end component;
 signal color: std_logic_vector(8 downto 0):=(others=>'1');
@@ -86,23 +98,28 @@ signal x: std_logic_vector(9 downto 0);
 signal y: std_logic_vector(8 downto 0);
 
 signal clk_0: std_logic; --60Hz
+signal clk50: std_logic; --50MHz
 
 signal key_data:std_logic_vector(7 downto 0);
 
 signal initial_rst:std_logic:='0';
 signal modify_rst:std_logic:='0';
 signal waiting_rst:std_logic:='0';
+signal motion_rst:std_logic:='0';
 
 signal initial_com:std_logic:='0';
 signal modify_com:std_logic:='0';
 signal waiting_com:std_logic:='0';
+signal motion_com:std_logic:='0';
 
 signal initial_con:std_logic_vector(1 downto 0);
-signal modify_res:std_logic_vector(7 downto 0);
 
 signal state: std_logic_vector(3 downto 0):=(others =>'0');
 
-signal graph: std_logic_vector(767 downto 0):=(others =>'0');
+signal graph: std_logic_vector(959 downto 0):=(others =>'0');
+signal modify_res: std_logic_vector(959 downto 0); --可以减少！
+signal waiting_res: std_logic_vector(959 downto 0); --可以减少！
+signal motion_res: std_logic_vector(959 downto 0); --可以减少！
 
 signal test:std_logic_vector(7 downto 0):=(others =>'0');
 begin
@@ -111,14 +128,20 @@ begin
 	u2: keyboard_ctrl port map(clk_key, data_key, clk, key_data);
 	
 	p1: initial port map(clk, initial_rst, key_data, initial_com, initial_con);
-	p2: modify port map(clk, clk_0, modify_rst, key_data, modify_com, modify_res);
-	p3: waiting port map(clk, waiting_rst, initial_con, waiting_com, graph);
+	p2: modify port map(clk, clk_0, modify_rst, key_data, graph, modify_com, modify_res);
+	p3: waiting port map(clk, waiting_rst, initial_con, waiting_com, waiting_res);
+	p4: motion port map(clk50, motion_rst, graph, motion_com, motion_res);
 	
 	test_out <= test;
 	
+	process(clk)
+	begin
+		if rising_edge(clk) then
+			clk50 <= not clk50;
+		end if;
+	end process;
+	
 	-- state是主状态机
-	-- 当前的状态机不是目标形式！
-	-- 只用于测试！
 	process(clk,rst)
 	begin
 		if rst = '0' then
@@ -139,16 +162,38 @@ begin
 						waiting_rst <= '0';
 						state <= "0010";
 					end if;
-				when "0010" => --调试用状态，运行modify模块
+				when "0010" =>
+					graph(959 downto 0) <= waiting_res(959 downto 0);
+					state <= "0011";
+				when "0011" =>
+					state <= "0100";
+				when "0100" =>
+					state <= "0101";
+				when "0101" => --等待键盘状态，运行modify模块
 					if modify_rst = '0' then
 						modify_rst <= '1';
 					elsif modify_com = '1' then
 						modify_rst <= '0';
-						test <= modify_res;
+						state <= "0101";
 					end if;
-				--		modify_rst <= '0';
-				--		state <= "0000";
-				-- 预期调试效果：test_out输出8个按键的按下情况（按下一次不会弹起）
+				when "0110" => --根据键盘更新graph
+					graph(831 downto 704) <= modify_res(831 downto 704);
+					graph(351 downto 224) <= modify_res(351 downto 224);
+					state <= "0110";
+				when "0111" => --模拟运动，motion
+					if motion_rst = '0' then
+						motion_rst <= '1';
+					elsif motion_com = '1' then
+						motion_rst <= '0';
+						state <= "0111";
+					end if;
+				when "1000" => --根据运动更新graph
+					graph(959 downto 832) <= motion_res(959 downto 832);
+					graph(607 downto 352) <= motion_res(607 downto 352);
+					graph(127 downto 0) <= motion_res(127 downto 0);
+					graph(831 downto 704) <= "00000000000000000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+					graph(351 downto 224) <= "00000000000000000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+					state <= "0011";
 				when others =>
 			end case;
 		end if;
