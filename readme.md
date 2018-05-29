@@ -24,9 +24,17 @@
 
 graph的内容包括：
 
-所有物体（每个数字32位）：
+所有物体（每个数字32位×12个数字×2个物体）：
 
-rx, ry, vx, vy, ax, ay
+* 速度：vx，vy
+* 角速度：omega
+* 角加速度：alpha
+* 加速度：ax，ay
+* 质量：mess
+* 转动惯量：j
+* 半径：r
+* 位置：x，y
+* 旋转角：rotation
 
  
 
@@ -102,7 +110,7 @@ initial.vhd
 
  
 
-wait.vhd
+waiting.vhd
 
 输入：clk, rst, con（模式）
 

@@ -61,6 +61,15 @@ architecture bhv of BumperCar is
 			con: out std_logic_vector(1 downto 0) --选择的模式：00\01\10\11分别对应上下左右的按键，暂时不做
 		);		
 	end component;
+	component waiting
+		port(
+			clk: in std_logic; --100MHz
+			rst: in std_logic;
+			con: in std_logic_vector(1 downto 0);
+			com: out std_logic;
+			graph: out std_logic_vector(767 downto 0)
+		);
+	end component;
 	component modify
 		port(
 			clk: in std_logic;
@@ -82,14 +91,18 @@ signal key_data:std_logic_vector(7 downto 0);
 
 signal initial_rst:std_logic:='0';
 signal modify_rst:std_logic:='0';
+signal waiting_rst:std_logic:='0';
 
 signal initial_com:std_logic:='0';
 signal modify_com:std_logic:='0';
+signal waiting_com:std_logic:='0';
 
 signal initial_con:std_logic_vector(1 downto 0);
 signal modify_res:std_logic_vector(7 downto 0);
 
 signal state: std_logic_vector(3 downto 0):=(others =>'0');
+
+signal graph: std_logic_vector(767 downto 0):=(others =>'0');
 
 signal test:std_logic_vector(7 downto 0):=(others =>'0');
 begin
@@ -99,6 +112,7 @@ begin
 	
 	p1: initial port map(clk, initial_rst, key_data, initial_com, initial_con);
 	p2: modify port map(clk, clk_0, modify_rst, key_data, modify_com, modify_res);
+	p3: waiting port map(clk, waiting_rst, initial_con, waiting_com, graph);
 	
 	test_out <= test;
 	
@@ -118,7 +132,14 @@ begin
 						initial_rst <= '0';
 						state <= "0001";
 					end if;
-				when "0001" => --调试用状态，运行modify模块
+				when "0001" => --初始化中状态，运行waiting模块
+					if waiting_rst = '0' then
+						waiting_rst <= '1';
+					elsif waiting_com = '1' then
+						waiting_rst <= '0';
+						state <= "0010";
+					end if;
+				when "0010" => --调试用状态，运行modify模块
 					if modify_rst = '0' then
 						modify_rst <= '1';
 					elsif modify_com = '1' then
