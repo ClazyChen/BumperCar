@@ -1,0 +1,429 @@
+<session jtag_chain="USB-Blaster [USB-0]" jtag_device="@1: EP2C70 (0x020B60DD)" sof_file="BumperCar.sof">
+  <display_tree gui_logging_enabled="0">
+    <display_branch instance="auto_signaltap_0" log="USE_GLOBAL_TEMP" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
+  </display_tree>
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <multi attribute="frame size" size="2" value="1920,1018"/>
+    <single attribute="jtag widget visible" value="1"/>
+    <multi attribute="jtag widget size" size="2" value="334,189"/>
+    <single attribute="instance widget visible" value="1"/>
+    <single attribute="config widget visible" value="1"/>
+    <single attribute="hierarchy widget visible" value="1"/>
+    <single attribute="data log widget visible" value="1"/>
+    <single attribute="sof manager visible" value="1"/>
+  </global_info>
+  <instance entity_name="sld_signaltap" is_auto_node="yes" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
+    <position_info>
+      <single attribute="active tab" value="0"/>
+      <single attribute="data vertical scroll position" value="0"/>
+      <single attribute="data horizontal scroll position" value="60"/>
+      <single attribute="zoom level numerator" value="128"/>
+      <single attribute="zoom level denominator" value="1"/>
+      <single attribute="zoom offset numerator" value="1023"/>
+      <single attribute="zoom offset denominator" value="1"/>
+    </position_info>
+    <signal_set global_temp="1" name="signal_set: 2018/05/29 17:56:11  #0">
+      <clock name="vga_ctrl:vga_ctrl_realization|clk25m" polarity="posedge" tap_mode="probeonly"/>
+      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="128" trigger_in_enable="no" trigger_out_enable="no"/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire name="base_sram_addr[0]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[10]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[11]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[12]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[13]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[14]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[15]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[16]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[17]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[18]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[19]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[1]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[2]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[3]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[4]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[5]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[6]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[7]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[8]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[9]" tap_mode="probeonly"/>
+          <wire name="base_sram_ce" tap_mode="probeonly"/>
+          <wire name="base_sram_data[0]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[10]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[11]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[12]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[13]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[14]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[15]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[16]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[17]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[18]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[19]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[1]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[20]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[21]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[22]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[23]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[24]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[25]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[26]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[27]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[28]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[29]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[2]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[30]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[31]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[3]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[4]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[5]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[6]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[7]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[8]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[9]" tap_mode="probeonly"/>
+          <wire name="base_sram_oe" tap_mode="probeonly"/>
+          <wire name="base_sram_we" tap_mode="probeonly"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire name="base_sram_addr[0]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[10]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[11]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[12]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[13]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[14]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[15]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[16]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[17]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[18]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[19]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[1]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[2]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[3]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[4]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[5]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[6]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[7]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[8]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[9]" tap_mode="probeonly"/>
+          <wire name="base_sram_ce" tap_mode="probeonly"/>
+          <wire name="base_sram_data[0]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[10]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[11]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[12]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[13]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[14]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[15]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[16]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[17]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[18]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[19]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[1]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[20]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[21]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[22]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[23]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[24]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[25]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[26]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[27]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[28]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[29]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[2]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[30]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[31]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[3]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[4]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[5]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[6]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[7]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[8]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[9]" tap_mode="probeonly"/>
+          <wire name="base_sram_oe" tap_mode="probeonly"/>
+          <wire name="base_sram_we" tap_mode="probeonly"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec>
+          <wire name="base_sram_addr[0]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[10]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[11]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[12]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[13]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[14]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[15]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[16]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[17]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[18]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[19]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[1]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[2]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[3]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[4]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[5]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[6]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[7]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[8]" tap_mode="probeonly"/>
+          <wire name="base_sram_addr[9]" tap_mode="probeonly"/>
+          <wire name="base_sram_ce" tap_mode="probeonly"/>
+          <wire name="base_sram_data[0]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[10]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[11]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[12]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[13]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[14]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[15]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[16]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[17]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[18]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[19]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[1]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[20]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[21]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[22]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[23]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[24]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[25]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[26]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[27]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[28]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[29]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[2]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[30]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[31]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[3]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[4]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[5]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[6]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[7]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[8]" tap_mode="probeonly"/>
+          <wire name="base_sram_data[9]" tap_mode="probeonly"/>
+          <wire name="base_sram_oe" tap_mode="probeonly"/>
+          <wire name="base_sram_we" tap_mode="probeonly"/>
+        </storage_qualifier_input_vec>
+      </signal_vec>
+      <presentation>
+        <unified_setup_data_view>
+          <node name="base_sram_addr" order="msb_to_lsb" state="collapse" type="output pin">
+            <node data_index="10" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[19]" storage_index="10" tap_mode="probeonly" trigger_index="10" type="output pin"/>
+            <node data_index="9" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[18]" storage_index="9" tap_mode="probeonly" trigger_index="9" type="output pin"/>
+            <node data_index="8" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[17]" storage_index="8" tap_mode="probeonly" trigger_index="8" type="output pin"/>
+            <node data_index="7" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[16]" storage_index="7" tap_mode="probeonly" trigger_index="7" type="output pin"/>
+            <node data_index="6" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[15]" storage_index="6" tap_mode="probeonly" trigger_index="6" type="output pin"/>
+            <node data_index="5" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[14]" storage_index="5" tap_mode="probeonly" trigger_index="5" type="output pin"/>
+            <node data_index="4" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[13]" storage_index="4" tap_mode="probeonly" trigger_index="4" type="output pin"/>
+            <node data_index="3" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[12]" storage_index="3" tap_mode="probeonly" trigger_index="3" type="output pin"/>
+            <node data_index="2" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[11]" storage_index="2" tap_mode="probeonly" trigger_index="2" type="output pin"/>
+            <node data_index="1" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[10]" storage_index="1" tap_mode="probeonly" trigger_index="1" type="output pin"/>
+            <node data_index="19" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[9]" storage_index="19" tap_mode="probeonly" trigger_index="19" type="output pin"/>
+            <node data_index="18" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[8]" storage_index="18" tap_mode="probeonly" trigger_index="18" type="output pin"/>
+            <node data_index="17" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[7]" storage_index="17" tap_mode="probeonly" trigger_index="17" type="output pin"/>
+            <node data_index="16" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[6]" storage_index="16" tap_mode="probeonly" trigger_index="16" type="output pin"/>
+            <node data_index="15" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[5]" storage_index="15" tap_mode="probeonly" trigger_index="15" type="output pin"/>
+            <node data_index="14" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[4]" storage_index="14" tap_mode="probeonly" trigger_index="14" type="output pin"/>
+            <node data_index="13" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[3]" storage_index="13" tap_mode="probeonly" trigger_index="13" type="output pin"/>
+            <node data_index="12" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[2]" storage_index="12" tap_mode="probeonly" trigger_index="12" type="output pin"/>
+            <node data_index="11" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[1]" storage_index="11" tap_mode="probeonly" trigger_index="11" type="output pin"/>
+            <node data_index="0" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[0]" storage_index="0" tap_mode="probeonly" trigger_index="0" type="output pin"/>
+          </node>
+          <node name="base_sram_data" order="msb_to_lsb" state="collapse" type="bidir pin">
+            <node data_index="45" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[31]" storage_index="45" tap_mode="probeonly" trigger_index="45" type="bidir pin"/>
+            <node data_index="44" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[30]" storage_index="44" tap_mode="probeonly" trigger_index="44" type="bidir pin"/>
+            <node data_index="42" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[29]" storage_index="42" tap_mode="probeonly" trigger_index="42" type="bidir pin"/>
+            <node data_index="41" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[28]" storage_index="41" tap_mode="probeonly" trigger_index="41" type="bidir pin"/>
+            <node data_index="40" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[27]" storage_index="40" tap_mode="probeonly" trigger_index="40" type="bidir pin"/>
+            <node data_index="39" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[26]" storage_index="39" tap_mode="probeonly" trigger_index="39" type="bidir pin"/>
+            <node data_index="38" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[25]" storage_index="38" tap_mode="probeonly" trigger_index="38" type="bidir pin"/>
+            <node data_index="37" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[24]" storage_index="37" tap_mode="probeonly" trigger_index="37" type="bidir pin"/>
+            <node data_index="36" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[23]" storage_index="36" tap_mode="probeonly" trigger_index="36" type="bidir pin"/>
+            <node data_index="35" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[22]" storage_index="35" tap_mode="probeonly" trigger_index="35" type="bidir pin"/>
+            <node data_index="34" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[21]" storage_index="34" tap_mode="probeonly" trigger_index="34" type="bidir pin"/>
+            <node data_index="33" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[20]" storage_index="33" tap_mode="probeonly" trigger_index="33" type="bidir pin"/>
+            <node data_index="31" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[19]" storage_index="31" tap_mode="probeonly" trigger_index="31" type="bidir pin"/>
+            <node data_index="30" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[18]" storage_index="30" tap_mode="probeonly" trigger_index="30" type="bidir pin"/>
+            <node data_index="29" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[17]" storage_index="29" tap_mode="probeonly" trigger_index="29" type="bidir pin"/>
+            <node data_index="28" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[16]" storage_index="28" tap_mode="probeonly" trigger_index="28" type="bidir pin"/>
+            <node data_index="27" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[15]" storage_index="27" tap_mode="probeonly" trigger_index="27" type="bidir pin"/>
+            <node data_index="26" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[14]" storage_index="26" tap_mode="probeonly" trigger_index="26" type="bidir pin"/>
+            <node data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[13]" storage_index="25" tap_mode="probeonly" trigger_index="25" type="bidir pin"/>
+            <node data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[12]" storage_index="24" tap_mode="probeonly" trigger_index="24" type="bidir pin"/>
+            <node data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[11]" storage_index="23" tap_mode="probeonly" trigger_index="23" type="bidir pin"/>
+            <node data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[10]" storage_index="22" tap_mode="probeonly" trigger_index="22" type="bidir pin"/>
+            <node data_index="52" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[9]" storage_index="52" tap_mode="probeonly" trigger_index="52" type="bidir pin"/>
+            <node data_index="51" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[8]" storage_index="51" tap_mode="probeonly" trigger_index="51" type="bidir pin"/>
+            <node data_index="50" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[7]" storage_index="50" tap_mode="probeonly" trigger_index="50" type="bidir pin"/>
+            <node data_index="49" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[6]" storage_index="49" tap_mode="probeonly" trigger_index="49" type="bidir pin"/>
+            <node data_index="48" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[5]" storage_index="48" tap_mode="probeonly" trigger_index="48" type="bidir pin"/>
+            <node data_index="47" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[4]" storage_index="47" tap_mode="probeonly" trigger_index="47" type="bidir pin"/>
+            <node data_index="46" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[3]" storage_index="46" tap_mode="probeonly" trigger_index="46" type="bidir pin"/>
+            <node data_index="43" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[2]" storage_index="43" tap_mode="probeonly" trigger_index="43" type="bidir pin"/>
+            <node data_index="32" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[1]" storage_index="32" tap_mode="probeonly" trigger_index="32" type="bidir pin"/>
+            <node data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[0]" storage_index="21" tap_mode="probeonly" trigger_index="21" type="bidir pin"/>
+          </node>
+          <node data_index="20" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_ce" storage_index="20" tap_mode="probeonly" trigger_index="20" type="output pin"/>
+          <node data_index="53" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_oe" storage_index="53" tap_mode="probeonly" trigger_index="53" type="output pin"/>
+          <node data_index="54" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_we" storage_index="54" tap_mode="probeonly" trigger_index="54" type="output pin"/>
+        </unified_setup_data_view>
+        <data_view>
+          <bus name="base_sram_addr" order="msb_to_lsb" state="collapse" type="output pin">
+            <net data_index="10" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[19]" storage_index="10" tap_mode="probeonly" trigger_index="10" type="output pin"/>
+            <net data_index="9" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[18]" storage_index="9" tap_mode="probeonly" trigger_index="9" type="output pin"/>
+            <net data_index="8" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[17]" storage_index="8" tap_mode="probeonly" trigger_index="8" type="output pin"/>
+            <net data_index="7" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[16]" storage_index="7" tap_mode="probeonly" trigger_index="7" type="output pin"/>
+            <net data_index="6" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[15]" storage_index="6" tap_mode="probeonly" trigger_index="6" type="output pin"/>
+            <net data_index="5" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[14]" storage_index="5" tap_mode="probeonly" trigger_index="5" type="output pin"/>
+            <net data_index="4" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[13]" storage_index="4" tap_mode="probeonly" trigger_index="4" type="output pin"/>
+            <net data_index="3" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[12]" storage_index="3" tap_mode="probeonly" trigger_index="3" type="output pin"/>
+            <net data_index="2" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[11]" storage_index="2" tap_mode="probeonly" trigger_index="2" type="output pin"/>
+            <net data_index="1" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[10]" storage_index="1" tap_mode="probeonly" trigger_index="1" type="output pin"/>
+            <net data_index="19" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[9]" storage_index="19" tap_mode="probeonly" trigger_index="19" type="output pin"/>
+            <net data_index="18" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[8]" storage_index="18" tap_mode="probeonly" trigger_index="18" type="output pin"/>
+            <net data_index="17" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[7]" storage_index="17" tap_mode="probeonly" trigger_index="17" type="output pin"/>
+            <net data_index="16" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[6]" storage_index="16" tap_mode="probeonly" trigger_index="16" type="output pin"/>
+            <net data_index="15" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[5]" storage_index="15" tap_mode="probeonly" trigger_index="15" type="output pin"/>
+            <net data_index="14" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[4]" storage_index="14" tap_mode="probeonly" trigger_index="14" type="output pin"/>
+            <net data_index="13" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[3]" storage_index="13" tap_mode="probeonly" trigger_index="13" type="output pin"/>
+            <net data_index="12" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[2]" storage_index="12" tap_mode="probeonly" trigger_index="12" type="output pin"/>
+            <net data_index="11" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[1]" storage_index="11" tap_mode="probeonly" trigger_index="11" type="output pin"/>
+            <net data_index="0" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[0]" storage_index="0" tap_mode="probeonly" trigger_index="0" type="output pin"/>
+          </bus>
+          <bus name="base_sram_data" order="msb_to_lsb" state="collapse" type="bidir pin">
+            <net data_index="45" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[31]" storage_index="45" tap_mode="probeonly" trigger_index="45" type="bidir pin"/>
+            <net data_index="44" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[30]" storage_index="44" tap_mode="probeonly" trigger_index="44" type="bidir pin"/>
+            <net data_index="42" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[29]" storage_index="42" tap_mode="probeonly" trigger_index="42" type="bidir pin"/>
+            <net data_index="41" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[28]" storage_index="41" tap_mode="probeonly" trigger_index="41" type="bidir pin"/>
+            <net data_index="40" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[27]" storage_index="40" tap_mode="probeonly" trigger_index="40" type="bidir pin"/>
+            <net data_index="39" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[26]" storage_index="39" tap_mode="probeonly" trigger_index="39" type="bidir pin"/>
+            <net data_index="38" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[25]" storage_index="38" tap_mode="probeonly" trigger_index="38" type="bidir pin"/>
+            <net data_index="37" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[24]" storage_index="37" tap_mode="probeonly" trigger_index="37" type="bidir pin"/>
+            <net data_index="36" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[23]" storage_index="36" tap_mode="probeonly" trigger_index="36" type="bidir pin"/>
+            <net data_index="35" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[22]" storage_index="35" tap_mode="probeonly" trigger_index="35" type="bidir pin"/>
+            <net data_index="34" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[21]" storage_index="34" tap_mode="probeonly" trigger_index="34" type="bidir pin"/>
+            <net data_index="33" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[20]" storage_index="33" tap_mode="probeonly" trigger_index="33" type="bidir pin"/>
+            <net data_index="31" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[19]" storage_index="31" tap_mode="probeonly" trigger_index="31" type="bidir pin"/>
+            <net data_index="30" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[18]" storage_index="30" tap_mode="probeonly" trigger_index="30" type="bidir pin"/>
+            <net data_index="29" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[17]" storage_index="29" tap_mode="probeonly" trigger_index="29" type="bidir pin"/>
+            <net data_index="28" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[16]" storage_index="28" tap_mode="probeonly" trigger_index="28" type="bidir pin"/>
+            <net data_index="27" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[15]" storage_index="27" tap_mode="probeonly" trigger_index="27" type="bidir pin"/>
+            <net data_index="26" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[14]" storage_index="26" tap_mode="probeonly" trigger_index="26" type="bidir pin"/>
+            <net data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[13]" storage_index="25" tap_mode="probeonly" trigger_index="25" type="bidir pin"/>
+            <net data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[12]" storage_index="24" tap_mode="probeonly" trigger_index="24" type="bidir pin"/>
+            <net data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[11]" storage_index="23" tap_mode="probeonly" trigger_index="23" type="bidir pin"/>
+            <net data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[10]" storage_index="22" tap_mode="probeonly" trigger_index="22" type="bidir pin"/>
+            <net data_index="52" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[9]" storage_index="52" tap_mode="probeonly" trigger_index="52" type="bidir pin"/>
+            <net data_index="51" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[8]" storage_index="51" tap_mode="probeonly" trigger_index="51" type="bidir pin"/>
+            <net data_index="50" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[7]" storage_index="50" tap_mode="probeonly" trigger_index="50" type="bidir pin"/>
+            <net data_index="49" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[6]" storage_index="49" tap_mode="probeonly" trigger_index="49" type="bidir pin"/>
+            <net data_index="48" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[5]" storage_index="48" tap_mode="probeonly" trigger_index="48" type="bidir pin"/>
+            <net data_index="47" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[4]" storage_index="47" tap_mode="probeonly" trigger_index="47" type="bidir pin"/>
+            <net data_index="46" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[3]" storage_index="46" tap_mode="probeonly" trigger_index="46" type="bidir pin"/>
+            <net data_index="43" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[2]" storage_index="43" tap_mode="probeonly" trigger_index="43" type="bidir pin"/>
+            <net data_index="32" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[1]" storage_index="32" tap_mode="probeonly" trigger_index="32" type="bidir pin"/>
+            <net data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[0]" storage_index="21" tap_mode="probeonly" trigger_index="21" type="bidir pin"/>
+          </bus>
+          <net data_index="20" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_ce" storage_index="20" tap_mode="probeonly" trigger_index="20" type="output pin"/>
+          <net data_index="53" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_oe" storage_index="53" tap_mode="probeonly" trigger_index="53" type="output pin"/>
+          <net data_index="54" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_we" storage_index="54" tap_mode="probeonly" trigger_index="54" type="output pin"/>
+        </data_view>
+        <setup_view>
+          <bus name="base_sram_addr" order="msb_to_lsb" state="collapse" type="output pin">
+            <net data_index="10" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[19]" storage_index="10" tap_mode="probeonly" trigger_index="10" type="output pin"/>
+            <net data_index="9" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[18]" storage_index="9" tap_mode="probeonly" trigger_index="9" type="output pin"/>
+            <net data_index="8" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[17]" storage_index="8" tap_mode="probeonly" trigger_index="8" type="output pin"/>
+            <net data_index="7" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[16]" storage_index="7" tap_mode="probeonly" trigger_index="7" type="output pin"/>
+            <net data_index="6" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[15]" storage_index="6" tap_mode="probeonly" trigger_index="6" type="output pin"/>
+            <net data_index="5" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[14]" storage_index="5" tap_mode="probeonly" trigger_index="5" type="output pin"/>
+            <net data_index="4" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[13]" storage_index="4" tap_mode="probeonly" trigger_index="4" type="output pin"/>
+            <net data_index="3" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[12]" storage_index="3" tap_mode="probeonly" trigger_index="3" type="output pin"/>
+            <net data_index="2" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[11]" storage_index="2" tap_mode="probeonly" trigger_index="2" type="output pin"/>
+            <net data_index="1" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[10]" storage_index="1" tap_mode="probeonly" trigger_index="1" type="output pin"/>
+            <net data_index="19" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[9]" storage_index="19" tap_mode="probeonly" trigger_index="19" type="output pin"/>
+            <net data_index="18" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[8]" storage_index="18" tap_mode="probeonly" trigger_index="18" type="output pin"/>
+            <net data_index="17" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[7]" storage_index="17" tap_mode="probeonly" trigger_index="17" type="output pin"/>
+            <net data_index="16" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[6]" storage_index="16" tap_mode="probeonly" trigger_index="16" type="output pin"/>
+            <net data_index="15" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[5]" storage_index="15" tap_mode="probeonly" trigger_index="15" type="output pin"/>
+            <net data_index="14" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[4]" storage_index="14" tap_mode="probeonly" trigger_index="14" type="output pin"/>
+            <net data_index="13" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[3]" storage_index="13" tap_mode="probeonly" trigger_index="13" type="output pin"/>
+            <net data_index="12" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[2]" storage_index="12" tap_mode="probeonly" trigger_index="12" type="output pin"/>
+            <net data_index="11" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[1]" storage_index="11" tap_mode="probeonly" trigger_index="11" type="output pin"/>
+            <net data_index="0" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_addr[0]" storage_index="0" tap_mode="probeonly" trigger_index="0" type="output pin"/>
+          </bus>
+          <bus name="base_sram_data" order="msb_to_lsb" state="collapse" type="bidir pin">
+            <net data_index="45" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[31]" storage_index="45" tap_mode="probeonly" trigger_index="45" type="bidir pin"/>
+            <net data_index="44" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[30]" storage_index="44" tap_mode="probeonly" trigger_index="44" type="bidir pin"/>
+            <net data_index="42" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[29]" storage_index="42" tap_mode="probeonly" trigger_index="42" type="bidir pin"/>
+            <net data_index="41" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[28]" storage_index="41" tap_mode="probeonly" trigger_index="41" type="bidir pin"/>
+            <net data_index="40" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[27]" storage_index="40" tap_mode="probeonly" trigger_index="40" type="bidir pin"/>
+            <net data_index="39" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[26]" storage_index="39" tap_mode="probeonly" trigger_index="39" type="bidir pin"/>
+            <net data_index="38" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[25]" storage_index="38" tap_mode="probeonly" trigger_index="38" type="bidir pin"/>
+            <net data_index="37" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[24]" storage_index="37" tap_mode="probeonly" trigger_index="37" type="bidir pin"/>
+            <net data_index="36" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[23]" storage_index="36" tap_mode="probeonly" trigger_index="36" type="bidir pin"/>
+            <net data_index="35" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[22]" storage_index="35" tap_mode="probeonly" trigger_index="35" type="bidir pin"/>
+            <net data_index="34" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[21]" storage_index="34" tap_mode="probeonly" trigger_index="34" type="bidir pin"/>
+            <net data_index="33" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[20]" storage_index="33" tap_mode="probeonly" trigger_index="33" type="bidir pin"/>
+            <net data_index="31" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[19]" storage_index="31" tap_mode="probeonly" trigger_index="31" type="bidir pin"/>
+            <net data_index="30" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[18]" storage_index="30" tap_mode="probeonly" trigger_index="30" type="bidir pin"/>
+            <net data_index="29" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[17]" storage_index="29" tap_mode="probeonly" trigger_index="29" type="bidir pin"/>
+            <net data_index="28" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[16]" storage_index="28" tap_mode="probeonly" trigger_index="28" type="bidir pin"/>
+            <net data_index="27" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[15]" storage_index="27" tap_mode="probeonly" trigger_index="27" type="bidir pin"/>
+            <net data_index="26" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[14]" storage_index="26" tap_mode="probeonly" trigger_index="26" type="bidir pin"/>
+            <net data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[13]" storage_index="25" tap_mode="probeonly" trigger_index="25" type="bidir pin"/>
+            <net data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[12]" storage_index="24" tap_mode="probeonly" trigger_index="24" type="bidir pin"/>
+            <net data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[11]" storage_index="23" tap_mode="probeonly" trigger_index="23" type="bidir pin"/>
+            <net data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[10]" storage_index="22" tap_mode="probeonly" trigger_index="22" type="bidir pin"/>
+            <net data_index="52" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[9]" storage_index="52" tap_mode="probeonly" trigger_index="52" type="bidir pin"/>
+            <net data_index="51" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[8]" storage_index="51" tap_mode="probeonly" trigger_index="51" type="bidir pin"/>
+            <net data_index="50" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[7]" storage_index="50" tap_mode="probeonly" trigger_index="50" type="bidir pin"/>
+            <net data_index="49" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[6]" storage_index="49" tap_mode="probeonly" trigger_index="49" type="bidir pin"/>
+            <net data_index="48" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[5]" storage_index="48" tap_mode="probeonly" trigger_index="48" type="bidir pin"/>
+            <net data_index="47" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[4]" storage_index="47" tap_mode="probeonly" trigger_index="47" type="bidir pin"/>
+            <net data_index="46" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[3]" storage_index="46" tap_mode="probeonly" trigger_index="46" type="bidir pin"/>
+            <net data_index="43" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[2]" storage_index="43" tap_mode="probeonly" trigger_index="43" type="bidir pin"/>
+            <net data_index="32" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[1]" storage_index="32" tap_mode="probeonly" trigger_index="32" type="bidir pin"/>
+            <net data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="base_sram_data[0]" storage_index="21" tap_mode="probeonly" trigger_index="21" type="bidir pin"/>
+          </bus>
+          <net data_index="20" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_ce" storage_index="20" tap_mode="probeonly" trigger_index="20" type="output pin"/>
+          <net data_index="53" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_oe" storage_index="53" tap_mode="probeonly" trigger_index="53" type="output pin"/>
+          <net data_index="54" is_data_input="true" is_node_valid="false" is_storage_input="true" is_trigger_input="true" name="base_sram_we" storage_index="54" tap_mode="probeonly" trigger_index="54" type="output pin"/>
+        </setup_view>
+        <trigger_in_editor/>
+        <trigger_out_editor/>
+      </presentation>
+      <trigger CRC="DB015860" attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2018/05/29 17:56:11  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="1" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
+        <power_up_trigger position="pre" storage_qualifier_disabled="no"/>
+        <events use_custom_flow_control="no">
+          <level enabled="yes" name="condition1" type="basic">
+            <power_up enabled="yes">
+            </power_up>
+            <op_node/>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>1111111111111111111111111111111111111111111111111111111
+            <pwr_up_transitional>1111111111111111111111111111111111111111111111111111111</pwr_up_transitional>
+          </transitional>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+        </storage_qualifier_events>
+        <log>
+          <data global_temp="1" name="log: 2018/05/29 17:57:35  #0" power_up_mode="false" sample_depth="128" trigger_position="16">11100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001111000000001111110000000000000000000000000000000000000111100000000111111000000000000000000000000000000000000011110000000011111100000000000000000000000000000000000001</data>
+          <extradata>1111111111111111T111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</extradata>
+        </log>
+      </trigger>
+    </signal_set>
+  </instance>
+  <mnemonics/>
+  <static_plugin_mnemonics/>
+</session>

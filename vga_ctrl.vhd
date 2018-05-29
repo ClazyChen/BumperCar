@@ -1,152 +1,200 @@
-------------------------------------------
- -- VGA控制程序
- -- 创建日期：2018-5-15
- -- 负责人：wyf
- -- 信号说明：
- --
-------------------------------------------
-
 library ieee;
+
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
-
 entity vga_ctrl is
 	port(
-		clk: in std_logic; --100MHz
-		rst: in std_logic;
-		rgb: in std_logic_vector(8 downto 0);
-		clk25: out std_logic; --25MHz
-		hs, vs: out std_logic;
-		r, g, b: out std_logic_vector(2 downto 0);
-		x: out std_logic_vector(9 downto 0);
-		y: out std_logic_vector(8 downto 0)
+		clk100m : in std_logic;
+		data_in : in std_logic_vector(31 downto 0);
+		hs, vs : out std_logic;
+		r, g, b : out std_logic_vector(2 downto 0);
+
+		--base_ram ports
+		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
+		base_sram_addr : out std_logic_vector(19 downto 0);
+		base_sram_data : inout std_logic_vector(31 downto 0)
 	);
 end vga_ctrl;
+architecture implementation of vga_ctrl is
+component sram_ctrl is
+	port(
+		clk25m : in std_logic;
+		io : in std_logic;
+		addr : in std_logic_vector(19 downto 0);
+		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
+		base_sram_addr : out std_logic_vector(19 downto 0);
+		base_sram_data : inout std_logic_vector(31 downto 0);
 
-architecture bhv of vga_ctrl is
-	signal clk2, clk4: std_logic; --时钟分频
-	signal hst, vst: std_logic; --同步信号
-	signal r1, g1, b1: std_logic_vector(2 downto 0); --临时颜色信号
-	signal vx: std_logic_vector(9 downto 0); --临时x坐标信号
-	signal vy: std_logic_vector(8 downto 0); --临时y坐标信号
+		read_data : out std_logic_vector(31 downto 0);
+		write_data : in std_logic_vector(31 downto 0)
+	);
+end component;
+signal clk50m : std_logic := '0';
+signal clk25m : std_logic := '0';
+signal vx : std_logic_vector(9 downto 0) := "0000000001";
+signal vx_minus : std_logic_vector(9 downto 0) := (others => '0');
+signal vy : std_logic_vector(8 downto 0) := "000000001";
+signal vy_minus : std_logic_vector(8 downto 0) := (others => '0');
+signal hst, hst_minus : std_logic;
+signal vst, vst_minus : std_logic;
+signal addr_count : std_logic_vector(19 downto 0) := "00000000110001111111";
+signal io : std_logic := '0';
+signal read_data, write_data : std_logic_vector(31 downto 0);
+signal rt, gt, bt : std_logic_vector(2 downto 0);
 begin
 
-clk25 <= clk4;
-x <= vx;
-y <= vy;
+	sram_ctrl_realization : sram_ctrl port map(
+		clk25m => clk25m,
+		io => io,
+		addr => addr_count,
+		base_sram_we => base_sram_we,
+		base_sram_oe => base_sram_oe,
+		base_sram_ce => base_sram_ce,
+		base_sram_addr => base_sram_addr,
+		base_sram_data => base_sram_data,
+		read_data => read_data,
+		write_data => write_data
+	);
 
-	process(clk) --分频产生50MHz
+	process (clk100m)
 	begin
-		if rising_edge(clk) then
-			clk2 <= not clk2;
+		if (clk100m'event and clk100m = '1') then
+			clk50m <= not clk50m;
+		end if;
+	end process;
+
+	process (clk50m)
+	begin
+		if (clk50m'event and clk50m = '1') then
+			clk25m <= not clk25m;
 		end if;
 	end process;
 	
-	process(clk2) --分频产生25MHz
+	--generating x
+	process (clk25m)
 	begin
-		if rising_edge(clk2) then
-			clk4 <= not clk4;
-		end if;
-	end process;
-	
-	process(clk4, rst) --当前x坐标
-	begin
-		if rst = '0' then
-			vx <= (others =>'0');
-		elsif rising_edge(clk4) then
-			if vx = 799 then
+		if (clk25m'event and clk25m = '1') then
+			if (vx = 799) then
 				vx <= (others => '0');
 			else
 				vx <= vx + 1;
 			end if;
+
+			if (vx_minus = 799) then
+				vx_minus <= (others => '0');
+			else
+				vx_minus <= vx_minus + 1;
+			end if;
 		end if;
 	end process;
-	
-	process(clk4, rst) --当前y坐标
+
+	--generating y
+	process (clk25m)
 	begin
-		if rst = '0' then
-			vy <= (others =>'0');
-		elsif rising_edge(clk4) then
-			if vx = 799 then
-				if vy = 524 then
+		if (clk25m'event and clk25m = '1') then
+			if (vx = 799) then
+				if (vy = 524) then
 					vy <= (others => '0');
 				else
 					vy <= vy + 1;
 				end if;
 			end if;
+			
+			if (vx_minus = 799) then
+				if (vy_minus = 524) then
+					vy_minus <= (others => '0');
+				else
+					vy_minus <= vy_minus + 1;
+				end if;
+			end if;
 		end if;
 	end process;
-	
-	process(clk4, rst) --行同步信号产生
+
+	--generating hst
+	process (clk25m)
 	begin
-		if rst = '0' then
-			hst <= '1';
-		elsif rising_edge(clk4) then
-			if vx >= 656 and vx < 752 then
+		if (clk25m'event and clk25m = '1') then
+			if (vx >= 656 and vx < 752) then
 				hst <= '0';
 			else
 				hst <= '1';
 			end if;
+
+			if (vx_minus >= 656 and vx_minus < 752) then
+				hst_minus <= '0';
+			else
+				hst_minus <= '1';
+			end if;
 		end if;
 	end process;
-	
-	process(clk4, rst) --场同步信号产生
+
+	--generating vst
+	process (clk25m)
 	begin
-		if rst = '0' then
-			vst <= '1';
-		elsif rising_edge(clk4) then
-			if vy >= 490 and vy < 492 then
+		if (clk25m'event and clk25m = '1') then
+			if (vy >= 490 and vy < 492) then
 				vst <= '0';
 			else
 				vst <= '1';
 			end if;
-		end if;
-	end process;
-	
-	process(clk4, rst) --行同步信号输出
-	begin
-		if rst = '0' then
-			hs <= '0';
-		elsif rising_edge(clk4) then
-			hs <= hst;
-		end if;
-	end process;
-	
-	process(clk4, rst) --场同步信号输出
-	begin
-		if rst = '0' then
-			vs <= '0';
-		elsif rising_edge(clk4) then
-			vs <= vst;
-		end if;
-	end process;
-	
-	process(clk4, rst, vx, vy) --获取当前坐标的颜色
-	begin
-		-- 根据状态机，初始情况直接用vx，vy判断颜色
-		-- 关卡编号的数字从ROM里面拿
-		if rst = '0' then
-			r1 <= (others => '0');
-			g1 <= (others => '0');
-			b1 <= (others => '0');
-		elsif rising_edge(clk4)  then
-			r1 <= rgb(8 downto 6);
-			g1 <= rgb(5 downto 3);
-			b1 <= rgb(2 downto 0);
+
+			if (vy_minus >= 490 and vy_minus < 492) then
+				vst_minus <= '0';
+			else
+				vst_minus <= '1';
+			end if;
 		end if;
 	end process;
 
-	process (hst, vst, r1, g1, b1) --输出颜色到VGA
+	--outputing hst, vst
+	process (clk25m)
 	begin
-		if hst = '1' and vst = '1' then
-			r <= r1;
-			g <= g1;
-			b <= b1;
-		else
-			r <= (others => '0');
-			g <= (others => '0');
-			b <= (others => '0');
+		if (clk25m'event and clk25m = '1') then
+			hs <= hst;
+			vs <= vst;
 		end if;
 	end process;
-end bhv;
+
+	--generating querying addr
+	process (clk25m, addr_count)
+	begin
+		if (clk25m'event and clk25m = '1') then
+			if (vx_minus < 80 and vy_minus < 80) then
+				if (vx_minus(0) = '0') then
+					rt <= read_data(31 downto 29);
+					gt <= read_data(28 downto 26);
+					bt <= read_data(25 downto 23);
+					if (addr_count = 3199) then
+						addr_count <= (others => '0');
+					else
+						addr_count <= addr_count + 1;
+					end if;
+				else
+					rt <= read_data(15 downto 13);
+					gt <= read_data(12 downto 10);
+					bt <= read_data(9 downto 7);
+				end if;
+
+			else
+				rt <= "000";
+				gt <= "000";
+				bt <= "000";
+			end if;
+		end if;
+	end process;
+
+	--generating rgb
+	process (vst, hst)
+	begin
+		if (vst = '1' and hst = '1') then
+			r <= rt;
+			g <= gt;
+			b <= gt;
+		else
+			r <= "000";
+			g <= "000";
+			b <= "000";
+		end if;
+	end process;
+end implementation;

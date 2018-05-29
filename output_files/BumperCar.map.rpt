@@ -1,6 +1,6 @@
 Analysis & Synthesis report for BumperCar
-Tue May 29 11:26:05 2018
-Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+Tue May 29 18:25:35 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -13,16 +13,17 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |BumperCar|keyboard_ctrl:u2|ps2_keyboard:ps2_keyboard_realization|cur
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
  12. Inverted Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Port Connectivity Checks: "waiting:p3"
- 15. Port Connectivity Checks: "vga_ctrl:u1"
+ 14. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 15. SignalTap II Logic Analyzer Settings
  16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+ 17. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -45,24 +46,24 @@ applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                    ;
-+------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 29 11:26:05 2018      ;
-; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
-; Revision Name                      ; BumperCar                                  ;
-; Top-level Entity Name              ; BumperCar                                  ;
-; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 183                                        ;
-;     Total combinational functions  ; 155                                        ;
-;     Dedicated logic registers      ; 123                                        ;
-; Total registers                    ; 123                                        ;
-; Total pins                         ; 23                                         ;
-; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0                                          ;
-; Embedded Multiplier 9-bit elements ; 0                                          ;
-; Total PLLs                         ; 0                                          ;
-+------------------------------------+--------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 29 18:25:35 2018           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; BumperCar                                       ;
+; Top-level Entity Name              ; BumperCar                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 1,191                                           ;
+;     Total combinational functions  ; 530                                             ;
+;     Dedicated logic registers      ; 978                                             ;
+; Total registers                    ; 978                                             ;
+; Total pins                         ; 88                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 7,040                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -150,31 +151,79 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 4      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                 ;
-+----------------------------------+-----------------+-----------------------+-------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                    ; Library ;
-+----------------------------------+-----------------+-----------------------+-------------------------------------------------+---------+
-; BumperCar.vhd                    ; yes             ; User VHDL File        ; E:/Quartus/Homework/BumperCar/BumperCar.vhd     ;         ;
-; vga_ctrl.vhd                     ; yes             ; User VHDL File        ; E:/Quartus/Homework/BumperCar/vga_ctrl.vhd      ;         ;
-; initial.vhd                      ; yes             ; User VHDL File        ; E:/Quartus/Homework/BumperCar/initial.vhd       ;         ;
-; clk60.vhd                        ; yes             ; User VHDL File        ; E:/Quartus/Homework/BumperCar/clk60.vhd         ;         ;
-; modify.vhd                       ; yes             ; User VHDL File        ; E:/Quartus/Homework/BumperCar/modify.vhd        ;         ;
-; ps2_keyboard.vhd                 ; yes             ; User VHDL File        ; E:/Quartus/Homework/BumperCar/ps2_keyboard.vhd  ;         ;
-; keyboard_ctrl.vhd                ; yes             ; User VHDL File        ; E:/Quartus/Homework/BumperCar/keyboard_ctrl.vhd ;         ;
-; waiting.vhd                      ; yes             ; Auto-Found VHDL File  ; E:/Quartus/Homework/BumperCar/waiting.vhd       ;         ;
-+----------------------------------+-----------------+-----------------------+-------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; BumperCar.vhd                    ; yes             ; User VHDL File               ; C:/Users/cslab9-422/Desktop/BumperCar/BumperCar.vhd                            ;         ;
+; sram_ctrl.vhd                    ; yes             ; User VHDL File               ; C:/Users/cslab9-422/Desktop/BumperCar/sram_ctrl.vhd                            ;         ;
+; sld_signaltap.vhd                ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_signaltap.vhd            ;         ;
+; sld_signaltap_impl.vhd           ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd       ;         ;
+; sld_ela_control.vhd              ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_ela_control.vhd          ;         ;
+; lpm_shiftreg.tdf                 ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_shiftreg.tdf             ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc             ;         ;
+; dffeea.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/dffeea.inc                   ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc               ;         ;
+; sld_mbpmg.vhd                    ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_mbpmg.vhd                ;         ;
+; sld_ela_trigger_flow_mgr.vhd     ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd ;         ;
+; sld_buffer_manager.vhd           ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_buffer_manager.vhd       ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf               ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc        ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                  ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc               ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc                ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                   ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                   ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc                 ;         ;
+; db/altsyncram_2q14.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/altsyncram_2q14.tdf                   ;         ;
+; altdpram.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.tdf                 ;         ;
+; memmodes.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/others/maxplus2/memmodes.inc               ;         ;
+; a_hdffe.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_hdffe.inc                  ;         ;
+; alt_le_rden_reg.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/alt_le_rden_reg.inc          ;         ;
+; altsyncram.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.inc               ;         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.tdf                  ;         ;
+; muxlut.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/muxlut.inc                   ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc                 ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc                 ;         ;
+; db/mux_aoc.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/mux_aoc.tdf                           ;         ;
+; lpm_decode.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.tdf               ;         ;
+; declut.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/declut.inc                   ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.inc              ;         ;
+; db/decode_rqf.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/decode_rqf.tdf                        ;         ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.tdf              ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc              ;         ;
+; cmpconst.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/cmpconst.inc                 ;         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.inc              ;         ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/alt_counter_stratix.inc      ;         ;
+; db/cntr_2ci.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/cntr_2ci.tdf                          ;         ;
+; db/cmpr_acc.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/cmpr_acc.tdf                          ;         ;
+; db/cntr_02j.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/cntr_02j.tdf                          ;         ;
+; db/cntr_tbi.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/cntr_tbi.tdf                          ;         ;
+; db/cmpr_8cc.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/cmpr_8cc.tdf                          ;         ;
+; db/cntr_gui.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/cntr_gui.tdf                          ;         ;
+; db/cmpr_5cc.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/cslab9-422/Desktop/BumperCar/db/cmpr_5cc.tdf                          ;         ;
+; sld_rom_sr.vhd                   ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_rom_sr.vhd               ;         ;
+; sld_hub.vhd                      ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_hub.vhd                  ;         ;
+; sld_jtag_hub.vhd                 ; yes             ; Encrypted Megafunction       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sld_jtag_hub.vhd             ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -182,99 +231,265 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 183   ;
+; Estimated Total logic elements              ; 1,191 ;
 ;                                             ;       ;
-; Total combinational functions               ; 155   ;
+; Total combinational functions               ; 530   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 52    ;
-;     -- 3 input functions                    ; 43    ;
-;     -- <=2 input functions                  ; 60    ;
+;     -- 4 input functions                    ; 289   ;
+;     -- 3 input functions                    ; 128   ;
+;     -- <=2 input functions                  ; 113   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 112   ;
-;     -- arithmetic mode                      ; 43    ;
+;     -- normal mode                          ; 467   ;
+;     -- arithmetic mode                      ; 63    ;
 ;                                             ;       ;
-; Total registers                             ; 123   ;
-;     -- Dedicated logic registers            ; 123   ;
+; Total registers                             ; 978   ;
+;     -- Dedicated logic registers            ; 978   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 23    ;
+; I/O pins                                    ; 88    ;
+; Total memory bits                           ; 7040  ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 58    ;
-; Total fan-out                               ; 805   ;
-; Average fan-out                             ; 2.67  ;
+; Maximum fan-out node                        ; ~GND  ;
+; Maximum fan-out                             ; 596   ;
+; Total fan-out                               ; 5528  ;
+; Average fan-out                             ; 3.34  ;
 +---------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                          ;
-+-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Library Name ;
-+-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
-; |BumperCar                                    ; 155 (10)          ; 123 (13)     ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |BumperCar                                                        ;              ;
-;    |clk60:myclock|                            ; 26 (26)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|clk60:myclock                                          ;              ;
-;    |initial:p1|                               ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|initial:p1                                             ;              ;
-;    |keyboard_ctrl:u2|                         ; 58 (32)           ; 46 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|keyboard_ctrl:u2                                       ;              ;
-;       |ps2_keyboard:ps2_keyboard_realization| ; 26 (26)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|keyboard_ctrl:u2|ps2_keyboard:ps2_keyboard_realization ;              ;
-;    |modify:p2|                                ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|modify:p2                                              ;              ;
-;    |vga_ctrl:u1|                              ; 35 (35)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:u1                                            ;              ;
-;    |waiting:p3|                               ; 16 (16)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|waiting:p3                                             ;              ;
-+-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
++---------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                                                                              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                             ; Library Name ;
++---------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |BumperCar                                                                                              ; 530 (29)          ; 978 (20)     ; 7040        ; 0            ; 0       ; 0         ; 88   ; 0            ; |BumperCar                                                                                                                                                                                                                                                                                                                                      ; work         ;
+;    |sld_hub:auto_hub|                                                                                   ; 118 (1)           ; 86 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                     ; work         ;
+;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|                                                    ; 117 (79)          ; 86 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                                                                                                                                                                                                                        ; work         ;
+;          |sld_rom_sr:hub_info_reg|                                                                      ; 21 (21)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg                                                                                                                                                                                                                                                ; work         ;
+;          |sld_shadow_jsm:shadow_jsm|                                                                    ; 17 (17)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_shadow_jsm:shadow_jsm                                                                                                                                                                                                                                              ; work         ;
+;    |sld_signaltap:auto_signaltap_0|                                                                     ; 383 (1)           ; 872 (110)    ; 7040        ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0                                                                                                                                                                                                                                                                                                       ; work         ;
+;       |sld_signaltap_impl:sld_signaltap_body|                                                           ; 382 (0)           ; 762 (0)      ; 7040        ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body                                                                                                                                                                                                                                                                 ; work         ;
+;          |sld_signaltap_implb:sld_signaltap_body|                                                       ; 382 (20)          ; 762 (246)    ; 7040        ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body                                                                                                                                                                                                                          ; work         ;
+;             |altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|                            ; 17 (0)            ; 46 (46)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem                                                                                                                                                           ; work         ;
+;                |lpm_decode:wdecoder|                                                                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder                                                                                                                                       ; work         ;
+;                   |decode_rqf:auto_generated|                                                           ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder|decode_rqf:auto_generated                                                                                                             ; work         ;
+;                |lpm_mux:mux|                                                                            ; 15 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux                                                                                                                                               ; work         ;
+;                   |mux_aoc:auto_generated|                                                              ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux|mux_aoc:auto_generated                                                                                                                        ; work         ;
+;             |altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|                                           ; 0 (0)             ; 0 (0)        ; 7040        ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram                                                                                                                                                                          ; work         ;
+;                |altsyncram_2q14:auto_generated|                                                         ; 0 (0)             ; 0 (0)        ; 7040        ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_2q14:auto_generated                                                                                                                                           ; work         ;
+;             |lpm_shiftreg:segment_offset_config_deserialize|                                            ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:segment_offset_config_deserialize                                                                                                                                                                           ; work         ;
+;             |lpm_shiftreg:status_register|                                                              ; 17 (17)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:status_register                                                                                                                                                                                             ; work         ;
+;             |sld_buffer_manager:sld_buffer_manager_inst|                                                ; 59 (59)           ; 44 (44)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst                                                                                                                                                                               ; work         ;
+;             |sld_ela_control:ela_control|                                                               ; 131 (1)           ; 291 (1)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control                                                                                                                                                                                              ; work         ;
+;                |lpm_shiftreg:trigger_config_deserialize|                                                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|lpm_shiftreg:trigger_config_deserialize                                                                                                                                                      ; work         ;
+;                |sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm| ; 110 (0)           ; 275 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm                                                                                                       ; work         ;
+;                   |lpm_shiftreg:trigger_condition_deserialize|                                          ; 0 (0)             ; 165 (165)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|lpm_shiftreg:trigger_condition_deserialize                                                            ; work         ;
+;                   |sld_mbpmg:\trigger_modules_gen:0:trigger_match|                                      ; 110 (0)           ; 110 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match                                                        ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:0:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:0:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:10:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:10:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:11:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:11:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:12:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:12:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:13:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:13:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:14:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:14:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:15:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:15:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:16:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:16:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:17:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:17:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:18:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:18:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:19:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:19:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:1:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:1:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:20:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:20:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:21:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:21:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:22:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:22:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:23:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:23:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:24:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:24:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:25:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:25:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:26:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:26:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:27:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:27:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:28:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:28:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:29:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:29:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:2:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:2:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:30:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:30:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:31:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:31:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:32:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:32:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:33:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:33:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:34:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:34:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:35:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:35:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:36:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:36:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:37:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:37:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:38:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:38:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:39:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:39:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:3:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:3:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:40:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:40:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:41:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:41:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:42:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:42:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:43:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:43:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:44:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:44:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:45:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:45:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:46:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:46:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:47:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:47:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:48:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:48:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:49:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:49:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:4:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:4:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:50:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:50:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:51:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:51:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:52:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:52:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:53:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:53:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:54:sm1|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:54:sm1 ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:5:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:5:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:6:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:6:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:7:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:7:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:8:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:8:sm1  ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:9:sm1|                            ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:9:sm1  ; work         ;
+;                |sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity|                          ; 20 (20)           ; 11 (1)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity                                                                                                                                ; work         ;
+;                   |lpm_shiftreg:trigger_config_deserialize|                                             ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity|lpm_shiftreg:trigger_config_deserialize                                                                                        ; work         ;
+;             |sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|          ; 120 (11)          ; 103 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst                                                                                                                                         ; work         ;
+;                |lpm_counter:\adv_point_3_and_more:advance_pointer_counter|                              ; 8 (0)             ; 6 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter                                                                               ; work         ;
+;                   |cntr_2ci:auto_generated|                                                             ; 8 (8)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter|cntr_2ci:auto_generated                                                       ; work         ;
+;                |lpm_counter:read_pointer_counter|                                                       ; 7 (0)             ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter                                                                                                        ; work         ;
+;                   |cntr_02j:auto_generated|                                                             ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter|cntr_02j:auto_generated                                                                                ; work         ;
+;                |lpm_counter:status_advance_pointer_counter|                                             ; 6 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter                                                                                              ; work         ;
+;                   |cntr_tbi:auto_generated|                                                             ; 6 (6)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter|cntr_tbi:auto_generated                                                                      ; work         ;
+;                |lpm_counter:status_read_pointer_counter|                                                ; 3 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter                                                                                                 ; work         ;
+;                   |cntr_gui:auto_generated|                                                             ; 3 (3)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter|cntr_gui:auto_generated                                                                         ; work         ;
+;                |lpm_shiftreg:info_data_shift_out|                                                       ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:info_data_shift_out                                                                                                        ; work         ;
+;                |lpm_shiftreg:ram_data_shift_out|                                                        ; 55 (55)           ; 55 (55)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:ram_data_shift_out                                                                                                         ; work         ;
+;                |lpm_shiftreg:status_data_shift_out|                                                     ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:status_data_shift_out                                                                                                      ; work         ;
+;             |sld_rom_sr:crc_rom_sr|                                                                     ; 18 (18)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr                                                                                                                                                                                                    ; work         ;
++---------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |BumperCar|keyboard_ctrl:u2|ps2_keyboard:ps2_keyboard_realization|cur                                               ;
-+------------+------------+----------+------------+--------+--------+--------+--------+--------+--------+--------+--------+-----------+
-; Name       ; cur.finish ; cur.stop ; cur.parity ; cur.d7 ; cur.d6 ; cur.d5 ; cur.d4 ; cur.d3 ; cur.d2 ; cur.d1 ; cur.d0 ; cur.start ;
-+------------+------------+----------+------------+--------+--------+--------+--------+--------+--------+--------+--------+-----------+
-; cur.start  ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0         ;
-; cur.d0     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 1         ;
-; cur.d1     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 1         ;
-; cur.d2     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 1         ;
-; cur.d3     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 1         ;
-; cur.d4     ; 0          ; 0        ; 0          ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 1         ;
-; cur.d5     ; 0          ; 0        ; 0          ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1         ;
-; cur.d6     ; 0          ; 0        ; 0          ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1         ;
-; cur.d7     ; 0          ; 0        ; 0          ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1         ;
-; cur.parity ; 0          ; 0        ; 1          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1         ;
-; cur.stop   ; 0          ; 1        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1         ;
-; cur.finish ; 1          ; 0        ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1         ;
-+------------+------------+----------+------------+--------+--------+--------+--------+--------+--------+--------+--------+-----------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                          ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_2q14:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 128          ; 55           ; 128          ; 55           ; 7040 ; None ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; modify:p2|com                                      ; GND                 ; yes                    ;
-; Number of user-specified and inferred latches = 1  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++---------------------------------------------------------+----------------------------------------+
+; Register name                                           ; Reason for Removal                     ;
++---------------------------------------------------------+----------------------------------------+
+; sram_ctrl:sram_ctrl_realization|base_sram_ce            ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_we            ; Stuck at VCC due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_oe            ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[0]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[1]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[2]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[3]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[4]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[5]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[6]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[7]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[8]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[9]~reg0  ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[10]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[11]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[12]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[13]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[14]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[15]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[16]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[17]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[18]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[19]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[20]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[21]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[22]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[23]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[24]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[25]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[26]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[27]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[28]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[29]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[30]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[31]~reg0 ; Stuck at GND due to stuck port data_in ;
+; sram_ctrl:sram_ctrl_realization|read_data[0..31]        ; Stuck at GND due to stuck port data_in ;
+; clk1hz                                                  ; Lost fanout                            ;
+; count[0..26]                                            ; Lost fanout                            ;
+; Total Number of Removed Registers = 95                  ;                                        ;
++---------------------------------------------------------+----------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                            ;
-+-----------------------------------------------------------------+---------------------------------------------+
-; Register name                                                   ; Reason for Removal                          ;
-+-----------------------------------------------------------------+---------------------------------------------+
-; vga_ctrl:u1|b1[1]                                               ; Merged with vga_ctrl:u1|b1[2]               ;
-; vga_ctrl:u1|b1[2]                                               ; Merged with vga_ctrl:u1|g1[0]               ;
-; vga_ctrl:u1|g1[0]                                               ; Merged with vga_ctrl:u1|g1[1]               ;
-; vga_ctrl:u1|g1[1]                                               ; Merged with vga_ctrl:u1|g1[2]               ;
-; vga_ctrl:u1|g1[2]                                               ; Merged with vga_ctrl:u1|r1[0]               ;
-; vga_ctrl:u1|r1[0]                                               ; Merged with vga_ctrl:u1|r1[1]               ;
-; vga_ctrl:u1|r1[1]                                               ; Merged with vga_ctrl:u1|r1[2]               ;
-; vga_ctrl:u1|r1[2]                                               ; Merged with vga_ctrl:u1|b1[0]               ;
-; waiting:p3|c[1]                                                 ; Merged with waiting:p3|com                  ;
-; state[3]                                                        ; Merged with state[2]                        ;
-; state[2]                                                        ; Stuck at GND due to stuck port clock_enable ;
-; keyboard_ctrl:u2|ps2_keyboard:ps2_keyboard_realization|cur.stop ; Stuck at GND due to stuck port data_in      ;
-; Total Number of Removed Registers = 12                          ;                                             ;
-+-----------------------------------------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                             ;
++---------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------+
+; Register name                                           ; Reason for Removal        ; Registers Removed due to This Register                                                            ;
++---------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------+
+; count[8]                                                ; Lost Fanouts              ; count[9], count[10], count[11], count[12], count[13], count[14], count[15], count[16], count[17], ;
+;                                                         ;                           ; count[18], count[19], count[20], count[21], count[22], count[23], count[24], count[25],           ;
+;                                                         ;                           ; count[26]                                                                                         ;
+; sram_ctrl:sram_ctrl_realization|base_sram_ce            ; Stuck at GND              ; clk1hz, count[0], count[1], count[2], count[3], count[4], count[5], count[6], count[7]            ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[0]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[0]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[1]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[1]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[2]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[2]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[3]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[3]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[4]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[4]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[5]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[5]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[6]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[6]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[7]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[7]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[8]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[8]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[9]~reg0  ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[9]                                                      ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[10]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[10]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[11]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[11]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[12]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[12]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[13]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[13]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[14]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[14]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[15]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[15]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[17]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[17]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[18]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[18]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[19]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[19]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[20]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[20]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[21]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[21]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[22]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[22]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[23]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[23]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[24]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[24]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[25]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[25]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[26]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[26]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[27]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[27]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[28]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[28]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[29]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[29]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[30]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[30]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[31]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[31]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
+; sram_ctrl:sram_ctrl_realization|base_sram_data[16]~reg0 ; Stuck at GND              ; sram_ctrl:sram_ctrl_realization|read_data[16]                                                     ;
+;                                                         ; due to stuck port data_in ;                                                                                                   ;
++---------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -282,66 +497,248 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 123   ;
-; Number of registers using Synchronous Clear  ; 10    ;
-; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 48    ;
+; Total registers                              ; 978   ;
+; Number of registers using Synchronous Clear  ; 12    ;
+; Number of registers using Synchronous Load   ; 28    ;
+; Number of registers using Asynchronous Clear ; 352   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 35    ;
+; Number of registers using Clock Enable       ; 367   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; vga_ctrl:u1|hst                        ; 2       ;
-; vga_ctrl:u1|vst                        ; 2       ;
-; Total number of inverted registers = 2 ;         ;
-+----------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                            ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                             ; Fan out ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|tdo                                                                                                             ; 1       ;
+; sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg[2]                                                                                                  ; 2       ;
+; sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg[1]                                                                                                  ; 3       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[1] ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[2] ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[3] ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[4] ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[5] ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[6] ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[7] ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|trigger_out_mode_ff                                               ; 3       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[0] ; 1       ;
+; Total number of inverted registers = 12                                                                                                                                       ;         ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |BumperCar|test[7]         ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |BumperCar|waiting:p3|p[0] ;
-; 12:1               ; 3 bits    ; 24 LEs        ; 15 LEs               ; 9 LEs                  ; Yes        ; |BumperCar|state[1]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------+
+; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; Yes        ; |BumperCar|sram_ctrl:sram_ctrl_realization|base_sram_data[0]~reg0                                                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg[0]                    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg[4]                       ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|word_counter[0] ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[2]                             ;
+; 34:1               ; 4 bits    ; 88 LEs        ; 64 LEs               ; 24 LEs                 ; Yes        ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[3]                      ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 36 LEs               ; 16 LEs                 ; Yes        ; |BumperCar|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|WORD_SR[0]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "waiting:p3"                                                                          ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; graph ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0                                                                                                                                                                               ;
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+
+; Parameter Name                                  ; Value                                                                                                                                                                                      ; Type           ;
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+
+; lpm_type                                        ; sld_signaltap                                                                                                                                                                              ; String         ;
+; sld_node_info                                   ; 805334528                                                                                                                                                                                  ; Untyped        ;
+; SLD_IP_VERSION                                  ; 6                                                                                                                                                                                          ; Signed Integer ;
+; SLD_IP_MINOR_VERSION                            ; 0                                                                                                                                                                                          ; Signed Integer ;
+; SLD_COMMON_IP_VERSION                           ; 0                                                                                                                                                                                          ; Signed Integer ;
+; sld_data_bits                                   ; 55                                                                                                                                                                                         ; Untyped        ;
+; sld_trigger_bits                                ; 55                                                                                                                                                                                         ; Untyped        ;
+; SLD_NODE_CRC_BITS                               ; 32                                                                                                                                                                                         ; Signed Integer ;
+; sld_node_crc_hiword                             ; 56065                                                                                                                                                                                      ; Untyped        ;
+; sld_node_crc_loword                             ; 22624                                                                                                                                                                                      ; Untyped        ;
+; SLD_INCREMENTAL_ROUTING                         ; 0                                                                                                                                                                                          ; Signed Integer ;
+; sld_sample_depth                                ; 128                                                                                                                                                                                        ; Untyped        ;
+; sld_segment_size                                ; 128                                                                                                                                                                                        ; Untyped        ;
+; SLD_RAM_BLOCK_TYPE                              ; AUTO                                                                                                                                                                                       ; String         ;
+; sld_state_bits                                  ; 11                                                                                                                                                                                         ; Untyped        ;
+; sld_buffer_full_stop                            ; 1                                                                                                                                                                                          ; Untyped        ;
+; SLD_MEM_ADDRESS_BITS                            ; 7                                                                                                                                                                                          ; Signed Integer ;
+; SLD_DATA_BIT_CNTR_BITS                          ; 4                                                                                                                                                                                          ; Signed Integer ;
+; sld_trigger_level                               ; 1                                                                                                                                                                                          ; Untyped        ;
+; sld_trigger_in_enabled                          ; 0                                                                                                                                                                                          ; Untyped        ;
+; SLD_HPS_TRIGGER_IN_ENABLED                      ; 0                                                                                                                                                                                          ; Signed Integer ;
+; SLD_HPS_TRIGGER_OUT_ENABLED                     ; 0                                                                                                                                                                                          ; Signed Integer ;
+; SLD_HPS_EVENT_ENABLED                           ; 0                                                                                                                                                                                          ; Signed Integer ;
+; SLD_HPS_EVENT_ID                                ; 0                                                                                                                                                                                          ; Signed Integer ;
+; sld_advanced_trigger_entity                     ; basic,1,                                                                                                                                                                                   ; Untyped        ;
+; sld_trigger_level_pipeline                      ; 1                                                                                                                                                                                          ; Untyped        ;
+; sld_enable_advanced_trigger                     ; 0                                                                                                                                                                                          ; Untyped        ;
+; SLD_ADVANCED_TRIGGER_1                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_2                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_3                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_4                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_5                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_6                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_7                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_8                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_9                          ; NONE                                                                                                                                                                                       ; String         ;
+; SLD_ADVANCED_TRIGGER_10                         ; NONE                                                                                                                                                                                       ; String         ;
+; sld_inversion_mask_length                       ; 186                                                                                                                                                                                        ; Untyped        ;
+; sld_inversion_mask                              ; 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; Untyped        ;
+; sld_power_up_trigger                            ; 0                                                                                                                                                                                          ; Untyped        ;
+; SLD_STATE_FLOW_MGR_ENTITY                       ; state_flow_mgr_entity.vhd                                                                                                                                                                  ; String         ;
+; sld_state_flow_use_generated                    ; 0                                                                                                                                                                                          ; Untyped        ;
+; sld_current_resource_width                      ; 1                                                                                                                                                                                          ; Untyped        ;
+; sld_attribute_mem_mode                          ; OFF                                                                                                                                                                                        ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_BITS                      ; 1                                                                                                                                                                                          ; Signed Integer ;
+; SLD_STORAGE_QUALIFIER_GAP_RECORD                ; 0                                                                                                                                                                                          ; Signed Integer ;
+; SLD_STORAGE_QUALIFIER_MODE                      ; OFF                                                                                                                                                                                        ; String         ;
+; SLD_STORAGE_QUALIFIER_ENABLE_ADVANCED_CONDITION ; 0                                                                                                                                                                                          ; Signed Integer ;
+; sld_storage_qualifier_inversion_mask_length     ; 0                                                                                                                                                                                          ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_ADVANCED_CONDITION_ENTITY ; basic                                                                                                                                                                                      ; String         ;
+; SLD_STORAGE_QUALIFIER_PIPELINE                  ; 0                                                                                                                                                                                          ; Signed Integer ;
++-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_ctrl:u1"                                                                         ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; rgb   ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; clk25 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; x     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; y     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; SignalTap II Logic Analyzer Settings                                                                                                                                                                                                                                    ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; Instance Index ; Instance Name    ; Trigger Input Width ; Data Input Width ; Sample Depth ; Segments ; Storage Qualifier Type ; Trigger Flow Control ; Trigger Conditions ; Advanced Trigger Conditions ; Trigger In Used ; Trigger Out Used ; Power-Up Trigger Enabled ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; 0              ; auto_signaltap_0 ; 55                  ; 55               ; 128          ; 1        ; continuous             ; sequential           ; 1                  ; 0                           ; no              ; no               ; no                       ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
 
 
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:01     ;
-+----------------+--------------+
++---------------------------------+
+; Elapsed Time Per Partition      ;
++------------------+--------------+
+; Partition Name   ; Elapsed Time ;
++------------------+--------------+
+; sld_hub:auto_hub ; 00:00:00     ;
+; Top              ; 00:00:00     ;
++------------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Connections to In-System Debugging Instance "auto_signaltap_0"                                                                                                                                                       ;
++--------------------------------------+--------------+-----------+----------------+-------------------+--------------------+------------------------------------------------------------------------------------------+
+; Name                                 ; Type         ; Status    ; Partition Name ; Netlist Type Used ; Actual Connection  ; Details                                                                                  ;
++--------------------------------------+--------------+-----------+----------------+-------------------+--------------------+------------------------------------------------------------------------------------------+
+; base_sram_addr[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[0]         ; N/A                                                                                      ;
+; base_sram_addr[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[0]         ; N/A                                                                                      ;
+; base_sram_addr[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[10]        ; N/A                                                                                      ;
+; base_sram_addr[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[10]        ; N/A                                                                                      ;
+; base_sram_addr[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[11]        ; N/A                                                                                      ;
+; base_sram_addr[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[11]        ; N/A                                                                                      ;
+; base_sram_addr[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[12]        ; N/A                                                                                      ;
+; base_sram_addr[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[12]        ; N/A                                                                                      ;
+; base_sram_addr[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[13]        ; N/A                                                                                      ;
+; base_sram_addr[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[13]        ; N/A                                                                                      ;
+; base_sram_addr[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[14]        ; N/A                                                                                      ;
+; base_sram_addr[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[14]        ; N/A                                                                                      ;
+; base_sram_addr[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[15]        ; N/A                                                                                      ;
+; base_sram_addr[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[15]        ; N/A                                                                                      ;
+; base_sram_addr[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[16]        ; N/A                                                                                      ;
+; base_sram_addr[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[16]        ; N/A                                                                                      ;
+; base_sram_addr[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[17]        ; N/A                                                                                      ;
+; base_sram_addr[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[17]        ; N/A                                                                                      ;
+; base_sram_addr[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[18]        ; N/A                                                                                      ;
+; base_sram_addr[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[18]        ; N/A                                                                                      ;
+; base_sram_addr[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[19]        ; N/A                                                                                      ;
+; base_sram_addr[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[19]        ; N/A                                                                                      ;
+; base_sram_addr[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[1]         ; N/A                                                                                      ;
+; base_sram_addr[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[1]         ; N/A                                                                                      ;
+; base_sram_addr[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[2]         ; N/A                                                                                      ;
+; base_sram_addr[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[2]         ; N/A                                                                                      ;
+; base_sram_addr[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[3]         ; N/A                                                                                      ;
+; base_sram_addr[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[3]         ; N/A                                                                                      ;
+; base_sram_addr[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[4]         ; N/A                                                                                      ;
+; base_sram_addr[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[4]         ; N/A                                                                                      ;
+; base_sram_addr[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[5]         ; N/A                                                                                      ;
+; base_sram_addr[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[5]         ; N/A                                                                                      ;
+; base_sram_addr[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[6]         ; N/A                                                                                      ;
+; base_sram_addr[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[6]         ; N/A                                                                                      ;
+; base_sram_addr[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[7]         ; N/A                                                                                      ;
+; base_sram_addr[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[7]         ; N/A                                                                                      ;
+; base_sram_addr[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[8]         ; N/A                                                                                      ;
+; base_sram_addr[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[8]         ; N/A                                                                                      ;
+; base_sram_addr[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[9]         ; N/A                                                                                      ;
+; base_sram_addr[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[9]         ; N/A                                                                                      ;
+; base_sram_ce                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
+; base_sram_ce                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
+; base_sram_data[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[0]  ; N/A                                                                                      ;
+; base_sram_data[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[0]  ; N/A                                                                                      ;
+; base_sram_data[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[10] ; N/A                                                                                      ;
+; base_sram_data[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[10] ; N/A                                                                                      ;
+; base_sram_data[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[11] ; N/A                                                                                      ;
+; base_sram_data[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[11] ; N/A                                                                                      ;
+; base_sram_data[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[12] ; N/A                                                                                      ;
+; base_sram_data[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[12] ; N/A                                                                                      ;
+; base_sram_data[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[13] ; N/A                                                                                      ;
+; base_sram_data[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[13] ; N/A                                                                                      ;
+; base_sram_data[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[14] ; N/A                                                                                      ;
+; base_sram_data[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[14] ; N/A                                                                                      ;
+; base_sram_data[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[15] ; N/A                                                                                      ;
+; base_sram_data[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[15] ; N/A                                                                                      ;
+; base_sram_data[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[16] ; N/A                                                                                      ;
+; base_sram_data[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[16] ; N/A                                                                                      ;
+; base_sram_data[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[17] ; N/A                                                                                      ;
+; base_sram_data[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[17] ; N/A                                                                                      ;
+; base_sram_data[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[18] ; N/A                                                                                      ;
+; base_sram_data[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[18] ; N/A                                                                                      ;
+; base_sram_data[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[19] ; N/A                                                                                      ;
+; base_sram_data[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[19] ; N/A                                                                                      ;
+; base_sram_data[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[1]  ; N/A                                                                                      ;
+; base_sram_data[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[1]  ; N/A                                                                                      ;
+; base_sram_data[20]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[20] ; N/A                                                                                      ;
+; base_sram_data[20]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[20] ; N/A                                                                                      ;
+; base_sram_data[21]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[21] ; N/A                                                                                      ;
+; base_sram_data[21]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[21] ; N/A                                                                                      ;
+; base_sram_data[22]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[22] ; N/A                                                                                      ;
+; base_sram_data[22]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[22] ; N/A                                                                                      ;
+; base_sram_data[23]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[23] ; N/A                                                                                      ;
+; base_sram_data[23]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[23] ; N/A                                                                                      ;
+; base_sram_data[24]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[24] ; N/A                                                                                      ;
+; base_sram_data[24]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[24] ; N/A                                                                                      ;
+; base_sram_data[25]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[25] ; N/A                                                                                      ;
+; base_sram_data[25]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[25] ; N/A                                                                                      ;
+; base_sram_data[26]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[26] ; N/A                                                                                      ;
+; base_sram_data[26]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[26] ; N/A                                                                                      ;
+; base_sram_data[27]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[27] ; N/A                                                                                      ;
+; base_sram_data[27]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[27] ; N/A                                                                                      ;
+; base_sram_data[28]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[28] ; N/A                                                                                      ;
+; base_sram_data[28]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[28] ; N/A                                                                                      ;
+; base_sram_data[29]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[29] ; N/A                                                                                      ;
+; base_sram_data[29]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[29] ; N/A                                                                                      ;
+; base_sram_data[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[2]  ; N/A                                                                                      ;
+; base_sram_data[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[2]  ; N/A                                                                                      ;
+; base_sram_data[30]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[30] ; N/A                                                                                      ;
+; base_sram_data[30]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[30] ; N/A                                                                                      ;
+; base_sram_data[31]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[31] ; N/A                                                                                      ;
+; base_sram_data[31]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[31] ; N/A                                                                                      ;
+; base_sram_data[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[3]  ; N/A                                                                                      ;
+; base_sram_data[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[3]  ; N/A                                                                                      ;
+; base_sram_data[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[4]  ; N/A                                                                                      ;
+; base_sram_data[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[4]  ; N/A                                                                                      ;
+; base_sram_data[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[5]  ; N/A                                                                                      ;
+; base_sram_data[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[5]  ; N/A                                                                                      ;
+; base_sram_data[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[6]  ; N/A                                                                                      ;
+; base_sram_data[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[6]  ; N/A                                                                                      ;
+; base_sram_data[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[7]  ; N/A                                                                                      ;
+; base_sram_data[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[7]  ; N/A                                                                                      ;
+; base_sram_data[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[8]  ; N/A                                                                                      ;
+; base_sram_data[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[8]  ; N/A                                                                                      ;
+; base_sram_data[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[9]  ; N/A                                                                                      ;
+; base_sram_data[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[9]  ; N/A                                                                                      ;
+; base_sram_oe                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
+; base_sram_oe                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
+; base_sram_we                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~VCC               ; N/A                                                                                      ;
+; base_sram_we                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~VCC               ; N/A                                                                                      ;
+; vga_ctrl:vga_ctrl_realization|clk25m ; post-fitting ; missing   ; Top            ; post-synthesis    ; GND                ; The post-fitting netlist is not being used.  Set the partition's netlist type to source. ;
++--------------------------------------+--------------+-----------+----------------+-------------------+--------------------+------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -349,15 +746,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Tue May 29 11:26:01 2018
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Tue May 29 18:25:30 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BumperCar -c BumperCar
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Critical Warning (138067): Current license file does not support incremental compilation. The Quartus II software removes all the user-specified design partitions in the design automatically.
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file bumpercar.vhd
-    Info (12022): Found design unit 1: BumperCar-bhv
+    Info (12022): Found design unit 1: BumperCar-implementation
     Info (12023): Found entity 1: BumperCar
 Info (12021): Found 2 design units, including 1 entities, in source file vga_ctrl.vhd
-    Info (12022): Found design unit 1: vga_ctrl-bhv
+    Info (12022): Found design unit 1: vga_ctrl-implementation
     Info (12023): Found entity 1: vga_ctrl
 Info (12021): Found 2 design units, including 1 entities, in source file initial.vhd
     Info (12022): Found design unit 1: initial-bhv
@@ -375,37 +773,154 @@ Info (12021): Found 2 design units, including 1 entities, in source file keyboar
     Info (12022): Found design unit 1: keyboard_ctrl-implementation
     Info (12023): Found entity 1: keyboard_ctrl
 Warning (12019): Can't analyze file -- file wait.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file sram_ctrl.vhd
+    Info (12022): Found design unit 1: sram_ctrl-implementation
+    Info (12023): Found entity 1: sram_ctrl
 Info (12127): Elaborating entity "BumperCar" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at BumperCar.vhd(83): used explicit default value for signal "color" because signal was never assigned a value
-Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(84): object "clk25" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(85): object "x" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(86): object "y" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at BumperCar.vhd(105): object "graph" assigned a value but never read
-Info (12128): Elaborating entity "clk60" for hierarchy "clk60:myclock"
-Info (12128): Elaborating entity "vga_ctrl" for hierarchy "vga_ctrl:u1"
-Info (12128): Elaborating entity "keyboard_ctrl" for hierarchy "keyboard_ctrl:u2"
-Info (12128): Elaborating entity "ps2_keyboard" for hierarchy "keyboard_ctrl:u2|ps2_keyboard:ps2_keyboard_realization"
-Info (12128): Elaborating entity "initial" for hierarchy "initial:p1"
-Info (12128): Elaborating entity "modify" for hierarchy "modify:p2"
-Warning (10631): VHDL Process Statement warning at modify.vhd(34): inferring latch(es) for signal or variable "com", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "com" at modify.vhd(34)
-Warning (12125): Using design file waiting.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
-    Info (12022): Found design unit 1: waiting-bhv
-    Info (12023): Found entity 1: waiting
-Info (12128): Elaborating entity "waiting" for hierarchy "waiting:p3"
-Warning (10540): VHDL Signal Declaration warning at waiting.vhd(25): used explicit default value for signal "graph1" because signal was never assigned a value
+Warning (10541): VHDL Signal Declaration warning at BumperCar.vhd(31): used implicit default value for signal "write_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at BumperCar.vhd(32): used implicit default value for signal "io" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "sram_ctrl" for hierarchy "sram_ctrl:sram_ctrl_realization"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2q14.tdf
+    Info (12023): Found entity 1: altsyncram_2q14
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_aoc.tdf
+    Info (12023): Found entity 1: mux_aoc
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_rqf.tdf
+    Info (12023): Found entity 1: decode_rqf
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_2ci.tdf
+    Info (12023): Found entity 1: cntr_2ci
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_acc.tdf
+    Info (12023): Found entity 1: cmpr_acc
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_02j.tdf
+    Info (12023): Found entity 1: cntr_02j
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_tbi.tdf
+    Info (12023): Found entity 1: cntr_tbi
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_8cc.tdf
+    Info (12023): Found entity 1: cmpr_8cc
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_gui.tdf
+    Info (12023): Found entity 1: cntr_gui
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_5cc.tdf
+    Info (12023): Found entity 1: cmpr_5cc
+Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "base_sram_data[0]" is fed by GND
+    Warning (13033): The pin "base_sram_data[1]" is fed by GND
+    Warning (13033): The pin "base_sram_data[2]" is fed by GND
+    Warning (13033): The pin "base_sram_data[3]" is fed by GND
+    Warning (13033): The pin "base_sram_data[4]" is fed by GND
+    Warning (13033): The pin "base_sram_data[5]" is fed by GND
+    Warning (13033): The pin "base_sram_data[6]" is fed by GND
+    Warning (13033): The pin "base_sram_data[7]" is fed by GND
+    Warning (13033): The pin "base_sram_data[8]" is fed by GND
+    Warning (13033): The pin "base_sram_data[9]" is fed by GND
+    Warning (13033): The pin "base_sram_data[10]" is fed by GND
+    Warning (13033): The pin "base_sram_data[11]" is fed by GND
+    Warning (13033): The pin "base_sram_data[12]" is fed by GND
+    Warning (13033): The pin "base_sram_data[13]" is fed by GND
+    Warning (13033): The pin "base_sram_data[14]" is fed by GND
+    Warning (13033): The pin "base_sram_data[15]" is fed by GND
+    Warning (13033): The pin "base_sram_data[16]" is fed by GND
+    Warning (13033): The pin "base_sram_data[17]" is fed by GND
+    Warning (13033): The pin "base_sram_data[18]" is fed by GND
+    Warning (13033): The pin "base_sram_data[19]" is fed by GND
+    Warning (13033): The pin "base_sram_data[20]" is fed by GND
+    Warning (13033): The pin "base_sram_data[21]" is fed by GND
+    Warning (13033): The pin "base_sram_data[22]" is fed by GND
+    Warning (13033): The pin "base_sram_data[23]" is fed by GND
+    Warning (13033): The pin "base_sram_data[24]" is fed by GND
+    Warning (13033): The pin "base_sram_data[25]" is fed by GND
+    Warning (13033): The pin "base_sram_data[26]" is fed by GND
+    Warning (13033): The pin "base_sram_data[27]" is fed by GND
+    Warning (13033): The pin "base_sram_data[28]" is fed by GND
+    Warning (13033): The pin "base_sram_data[29]" is fed by GND
+    Warning (13033): The pin "base_sram_data[30]" is fed by GND
+    Warning (13033): The pin "base_sram_data[31]" is fed by GND
+Info (13036): One or more bidirs are fed by always-enabled (GND-fed) open-drain buffers
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[0]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[1]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[2]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[3]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[4]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[5]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[6]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[7]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[8]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[9]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[10]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[11]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[12]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[13]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[14]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[15]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[16]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[17]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[18]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[19]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[20]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[21]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[22]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[23]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[24]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[25]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[26]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[27]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[28]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[29]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[30]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "base_sram_data[31]" is set to GND
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "base_sram_we" is stuck at VCC
+    Warning (13410): Pin "base_sram_oe" is stuck at GND
+    Warning (13410): Pin "base_sram_ce" is stuck at GND
+    Warning (13410): Pin "led[0]" is stuck at GND
+    Warning (13410): Pin "led[1]" is stuck at GND
+    Warning (13410): Pin "led[2]" is stuck at GND
+    Warning (13410): Pin "led[3]" is stuck at GND
+    Warning (13410): Pin "led[4]" is stuck at GND
+    Warning (13410): Pin "led[5]" is stuck at GND
+    Warning (13410): Pin "led[6]" is stuck at GND
+    Warning (13410): Pin "led[7]" is stuck at GND
+    Warning (13410): Pin "led[8]" is stuck at GND
+    Warning (13410): Pin "led[9]" is stuck at GND
+    Warning (13410): Pin "led[10]" is stuck at GND
+    Warning (13410): Pin "led[11]" is stuck at GND
+    Warning (13410): Pin "led[12]" is stuck at GND
+    Warning (13410): Pin "led[13]" is stuck at GND
+    Warning (13410): Pin "led[14]" is stuck at GND
+    Warning (13410): Pin "led[15]" is stuck at GND
+    Warning (13410): Pin "led[16]" is stuck at GND
+    Warning (13410): Pin "led[17]" is stuck at GND
+    Warning (13410): Pin "led[18]" is stuck at GND
+    Warning (13410): Pin "led[19]" is stuck at GND
+    Warning (13410): Pin "led[20]" is stuck at GND
+    Warning (13410): Pin "led[21]" is stuck at GND
+    Warning (13410): Pin "led[22]" is stuck at GND
+    Warning (13410): Pin "led[23]" is stuck at GND
+    Warning (13410): Pin "led[24]" is stuck at GND
+    Warning (13410): Pin "led[25]" is stuck at GND
+    Warning (13410): Pin "led[26]" is stuck at GND
+    Warning (13410): Pin "led[27]" is stuck at GND
+    Warning (13410): Pin "led[28]" is stuck at GND
+    Warning (13410): Pin "led[29]" is stuck at GND
+    Warning (13410): Pin "led[30]" is stuck at GND
+    Warning (13410): Pin "led[31]" is stuck at GND
+Info (17049): 28 registers lost all their fanouts during netlist optimizations.
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sld_hub:auto_hub|receive[0][0]" is stuck at GND
+Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 110 of its 111 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 1 missing sources or connections.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 206 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1351 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 183 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4670 megabytes
-    Info: Processing ended: Tue May 29 11:26:05 2018
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info (21059): Implemented 56 output pins
+    Info (21060): Implemented 32 bidirectional pins
+    Info (21061): Implemented 1203 logic cells
+    Info (21064): Implemented 55 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 76 warnings
+    Info: Peak virtual memory: 525 megabytes
+    Info: Processing ended: Tue May 29 18:25:36 2018
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
 
 
