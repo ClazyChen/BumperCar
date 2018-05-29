@@ -17,7 +17,6 @@ entity modify is
 		clk_0: in std_logic; --60Hz
 		rst: in std_logic;
 		
-		allow: in std_logic; --键盘输入
 		data: in std_logic_vector(7 downto 0);
 		
 		com: out std_logic;
@@ -40,38 +39,9 @@ begin
 		elsif clk_0 = '1' then
 			com <= '1';
 		elsif rising_edge(clk) then
-			if allow = '1' then
-				if data = "01110111" then --w
-					temp(7) <= '1';
-				end if;
-				if data = "01110011" then --s
-					temp(6) <= '1';
-				end if;
-				if data = "01100001" then --a
-					temp(5) <= '1';
-				end if;
-				if data = "01100100" then --d
-					temp(4) <= '1';
-				end if;
-				if data = "11100000" then --上下左右键有两位数据
-					arrow_ready <= '1';
-				end if;
-				if arrow_ready = '1' then
-					arrow_ready <= '0';
-					if data = "01110101" then --上
-						temp(3) <= '1';
-					end if;
-					if data = "01110010" then --下
-						temp(2) <= '1';
-					end if;
-					if data = "01101011" then --左
-						temp(1) <= '1';
-					end if;
-					if data = "01110100" then --右
-						temp(0) <= '1';
-					end if;
-				end if;
-			end if;
+			for i in 7 downto 0 loop
+				temp(i) <= temp(i) or data(i);
+			end loop;
 		end if;
 	end process;
 end bhv;

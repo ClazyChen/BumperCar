@@ -14,7 +14,7 @@ entity keyboard_ctrl is
 		--输入信号：ps2键盘时钟ps2_clk_in，ps2键盘数据ps2_data_in，100M时钟clk100m
 		ps2_clk_in, ps2_data_in : in std_logic;
 		clk100m : in std_logic;
-		--输出信号：一个长度为8的向量key_pressing_vector，分别表示W,S,A,D,UP,LEFT,DOWN,RIGHT当前是否按下
+		--输出信号：一个长度为8的向量key_pressing_vector，分别表示W,A,S,D,UP,LEFT,DOWN,RIGHT当前是否按下
 		key_pressing_vector : out std_logic_vector(7 downto 0)
 	);
 end keyboard_ctrl;

@@ -39,12 +39,14 @@ architecture bhv of BumperCar is
 			y: out std_logic_vector(8 downto 0)
 		);
 	end component;
-	component keyboard_ctrl
+	component ps2_keyboard
 		port(
-			ps2_clk_in, ps2_data_in : in std_logic;
-			clk100m : in std_logic;
-			key_pressing_vector : out std_logic_vector(7 downto 0)
-	);
+			ps2_data_in, ps2_clk_in: in std_logic;
+			clk : in std_logic;
+			rst : in std_logic;
+			allow : out std_logic;
+			scancode : out std_logic_vector(7 downto 0)
+		);
 	end component;
 	component clk60
 		port(
@@ -56,6 +58,7 @@ architecture bhv of BumperCar is
 		port(
 			clk: in std_logic; --100MHz
 			rst: in std_logic;
+			allow: in std_logic; --键盘
 			data: in std_logic_vector(7 downto 0); --键盘输入，对应WSAD上下左右
 			com: out std_logic; --是否选关结束
 			con: out std_logic_vector(1 downto 0) --选择的模式：00\01\10\11分别对应上下左右的按键，暂时不做
@@ -63,9 +66,9 @@ architecture bhv of BumperCar is
 	end component;
 	component modify
 		port(
-			clk: in std_logic;
 			clk_0: in std_logic; --60Hz
 			rst: in std_logic;
+			allow: in std_logic; --键盘输入
 			data: in std_logic_vector(7 downto 0);
 			com: out std_logic;
 			res: out std_logic_vector(7 downto 0)
@@ -78,6 +81,7 @@ signal y: std_logic_vector(8 downto 0);
 
 signal clk_0: std_logic; --60Hz
 
+signal key_allow: std_logic;
 signal key_data:std_logic_vector(7 downto 0);
 
 signal initial_rst:std_logic:='0';
@@ -95,10 +99,10 @@ signal test:std_logic_vector(7 downto 0):=(others =>'0');
 begin
 	myclock: clk60 port map(clk, clk_0);
 	u1: vga_ctrl port map(clk, rst, color, clk25, hs, vs, r, g, b, x, y);
-	u2: keyboard_ctrl port map(clk_key, data_key, clk, key_data);
+	u2: ps2_keyboard port map(data_key, clk_key, clk, rst, key_allow, key_data);
 	
-	p1: initial port map(clk, initial_rst, key_data, initial_com, initial_con);
-	p2: modify port map(clk, clk_0, modify_rst, key_data, modify_com, modify_res);
+	p1: initial port map(clk, initial_rst, key_allow, key_data, initial_com, initial_con);
+	p2: modify port map(clk_0, modify_rst, key_allow, key_data, modify_com, modify_res);
 	
 	test_out <= test;
 	
