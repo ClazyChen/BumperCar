@@ -1,5 +1,5 @@
 Partition Merge report for BumperCar
-Tue May 29 18:25:37 2018
+Wed May 30 15:56:47 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -39,15 +39,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Partition Merge Summary                                                              ;
 +------------------------------------+-------------------------------------------------+
-; Partition Merge Status             ; Successful - Tue May 29 18:25:37 2018           ;
+; Partition Merge Status             ; Successful - Wed May 30 15:56:47 2018           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; BumperCar                                       ;
 ; Top-level Entity Name              ; BumperCar                                       ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 1,191                                           ;
-;     Total combinational functions  ; 530                                             ;
-;     Dedicated logic registers      ; 978                                             ;
-; Total registers                    ; 978                                             ;
+; Total logic elements               ; 1,243                                           ;
+;     Total combinational functions  ; 582                                             ;
+;     Dedicated logic registers      ; 1,006                                           ;
+; Total registers                    ; 1006                                            ;
 ; Total pins                         ; 88                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 7,040                                           ;
@@ -68,123 +68,123 @@ applicable agreement for further details.
 +--------------------------------+----------------+-------------------+------------------------+--------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Connections to In-System Debugging Instance "auto_signaltap_0"                                                                                                                                                       ;
-+--------------------------------------+--------------+-----------+----------------+-------------------+--------------------+------------------------------------------------------------------------------------------+
-; Name                                 ; Type         ; Status    ; Partition Name ; Netlist Type Used ; Actual Connection  ; Details                                                                                  ;
-+--------------------------------------+--------------+-----------+----------------+-------------------+--------------------+------------------------------------------------------------------------------------------+
-; base_sram_addr[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[0]         ; N/A                                                                                      ;
-; base_sram_addr[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[0]         ; N/A                                                                                      ;
-; base_sram_addr[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[10]        ; N/A                                                                                      ;
-; base_sram_addr[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[10]        ; N/A                                                                                      ;
-; base_sram_addr[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[11]        ; N/A                                                                                      ;
-; base_sram_addr[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[11]        ; N/A                                                                                      ;
-; base_sram_addr[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[12]        ; N/A                                                                                      ;
-; base_sram_addr[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[12]        ; N/A                                                                                      ;
-; base_sram_addr[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[13]        ; N/A                                                                                      ;
-; base_sram_addr[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[13]        ; N/A                                                                                      ;
-; base_sram_addr[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[14]        ; N/A                                                                                      ;
-; base_sram_addr[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[14]        ; N/A                                                                                      ;
-; base_sram_addr[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[15]        ; N/A                                                                                      ;
-; base_sram_addr[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[15]        ; N/A                                                                                      ;
-; base_sram_addr[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[16]        ; N/A                                                                                      ;
-; base_sram_addr[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[16]        ; N/A                                                                                      ;
-; base_sram_addr[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[17]        ; N/A                                                                                      ;
-; base_sram_addr[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[17]        ; N/A                                                                                      ;
-; base_sram_addr[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[18]        ; N/A                                                                                      ;
-; base_sram_addr[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[18]        ; N/A                                                                                      ;
-; base_sram_addr[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[19]        ; N/A                                                                                      ;
-; base_sram_addr[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[19]        ; N/A                                                                                      ;
-; base_sram_addr[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[1]         ; N/A                                                                                      ;
-; base_sram_addr[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[1]         ; N/A                                                                                      ;
-; base_sram_addr[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[2]         ; N/A                                                                                      ;
-; base_sram_addr[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[2]         ; N/A                                                                                      ;
-; base_sram_addr[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[3]         ; N/A                                                                                      ;
-; base_sram_addr[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[3]         ; N/A                                                                                      ;
-; base_sram_addr[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[4]         ; N/A                                                                                      ;
-; base_sram_addr[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[4]         ; N/A                                                                                      ;
-; base_sram_addr[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[5]         ; N/A                                                                                      ;
-; base_sram_addr[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[5]         ; N/A                                                                                      ;
-; base_sram_addr[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[6]         ; N/A                                                                                      ;
-; base_sram_addr[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[6]         ; N/A                                                                                      ;
-; base_sram_addr[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[7]         ; N/A                                                                                      ;
-; base_sram_addr[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[7]         ; N/A                                                                                      ;
-; base_sram_addr[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[8]         ; N/A                                                                                      ;
-; base_sram_addr[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[8]         ; N/A                                                                                      ;
-; base_sram_addr[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[9]         ; N/A                                                                                      ;
-; base_sram_addr[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[9]         ; N/A                                                                                      ;
-; base_sram_ce                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
-; base_sram_ce                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
-; base_sram_data[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[0]  ; N/A                                                                                      ;
-; base_sram_data[0]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[0]  ; N/A                                                                                      ;
-; base_sram_data[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[10] ; N/A                                                                                      ;
-; base_sram_data[10]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[10] ; N/A                                                                                      ;
-; base_sram_data[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[11] ; N/A                                                                                      ;
-; base_sram_data[11]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[11] ; N/A                                                                                      ;
-; base_sram_data[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[12] ; N/A                                                                                      ;
-; base_sram_data[12]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[12] ; N/A                                                                                      ;
-; base_sram_data[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[13] ; N/A                                                                                      ;
-; base_sram_data[13]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[13] ; N/A                                                                                      ;
-; base_sram_data[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[14] ; N/A                                                                                      ;
-; base_sram_data[14]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[14] ; N/A                                                                                      ;
-; base_sram_data[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[15] ; N/A                                                                                      ;
-; base_sram_data[15]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[15] ; N/A                                                                                      ;
-; base_sram_data[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[16] ; N/A                                                                                      ;
-; base_sram_data[16]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[16] ; N/A                                                                                      ;
-; base_sram_data[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[17] ; N/A                                                                                      ;
-; base_sram_data[17]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[17] ; N/A                                                                                      ;
-; base_sram_data[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[18] ; N/A                                                                                      ;
-; base_sram_data[18]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[18] ; N/A                                                                                      ;
-; base_sram_data[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[19] ; N/A                                                                                      ;
-; base_sram_data[19]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[19] ; N/A                                                                                      ;
-; base_sram_data[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[1]  ; N/A                                                                                      ;
-; base_sram_data[1]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[1]  ; N/A                                                                                      ;
-; base_sram_data[20]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[20] ; N/A                                                                                      ;
-; base_sram_data[20]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[20] ; N/A                                                                                      ;
-; base_sram_data[21]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[21] ; N/A                                                                                      ;
-; base_sram_data[21]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[21] ; N/A                                                                                      ;
-; base_sram_data[22]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[22] ; N/A                                                                                      ;
-; base_sram_data[22]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[22] ; N/A                                                                                      ;
-; base_sram_data[23]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[23] ; N/A                                                                                      ;
-; base_sram_data[23]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[23] ; N/A                                                                                      ;
-; base_sram_data[24]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[24] ; N/A                                                                                      ;
-; base_sram_data[24]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[24] ; N/A                                                                                      ;
-; base_sram_data[25]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[25] ; N/A                                                                                      ;
-; base_sram_data[25]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[25] ; N/A                                                                                      ;
-; base_sram_data[26]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[26] ; N/A                                                                                      ;
-; base_sram_data[26]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[26] ; N/A                                                                                      ;
-; base_sram_data[27]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[27] ; N/A                                                                                      ;
-; base_sram_data[27]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[27] ; N/A                                                                                      ;
-; base_sram_data[28]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[28] ; N/A                                                                                      ;
-; base_sram_data[28]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[28] ; N/A                                                                                      ;
-; base_sram_data[29]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[29] ; N/A                                                                                      ;
-; base_sram_data[29]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[29] ; N/A                                                                                      ;
-; base_sram_data[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[2]  ; N/A                                                                                      ;
-; base_sram_data[2]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[2]  ; N/A                                                                                      ;
-; base_sram_data[30]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[30] ; N/A                                                                                      ;
-; base_sram_data[30]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[30] ; N/A                                                                                      ;
-; base_sram_data[31]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[31] ; N/A                                                                                      ;
-; base_sram_data[31]                   ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[31] ; N/A                                                                                      ;
-; base_sram_data[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[3]  ; N/A                                                                                      ;
-; base_sram_data[3]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[3]  ; N/A                                                                                      ;
-; base_sram_data[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[4]  ; N/A                                                                                      ;
-; base_sram_data[4]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[4]  ; N/A                                                                                      ;
-; base_sram_data[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[5]  ; N/A                                                                                      ;
-; base_sram_data[5]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[5]  ; N/A                                                                                      ;
-; base_sram_data[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[6]  ; N/A                                                                                      ;
-; base_sram_data[6]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[6]  ; N/A                                                                                      ;
-; base_sram_data[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[7]  ; N/A                                                                                      ;
-; base_sram_data[7]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[7]  ; N/A                                                                                      ;
-; base_sram_data[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[8]  ; N/A                                                                                      ;
-; base_sram_data[8]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[8]  ; N/A                                                                                      ;
-; base_sram_data[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[9]  ; N/A                                                                                      ;
-; base_sram_data[9]                    ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[9]  ; N/A                                                                                      ;
-; base_sram_oe                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
-; base_sram_oe                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A                                                                                      ;
-; base_sram_we                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~VCC               ; N/A                                                                                      ;
-; base_sram_we                         ; post-fitting ; connected ; Top            ; post-synthesis    ; ~VCC               ; N/A                                                                                      ;
-; vga_ctrl:vga_ctrl_realization|clk25m ; post-fitting ; missing   ; Top            ; post-synthesis    ; GND                ; The post-fitting netlist is not being used.  Set the partition's netlist type to source. ;
-+--------------------------------------+--------------+-----------+----------------+-------------------+--------------------+------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Connections to In-System Debugging Instance "auto_signaltap_0"                                                    ;
++--------------------+--------------+-----------+----------------+-------------------+--------------------+---------+
+; Name               ; Type         ; Status    ; Partition Name ; Netlist Type Used ; Actual Connection  ; Details ;
++--------------------+--------------+-----------+----------------+-------------------+--------------------+---------+
+; base_sram_addr[0]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[0]         ; N/A     ;
+; base_sram_addr[0]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[0]         ; N/A     ;
+; base_sram_addr[10] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[10]        ; N/A     ;
+; base_sram_addr[10] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[10]        ; N/A     ;
+; base_sram_addr[11] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[11]        ; N/A     ;
+; base_sram_addr[11] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[11]        ; N/A     ;
+; base_sram_addr[12] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[12]        ; N/A     ;
+; base_sram_addr[12] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[12]        ; N/A     ;
+; base_sram_addr[13] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[13]        ; N/A     ;
+; base_sram_addr[13] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[13]        ; N/A     ;
+; base_sram_addr[14] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[14]        ; N/A     ;
+; base_sram_addr[14] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[14]        ; N/A     ;
+; base_sram_addr[15] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[15]        ; N/A     ;
+; base_sram_addr[15] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[15]        ; N/A     ;
+; base_sram_addr[16] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[16]        ; N/A     ;
+; base_sram_addr[16] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[16]        ; N/A     ;
+; base_sram_addr[17] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[17]        ; N/A     ;
+; base_sram_addr[17] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[17]        ; N/A     ;
+; base_sram_addr[18] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[18]        ; N/A     ;
+; base_sram_addr[18] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[18]        ; N/A     ;
+; base_sram_addr[19] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[19]        ; N/A     ;
+; base_sram_addr[19] ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[19]        ; N/A     ;
+; base_sram_addr[1]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[1]         ; N/A     ;
+; base_sram_addr[1]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[1]         ; N/A     ;
+; base_sram_addr[2]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[2]         ; N/A     ;
+; base_sram_addr[2]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[2]         ; N/A     ;
+; base_sram_addr[3]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[3]         ; N/A     ;
+; base_sram_addr[3]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[3]         ; N/A     ;
+; base_sram_addr[4]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[4]         ; N/A     ;
+; base_sram_addr[4]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[4]         ; N/A     ;
+; base_sram_addr[5]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[5]         ; N/A     ;
+; base_sram_addr[5]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[5]         ; N/A     ;
+; base_sram_addr[6]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[6]         ; N/A     ;
+; base_sram_addr[6]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[6]         ; N/A     ;
+; base_sram_addr[7]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[7]         ; N/A     ;
+; base_sram_addr[7]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[7]         ; N/A     ;
+; base_sram_addr[8]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[8]         ; N/A     ;
+; base_sram_addr[8]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[8]         ; N/A     ;
+; base_sram_addr[9]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[9]         ; N/A     ;
+; base_sram_addr[9]  ; post-fitting ; connected ; Top            ; post-synthesis    ; counter[9]         ; N/A     ;
+; base_sram_ce       ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A     ;
+; base_sram_ce       ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A     ;
+; base_sram_data[0]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[0]  ; N/A     ;
+; base_sram_data[0]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[0]  ; N/A     ;
+; base_sram_data[10] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[10] ; N/A     ;
+; base_sram_data[10] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[10] ; N/A     ;
+; base_sram_data[11] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[11] ; N/A     ;
+; base_sram_data[11] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[11] ; N/A     ;
+; base_sram_data[12] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[12] ; N/A     ;
+; base_sram_data[12] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[12] ; N/A     ;
+; base_sram_data[13] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[13] ; N/A     ;
+; base_sram_data[13] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[13] ; N/A     ;
+; base_sram_data[14] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[14] ; N/A     ;
+; base_sram_data[14] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[14] ; N/A     ;
+; base_sram_data[15] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[15] ; N/A     ;
+; base_sram_data[15] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[15] ; N/A     ;
+; base_sram_data[16] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[16] ; N/A     ;
+; base_sram_data[16] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[16] ; N/A     ;
+; base_sram_data[17] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[17] ; N/A     ;
+; base_sram_data[17] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[17] ; N/A     ;
+; base_sram_data[18] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[18] ; N/A     ;
+; base_sram_data[18] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[18] ; N/A     ;
+; base_sram_data[19] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[19] ; N/A     ;
+; base_sram_data[19] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[19] ; N/A     ;
+; base_sram_data[1]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[1]  ; N/A     ;
+; base_sram_data[1]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[1]  ; N/A     ;
+; base_sram_data[20] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[20] ; N/A     ;
+; base_sram_data[20] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[20] ; N/A     ;
+; base_sram_data[21] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[21] ; N/A     ;
+; base_sram_data[21] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[21] ; N/A     ;
+; base_sram_data[22] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[22] ; N/A     ;
+; base_sram_data[22] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[22] ; N/A     ;
+; base_sram_data[23] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[23] ; N/A     ;
+; base_sram_data[23] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[23] ; N/A     ;
+; base_sram_data[24] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[24] ; N/A     ;
+; base_sram_data[24] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[24] ; N/A     ;
+; base_sram_data[25] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[25] ; N/A     ;
+; base_sram_data[25] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[25] ; N/A     ;
+; base_sram_data[26] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[26] ; N/A     ;
+; base_sram_data[26] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[26] ; N/A     ;
+; base_sram_data[27] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[27] ; N/A     ;
+; base_sram_data[27] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[27] ; N/A     ;
+; base_sram_data[28] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[28] ; N/A     ;
+; base_sram_data[28] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[28] ; N/A     ;
+; base_sram_data[29] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[29] ; N/A     ;
+; base_sram_data[29] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[29] ; N/A     ;
+; base_sram_data[2]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[2]  ; N/A     ;
+; base_sram_data[2]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[2]  ; N/A     ;
+; base_sram_data[30] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[30] ; N/A     ;
+; base_sram_data[30] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[30] ; N/A     ;
+; base_sram_data[31] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[31] ; N/A     ;
+; base_sram_data[31] ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[31] ; N/A     ;
+; base_sram_data[3]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[3]  ; N/A     ;
+; base_sram_data[3]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[3]  ; N/A     ;
+; base_sram_data[4]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[4]  ; N/A     ;
+; base_sram_data[4]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[4]  ; N/A     ;
+; base_sram_data[5]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[5]  ; N/A     ;
+; base_sram_data[5]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[5]  ; N/A     ;
+; base_sram_data[6]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[6]  ; N/A     ;
+; base_sram_data[6]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[6]  ; N/A     ;
+; base_sram_data[7]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[7]  ; N/A     ;
+; base_sram_data[7]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[7]  ; N/A     ;
+; base_sram_data[8]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[8]  ; N/A     ;
+; base_sram_data[8]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[8]  ; N/A     ;
+; base_sram_data[9]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[9]  ; N/A     ;
+; base_sram_data[9]  ; post-fitting ; connected ; Top            ; post-synthesis    ; base_sram_data[9]  ; N/A     ;
+; base_sram_oe       ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A     ;
+; base_sram_oe       ; post-fitting ; connected ; Top            ; post-synthesis    ; ~GND               ; N/A     ;
+; base_sram_we       ; post-fitting ; connected ; Top            ; post-synthesis    ; ~VCC               ; N/A     ;
+; base_sram_we       ; post-fitting ; connected ; Top            ; post-synthesis    ; ~VCC               ; N/A     ;
+; clk100m            ; post-fitting ; connected ; Top            ; post-synthesis    ; clk100m            ; N/A     ;
++--------------------+--------------+-----------+----------------+-------------------+--------------------+---------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
@@ -192,20 +192,20 @@ applicable agreement for further details.
 +---------------------------------------------+------+------------------+--------------------------------+--------------------------------+
 ; Statistic                                   ; Top  ; sld_hub:auto_hub ; sld_signaltap:auto_signaltap_0 ; hard_block:auto_generated_inst ;
 +---------------------------------------------+------+------------------+--------------------------------+--------------------------------+
-; Estimated Total logic elements              ; 29   ; 142              ; 1022                           ; 0                              ;
+; Estimated Total logic elements              ; 79   ; 144              ; 1022                           ; 0                              ;
 ;                                             ;      ;                  ;                                ;                                ;
-; Total combinational functions               ; 29   ; 118              ; 383                            ; 0                              ;
+; Total combinational functions               ; 79   ; 120              ; 383                            ; 0                              ;
 ; Logic element usage by number of LUT inputs ;      ;                  ;                                ;                                ;
-;     -- 4 input functions                    ; 6    ; 52               ; 231                            ; 0                              ;
-;     -- 3 input functions                    ; 1    ; 29               ; 98                             ; 0                              ;
-;     -- <=2 input functions                  ; 22   ; 37               ; 54                             ; 0                              ;
+;     -- 4 input functions                    ; 14   ; 50               ; 231                            ; 0                              ;
+;     -- 3 input functions                    ; 2    ; 32               ; 97                             ; 0                              ;
+;     -- <=2 input functions                  ; 63   ; 38               ; 55                             ; 0                              ;
 ;                                             ;      ;                  ;                                ;                                ;
 ; Logic elements by mode                      ;      ;                  ;                                ;                                ;
-;     -- normal mode                          ; 10   ; 110              ; 347                            ; 0                              ;
-;     -- arithmetic mode                      ; 19   ; 8                ; 36                             ; 0                              ;
+;     -- normal mode                          ; 34   ; 112              ; 347                            ; 0                              ;
+;     -- arithmetic mode                      ; 45   ; 8                ; 36                             ; 0                              ;
 ;                                             ;      ;                  ;                                ;                                ;
-; Total registers                             ; 20   ; 86               ; 872                            ; 0                              ;
-;     -- Dedicated logic registers            ; 20   ; 86               ; 872                            ; 0                              ;
+; Total registers                             ; 48   ; 86               ; 872                            ; 0                              ;
+;     -- Dedicated logic registers            ; 48   ; 86               ; 872                            ; 0                              ;
 ;                                             ;      ;                  ;                                ;                                ;
 ; Virtual pins                                ; 0    ; 0                ; 0                              ; 0                              ;
 ; I/O pins                                    ; 88   ; 0                ; 0                              ; 0                              ;
@@ -221,8 +221,8 @@ applicable agreement for further details.
 ;     -- Registered Output Connections        ; 40   ; 172              ; 0                              ; 0                              ;
 ;                                             ;      ;                  ;                                ;                                ;
 ; Internal Connections                        ;      ;                  ;                                ;                                ;
-;     -- Total Connections                    ; 1345 ; 817              ; 4818                           ; 0                              ;
-;     -- Registered Connections               ; 100  ; 599              ; 3560                           ; 0                              ;
+;     -- Total Connections                    ; 1517 ; 820              ; 4817                           ; 0                              ;
+;     -- Registered Connections               ; 175  ; 598              ; 3559                           ; 0                              ;
 ;                                             ;      ;                  ;                                ;                                ;
 ; External Connections                        ;      ;                  ;                                ;                                ;
 ;     -- Top                                  ; 0    ; 119              ; 1096                           ; 0                              ;
@@ -240,7 +240,7 @@ applicable agreement for further details.
 ;     -- Registered Output Ports              ; 0    ; 26               ; 111                            ; 0                              ;
 ;                                             ;      ;                  ;                                ;                                ;
 ; Port Connectivity                           ;      ;                  ;                                ;                                ;
-;     -- Input Ports driven by GND            ; 0    ; 1                ; 5                              ; 0                              ;
+;     -- Input Ports driven by GND            ; 0    ; 1                ; 4                              ; 0                              ;
 ;     -- Output Ports driven by GND           ; 0    ; 1                ; 0                              ; 0                              ;
 ;     -- Input Ports driven by VCC            ; 0    ; 0                ; 2                              ; 0                              ;
 ;     -- Output Ports driven by VCC           ; 0    ; 0                ; 0                              ; 0                              ;
@@ -252,35 +252,35 @@ applicable agreement for further details.
 Note: Resource usage numbers presented for Partitions containing post-synthesis logic are estimates.  For Partitions containing post-fit logic, resource usage numbers are accurate based on previous placement information.  Actual Fitter results may vary depending on current Fitter Preservation Level assignments.
 
 
-+-----------------------------------------------------+
-; Partition Merge Resource Usage Summary              ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 1,191 ;
-;                                             ;       ;
-; Total combinational functions               ; 530   ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 289   ;
-;     -- 3 input functions                    ; 128   ;
-;     -- <=2 input functions                  ; 113   ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 467   ;
-;     -- arithmetic mode                      ; 63    ;
-;                                             ;       ;
-; Total registers                             ; 978   ;
-;     -- Dedicated logic registers            ; 978   ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 88    ;
-; Total memory bits                           ; 7040  ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; ~GND  ;
-; Maximum fan-out                             ; 596   ;
-; Total fan-out                               ; 5528  ;
-; Average fan-out                             ; 3.34  ;
-+---------------------------------------------+-------+
++-------------------------------------------------------+
+; Partition Merge Resource Usage Summary                ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimated Total logic elements              ; 1,243   ;
+;                                             ;         ;
+; Total combinational functions               ; 582     ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 295     ;
+;     -- 3 input functions                    ; 131     ;
+;     -- <=2 input functions                  ; 156     ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 493     ;
+;     -- arithmetic mode                      ; 89      ;
+;                                             ;         ;
+; Total registers                             ; 1006    ;
+;     -- Dedicated logic registers            ; 1006    ;
+;     -- I/O registers                        ; 0       ;
+;                                             ;         ;
+; I/O pins                                    ; 88      ;
+; Total memory bits                           ; 7040    ;
+; Embedded Multiplier 9-bit elements          ; 0       ;
+; Maximum fan-out node                        ; clk100m ;
+; Maximum fan-out                             ; 623     ;
+; Total fan-out                               ; 5706    ;
+; Average fan-out                             ; 3.29    ;
++---------------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -298,24 +298,24 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Partition Merge
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue May 29 18:25:36 2018
+    Info: Processing started: Wed May 30 15:56:46 2018
 Info: Command: quartus_cdb --read_settings_files=off --write_settings_files=off BumperCar -c BumperCar --merge=on
 Info (35007): Using synthesis netlist for partition "Top"
 Info (35007): Using synthesis netlist for partition "sld_hub:auto_hub"
 Info (35007): Using synthesis netlist for partition "sld_signaltap:auto_signaltap_0"
-Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 110 of its 111 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 1 missing sources or connections.
+Info (35024): Succesfully connected in-system debug instance "auto_signaltap_0" to all 111 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
 Info (35002): Resolved and merged 3 partition(s)
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1351 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1403 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 56 output pins
     Info (21060): Implemented 32 bidirectional pins
-    Info (21061): Implemented 1203 logic cells
+    Info (21061): Implemented 1255 logic cells
     Info (21064): Implemented 55 RAM segments
-Info: Quartus II 64-Bit Partition Merge was successful. 0 errors, 1 warning
+Info: Quartus II 64-Bit Partition Merge was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 449 megabytes
-    Info: Processing ended: Tue May 29 18:25:37 2018
+    Info: Processing ended: Wed May 30 15:56:47 2018
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

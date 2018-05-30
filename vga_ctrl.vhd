@@ -19,13 +19,12 @@ end vga_ctrl;
 architecture implementation of vga_ctrl is
 component sram_ctrl is
 	port(
-		clk25m : in std_logic;
+		clk100m : in std_logic;
 		io : in std_logic;
 		addr : in std_logic_vector(19 downto 0);
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
 		base_sram_addr : out std_logic_vector(19 downto 0);
 		base_sram_data : inout std_logic_vector(31 downto 0);
-
 		read_data : out std_logic_vector(31 downto 0);
 		write_data : in std_logic_vector(31 downto 0)
 	);
@@ -39,13 +38,16 @@ signal vy_minus : std_logic_vector(8 downto 0) := (others => '0');
 signal hst, hst_minus : std_logic;
 signal vst, vst_minus : std_logic;
 signal addr_count : std_logic_vector(19 downto 0) := "00000000110001111111";
-signal io : std_logic := '0';
+--signal addr_count : std_logic_vector(19 downto 0) := (others => '0');
+signal io : std_logic;
 signal read_data, write_data : std_logic_vector(31 downto 0);
 signal rt, gt, bt : std_logic_vector(2 downto 0);
 begin
 
+	io <= '0';
+
 	sram_ctrl_realization : sram_ctrl port map(
-		clk25m => clk25m,
+		clk100m => clk100m,
 		io => io,
 		addr => addr_count,
 		base_sram_we => base_sram_we,
