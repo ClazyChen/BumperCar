@@ -192,7 +192,10 @@ begin
 		if (vst = '1' and hst = '1') then
 			r <= rt;
 			g <= gt;
-			b <= gt;
+			b <= bt;
+			--r <= "111";
+			--g <= "111";
+			--b <= "000";
 		else
 			r <= "000";
 			g <= "000";
