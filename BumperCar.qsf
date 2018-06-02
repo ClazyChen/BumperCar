@@ -168,3 +168,5 @@ set_location_assignment PIN_AE13 -to led[1]
 set_location_assignment PIN_AE12 -to led[0]
 set_global_assignment -name SLD_FILE "C:/Users/cslab9-422/Desktop/BumperCar/output_files/stp1_auto_stripped.stp"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VHDL_FILE output_files/paint.vhd
+set_global_assignment -name VHDL_FILE paint.vhd

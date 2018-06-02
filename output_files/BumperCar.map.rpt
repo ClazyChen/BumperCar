@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BumperCar
-Fri Jun 01 13:59:07 2018
+Sat Jun 02 13:46:05 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -16,11 +16,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   8. Registers Removed During Synthesis
   9. General Register Statistics
  10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization"
- 13. Port Connectivity Checks: "vga_ctrl:vga_ctrl_realization"
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+ 11. Port Connectivity Checks: "sram_ctrl:sram_ctrl_realization"
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -46,16 +44,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 01 13:59:07 2018           ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 02 13:46:05 2018           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; BumperCar                                       ;
 ; Top-level Entity Name              ; BumperCar                                       ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 145                                             ;
-;     Total combinational functions  ; 125                                             ;
-;     Dedicated logic registers      ; 91                                              ;
-; Total registers                    ; 91                                              ;
-; Total pins                         ; 67                                              ;
+; Total logic elements               ; 176                                             ;
+;     Total combinational functions  ; 111                                             ;
+;     Dedicated logic registers      ; 156                                             ;
+; Total registers                    ; 156                                             ;
+; Total pins                         ; 88                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -165,127 +163,59 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                        ; Library ;
 +----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
 ; BumperCar.vhd                    ; yes             ; User VHDL File  ; C:/Users/cslab9-422/Desktop/BumperCar/BumperCar.vhd ;         ;
-; vga_ctrl.vhd                     ; yes             ; User VHDL File  ; C:/Users/cslab9-422/Desktop/BumperCar/vga_ctrl.vhd  ;         ;
 ; sram_ctrl.vhd                    ; yes             ; User VHDL File  ; C:/Users/cslab9-422/Desktop/BumperCar/sram_ctrl.vhd ;         ;
 +----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                        ;
-+---------------------------------------------+--------------------------------------+
-; Resource                                    ; Usage                                ;
-+---------------------------------------------+--------------------------------------+
-; Estimated Total logic elements              ; 145                                  ;
-;                                             ;                                      ;
-; Total combinational functions               ; 125                                  ;
-; Logic element usage by number of LUT inputs ;                                      ;
-;     -- 4 input functions                    ; 27                                   ;
-;     -- 3 input functions                    ; 25                                   ;
-;     -- <=2 input functions                  ; 73                                   ;
-;                                             ;                                      ;
-; Logic elements by mode                      ;                                      ;
-;     -- normal mode                          ; 74                                   ;
-;     -- arithmetic mode                      ; 51                                   ;
-;                                             ;                                      ;
-; Total registers                             ; 91                                   ;
-;     -- Dedicated logic registers            ; 91                                   ;
-;     -- I/O registers                        ; 0                                    ;
-;                                             ;                                      ;
-; I/O pins                                    ; 67                                   ;
-; Embedded Multiplier 9-bit elements          ; 0                                    ;
-; Maximum fan-out node                        ; vga_ctrl:vga_ctrl_realization|clk25m ;
-; Maximum fan-out                             ; 72                                   ;
-; Total fan-out                               ; 563                                  ;
-; Average fan-out                             ; 1.99                                 ;
-+---------------------------------------------+--------------------------------------+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimated Total logic elements              ; 176     ;
+;                                             ;         ;
+; Total combinational functions               ; 111     ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 21      ;
+;     -- 3 input functions                    ; 1       ;
+;     -- <=2 input functions                  ; 89      ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 58      ;
+;     -- arithmetic mode                      ; 53      ;
+;                                             ;         ;
+; Total registers                             ; 156     ;
+;     -- Dedicated logic registers            ; 156     ;
+;     -- I/O registers                        ; 0       ;
+;                                             ;         ;
+; I/O pins                                    ; 88      ;
+; Embedded Multiplier 9-bit elements          ; 0       ;
+; Maximum fan-out node                        ; clk100m ;
+; Maximum fan-out                             ; 123     ;
+; Total fan-out                               ; 702     ;
+; Average fan-out                             ; 1.98    ;
++---------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                           ;
-+-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                      ; Library Name ;
-+-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------+--------------+
-; |BumperCar                              ; 125 (0)           ; 91 (0)       ; 0           ; 0            ; 0       ; 0         ; 67   ; 0            ; |BumperCar                                                               ; work         ;
-;    |vga_ctrl:vga_ctrl_realization|      ; 125 (125)         ; 91 (73)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:vga_ctrl_realization                                 ; work         ;
-;       |sram_ctrl:sram_ctrl_realization| ; 0 (0)             ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization ; work         ;
-+-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                          ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; |BumperCar                           ; 111 (78)          ; 156 (58)     ; 0           ; 0            ; 0       ; 0         ; 88   ; 0            ; |BumperCar                                 ; work         ;
+;    |sram_ctrl:sram_ctrl_realization| ; 33 (33)           ; 98 (98)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|sram_ctrl:sram_ctrl_realization ; work         ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                             ;
-+---------------------------------------------------------------------------------------+----------------------------------------+
-; Register name                                                                         ; Reason for Removal                     ;
-+---------------------------------------------------------------------------------------+----------------------------------------+
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[0]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[1]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[2]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[3]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[4]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[5]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[6]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[7]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[8]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[9]~en    ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[10]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[11]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[12]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[13]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[14]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[15]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[16]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[17]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[18]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[19]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[20]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[21]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[22]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[23]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[24]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[25]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[26]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[27]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[28]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[29]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[30]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[31]~en   ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_ce            ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_oe            ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_we            ; Stuck at VCC due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[31]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[30]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[29]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[28]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[27]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[26]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[25]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[24]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[23]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[22]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[21]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[20]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[19]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[18]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[17]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[16]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[15]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[14]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[13]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[12]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[11]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[10]~reg0 ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[9]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[8]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[7]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[6]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[5]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[4]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[3]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[2]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[1]~reg0  ; Stuck at GND due to stuck port data_in ;
-; vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[0]~reg0  ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 67                                                ;                                        ;
-+---------------------------------------------------------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------------+----------------------------------------+
+; Register name                                ; Reason for Removal                     ;
++----------------------------------------------+----------------------------------------+
+; sram_ctrl:sram_ctrl_realization|base_sram_ce ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1        ;                                        ;
++----------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -293,63 +223,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 91    ;
+; Total registers                              ; 156   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 36    ;
+; Number of registers using Clock Enable       ; 63    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------+
-; Inverted Register Statistics                           ;
-+----------------------------------------------+---------+
-; Inverted Register                            ; Fan out ;
-+----------------------------------------------+---------+
-; vga_ctrl:vga_ctrl_realization|addr_count[0]  ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[1]  ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[2]  ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[3]  ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[4]  ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[5]  ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[6]  ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[10] ; 3       ;
-; vga_ctrl:vga_ctrl_realization|addr_count[11] ; 3       ;
-; vga_ctrl:vga_ctrl_realization|vx[0]          ; 2       ;
-; vga_ctrl:vga_ctrl_realization|vy[0]          ; 2       ;
-; Total number of inverted registers = 11      ;         ;
-+----------------------------------------------+---------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; io                                     ; 99      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|rt[0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization"                                   ;
-+-------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port              ; Type   ; Severity ; Details                                                                             ;
-+-------------------+--------+----------+-------------------------------------------------------------------------------------+
-; io                ; Input  ; Info     ; Stuck at GND                                                                        ;
-; read_data[22..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; read_data[6..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_ctrl:vga_ctrl_realization"                                                                                                                 ;
-+---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type  ; Severity ; Details                                                                                                                                      ;
-+---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; data_in ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "sram_ctrl:sram_ctrl_realization" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; addr ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
 
 
 +-------------------------------+
@@ -367,7 +267,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 01 13:59:05 2018
+    Info: Processing started: Sat Jun 02 13:46:03 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BumperCar -c BumperCar
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file bumpercar.vhd
@@ -396,29 +296,40 @@ Info (12021): Found 2 design units, including 1 entities, in source file sram_ct
     Info (12022): Found design unit 1: sram_ctrl-implementation
     Info (12023): Found entity 1: sram_ctrl
 Info (12127): Elaborating entity "BumperCar" for the top level hierarchy
-Info (12128): Elaborating entity "vga_ctrl" for hierarchy "vga_ctrl:vga_ctrl_realization"
-Warning (10036): Verilog HDL or VHDL warning at vga_ctrl.vhd(38): object "hst_minus" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at vga_ctrl.vhd(39): object "vst_minus" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at vga_ctrl.vhd(43): used implicit default value for signal "write_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10492): VHDL Process Statement warning at vga_ctrl.vhd(193): signal "rt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at vga_ctrl.vhd(194): signal "gt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at vga_ctrl.vhd(195): signal "bt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Info (12128): Elaborating entity "sram_ctrl" for hierarchy "vga_ctrl:vga_ctrl_realization|sram_ctrl:sram_ctrl_realization"
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (10540): VHDL Signal Declaration warning at BumperCar.vhd(35): used explicit default value for signal "addr" because signal was never assigned a value
+Info (12128): Elaborating entity "sram_ctrl" for hierarchy "sram_ctrl:sram_ctrl_realization"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "base_sram_we" is stuck at VCC
-    Warning (13410): Pin "base_sram_oe" is stuck at GND
     Warning (13410): Pin "base_sram_ce" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[0]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[1]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[2]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[3]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[4]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[5]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[6]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[7]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[8]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[9]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[10]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[11]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[12]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[13]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[14]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[15]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[16]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[17]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[18]" is stuck at GND
+    Warning (13410): Pin "base_sram_addr[19]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 212 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 264 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 34 output pins
+    Info (21059): Implemented 55 output pins
     Info (21060): Implemented 32 bidirectional pins
-    Info (21061): Implemented 145 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info (21061): Implemented 176 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 25 warnings
     Info: Peak virtual memory: 489 megabytes
-    Info: Processing ended: Fri Jun 01 13:59:07 2018
+    Info: Processing ended: Sat Jun 02 13:46:05 2018
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
