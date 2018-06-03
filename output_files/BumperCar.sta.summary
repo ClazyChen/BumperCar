@@ -2,52 +2,76 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow Model Setup 'clk1hz'
-Slack : -4.070
-TNS   : -84.073
+Type  : Slow Model Setup 'vga_ctrl:vga_ctrl_realization|clk25m'
+Slack : -6.821
+TNS   : -1276.804
 
 Type  : Slow Model Setup 'clk100m'
-Slack : -3.670
-TNS   : -266.565
+Slack : -1.408
+TNS   : -43.136
+
+Type  : Slow Model Setup 'vga_ctrl:vga_ctrl_realization|clk50m'
+Slack : 1.090
+TNS   : 0.000
 
 Type  : Slow Model Hold 'clk100m'
-Slack : -3.088
-TNS   : -3.088
+Slack : -3.180
+TNS   : -3.180
 
-Type  : Slow Model Hold 'clk1hz'
+Type  : Slow Model Hold 'vga_ctrl:vga_ctrl_realization|clk50m'
+Slack : -0.856
+TNS   : -0.856
+
+Type  : Slow Model Hold 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : 0.499
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clk100m'
 Slack : -1.941
-TNS   : -184.473
+TNS   : -148.857
 
-Type  : Slow Model Minimum Pulse Width 'clk1hz'
+Type  : Slow Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : -0.742
-TNS   : -48.972
+TNS   : -354.676
 
-Type  : Fast Model Setup 'clk1hz'
-Slack : -0.904
-TNS   : -10.986
+Type  : Slow Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk50m'
+Slack : -0.742
+TNS   : -1.484
+
+Type  : Fast Model Setup 'vga_ctrl:vga_ctrl_realization|clk25m'
+Slack : -1.524
+TNS   : -255.159
 
 Type  : Fast Model Setup 'clk100m'
-Slack : -0.715
-TNS   : -12.609
+Slack : 0.277
+TNS   : 0.000
+
+Type  : Fast Model Setup 'vga_ctrl:vga_ctrl_realization|clk50m'
+Slack : 0.773
+TNS   : 0.000
 
 Type  : Fast Model Hold 'clk100m'
-Slack : -1.673
-TNS   : -1.673
+Slack : -1.753
+TNS   : -3.972
 
-Type  : Fast Model Hold 'clk1hz'
+Type  : Fast Model Hold 'vga_ctrl:vga_ctrl_realization|clk50m'
+Slack : -0.393
+TNS   : -0.393
+
+Type  : Fast Model Hold 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : 0.215
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clk100m'
 Slack : -1.380
-TNS   : -124.380
+TNS   : -100.380
 
-Type  : Fast Model Minimum Pulse Width 'clk1hz'
+Type  : Fast Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : -0.500
-TNS   : -33.000
+TNS   : -239.000
+
+Type  : Fast Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk50m'
+Slack : -0.500
+TNS   : -1.000
 
 ------------------------------------------------------------

@@ -1,0 +1,8 @@
+
+State Machine - |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|state
+Name state.p2 state.p2_del state.p1 state.p1_del state.nul 
+state.nul 0 0 0 0 0 
+state.p1_del 0 0 0 1 1 
+state.p1 0 0 1 0 1 
+state.p2_del 0 1 0 0 1 
+state.p2 1 0 0 0 1 
