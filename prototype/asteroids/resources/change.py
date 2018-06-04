@@ -23,6 +23,7 @@ with open(target, 'wb') as f:
         pix = im.load()
         mode = im.mode
 
+        print(pix[0, 0])
         for y in range(height):
             for x in range(0, width, 2):
                 R = pix[x, y][0] // 32

@@ -27,6 +27,7 @@ entity paint is
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
 		base_sram_addr : out std_logic_vector(19 downto 0);
 		base_sram_data : inout std_logic_vector(31 downto 0)
+
 	);
 end paint;
 
@@ -35,6 +36,7 @@ architecture implementation of paint is
 component sram_ctrl is
 	port(
 		clk100m : in std_logic;
+		io_clk : in std_logic;
 		io : in std_logic;
 		addr : in std_logic_vector(19 downto 0);
 		write_data : in std_logic_vector(31 downto 0);
@@ -58,6 +60,7 @@ constant b_addr_bias : std_logic_vector(19 downto 0) := (others => '0');
 signal b_addr_count : std_logic_vector(19 downto 0) := (others => '0');
 
 constant p_width : std_logic_vector(9 downto 0) := "0001010000";
+constant half_p_width : std_logic_vector(9 downto 0) := "0000101000";
 constant p_height : std_logic_vector(8 downto 0) := "001010000";
 
 --player1 image, 80 * 80 pixels, code : "p1", addr : [153600, 156799]
@@ -84,6 +87,8 @@ signal io : std_logic;
 signal addr : std_logic_vector(19 downto 0);
 signal read_data : std_logic_vector(31 downto 0);
 signal write_data : std_logic_vector(31 downto 0);
+signal target_data : std_logic_vector(15 downto 0);
+signal temp_data : std_logic_vector(31 downto 0);
 
 type modify_state is (nul, p1_del, p1, p2_del, p2);
 signal state : modify_state := nul;
@@ -97,12 +102,12 @@ signal p1_cur_addr_bias : std_logic_vector(19 downto 0);
 signal p2_cur_addr_bias : std_logic_vector(19 downto 0);
 signal recover_state : std_logic_vector(1 downto 0);
 signal write_state : std_logic_vector(1 downto 0);
-signal temp_data : std_logic_vector(31 downto 0);
 signal scan_x : std_logic_vector(9 downto 0);
 begin
 
 	sram_ctrl_realization : sram_ctrl port map(
 		clk100m => clk100m,
+		io_clk => vga_clk,
 		io => io,
 		addr => addr,
 		read_data => read_data,
@@ -178,12 +183,14 @@ begin
 				--change state
 				if (vx = 640 and vy = 0) then
 					state <= p1_del;
+					--state <= nul;
 					pixel_count <= '0';
 					p1_addr_count <= (others => '0');
 					recover_state <= (others => '0');
 					scan_x <= (others => '0');
 				elsif (vx = 640 and vy = 120) then
 					state <= p2_del;
+					--state <= nul;
 					pixel_count <= '0';
 					p2_addr_count <= (others => '0');
 					recover_state <= (others => '0');
@@ -192,6 +199,7 @@ begin
 					state <= nul;
 				elsif (vx = 720 and vy = 447) then
 					state <= p1;
+					--state <= nul;
 					pixel_count <= '0';
 					p1_addr_count <= (others => '0');
 					p1_addr_count_self <= (others => '0');
@@ -199,6 +207,7 @@ begin
 					scan_x <= (others => '0');
 				elsif (vx = 400 and vy = 497) then
 					state <= p2;
+					--state <= nul;
 					pixel_count <= '0';
 					p2_addr_count <= (others => '0');
 					p2_addr_count_self <= (others => '0');
@@ -227,6 +236,8 @@ begin
 
 								--read from other frame buffer
 								temp_data <= read_data;
+								--temp_data <= "11100000010000001110000001000000";
+							
 								io <= '0';
 								if ((last_p1_x(0) = '1') and (pixel_count = '1')) then
 									addr <= oth_f_addr_bias + p1_last_addr_bias + p1_addr_count + 1;
@@ -246,10 +257,10 @@ begin
 								end if;
 								if (pixel_count = last_p1_x(0)) then
 									--add = 0, modify high
-									write_data <= temp_data(31 downto 16)&read_data(15 downto 0);
+									write_data <= (temp_data(31 downto 16)&read_data(15 downto 0));
 								else
 									--add = 1, modify low
-									write_data <= read_data(31 downto 16)&temp_data(15 downto 0);
+									write_data <= (read_data(31 downto 16)&temp_data(15 downto 0));
 								end if;
 								--go to the next pixel
 								scan_x <= scan_x + 1;
@@ -259,7 +270,7 @@ begin
 									pixel_count <= '0';
 									if (scan_x + 1 = p_width) then
 										scan_x <= (others => '0');
-										p1_addr_count <= p1_addr_count + half_width - ("0"&p_width(9 downto 1));
+										p1_addr_count <= p1_addr_count + half_width - half_p_width + 1;
 									else
 										p1_addr_count <= p1_addr_count + 1;
 									end if;
@@ -317,7 +328,7 @@ begin
 									pixel_count <= '0';
 									if (scan_x + 1 = p_width) then
 										scan_x <= (others => '0');
-										p2_addr_count <= p2_addr_count + half_width - ("0"&p_width(9 downto 1));
+										p2_addr_count <= p2_addr_count + half_width - half_p_width + 1;
 									else
 										p2_addr_count <= p2_addr_count + 1;
 									end if;
@@ -338,7 +349,13 @@ begin
 								write_state <= "01";
 							when "01" =>
 								--read from another frame buffer to modify
-								temp_data <= read_data;
+								if (pixel_count = '0') then
+									target_data <= read_data(31 downto 16);
+								else
+									target_data <= read_data(15 downto 0);
+								end if;
+
+								--temp_data <= "11100000010000001110000001000000";
 								io <= '0';
 								if ((pixel_count = '1') and (cur_p1_x(0) = '1')) then
 									addr <= oth_f_addr_bias + p1_cur_addr_bias + p1_addr_count + 1;
@@ -348,6 +365,7 @@ begin
 								write_state <= "10";
 							when "10" =>
 								--write data to another frame buffer
+
 								io <= '1';
 
 								if ((pixel_count = '1') and (cur_p1_x(0) = '1')) then
@@ -358,18 +376,21 @@ begin
 
 								if (pixel_count = cur_p1_x(0)) then
 									--add = 0, high
-									if (temp_data(22) = '1') then
+									if (target_data(6) = '1') then
 										--visible
-										write_data <= temp_data(31 downto 16)&read_data(15 downto 0);
+										write_data <= (target_data&read_data(15 downto 0));
+									else
+										write_data <= read_data;
 									end if;
 								else
 									--add = 1, low
-									if (temp_data(6) = '1') then
+									if (target_data(6) = '1') then
 										--visible
-										write_data <= read_data(31 downto 16)&temp_data(15 downto 0);
+										write_data <= (read_data(31 downto 16)&target_data);
+									else
+										write_data <= read_data;
 									end if;
 								end if;
-
 								--go to the next pixel
 								scan_x <= scan_x + 1;
 								if (pixel_count = '0') then
@@ -377,9 +398,9 @@ begin
 								else
 									pixel_count <= '0';
 									p1_addr_count_self <= p1_addr_count_self + 1;
-									if (scan_x = p_width) then
+									if (scan_x + 1 = p_width) then
 										scan_x <= (others => '0');
-										p1_addr_count <= p1_addr_count + half_width - ("0"&p_width(9 downto 1));
+										p1_addr_count <= p1_addr_count + half_width - half_p_width + 1;
 									else
 										p1_addr_count <= p1_addr_count + 1;
 									end if;
@@ -392,13 +413,18 @@ begin
 
 						case write_state is
 							when "00" =>
-								--read from p1 frame
+								--read from p2 frame
 								io <= '0';
 								addr <= p2_addr_bias + p2_addr_count_self;
 								write_state <= "01";
 							when "01" =>
 								--read from another frame buffer to modify
-								temp_data <= read_data;
+								if (pixel_count = '0') then
+									target_data <= read_data(31 downto 16);
+								else
+									target_data <= read_data(15 downto 0);
+								end if;
+								
 								io <= '0';
 								if ((pixel_count = '1') and (cur_p2_x(0) = '1')) then
 									addr <= oth_f_addr_bias + p2_cur_addr_bias + p2_addr_count + 1;
@@ -417,15 +443,19 @@ begin
 								
 								if (pixel_count = cur_p2_x(0)) then
 									--add = 0, high
-									if temp_data(22) = '1' then
+									if target_data(6) = '1' then
 										--visible
-										write_data <= temp_data(31 downto 16)&read_data(15 downto 0);
+										write_data <= target_data&read_data(15 downto 0);
+									else
+										write_data <= read_data;
 									end if;
 								else
 									--add = 1, low
-									if temp_data(6) = '1' then
+									if target_data(6) = '1' then
 										--visible
-										write_data <= read_data(31 downto 16)&temp_data(15 downto 0);
+										write_data <= read_data(31 downto 16)&target_data;
+									else
+										write_data <= read_data;
 									end if;
 								end if;
 
@@ -436,9 +466,9 @@ begin
 								else
 									p2_addr_count_self <= p2_addr_count_self + 1;
 									pixel_count <= '0';
-									if (scan_x = p_width) then
+									if (scan_x + 1 = p_width) then
 										scan_x <= (others => '0');
-										p2_addr_count <= p2_addr_count + half_width - ("0"&p_width(9 downto 1));
+										p2_addr_count <= p2_addr_count + half_width - half_p_width + 1;
 									else
 										p2_addr_count <= p2_addr_count + 1;
 									end if;

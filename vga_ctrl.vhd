@@ -17,6 +17,8 @@ entity vga_ctrl is
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
 		base_sram_addr : out std_logic_vector(19 downto 0);
 		base_sram_data : inout std_logic_vector(31 downto 0)
+
+		--debug
 	);
 end vga_ctrl;
 architecture implementation of vga_ctrl is
@@ -42,11 +44,14 @@ component paint is
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
 		base_sram_addr : out std_logic_vector(19 downto 0);
 		base_sram_data : inout std_logic_vector(31 downto 0)
+		
+		--debug
 	);
 end component;
 
 signal clk50m : std_logic := '0';
 signal clk25m : std_logic := '0';
+signal clk12_5m : std_logic := '0';
 signal vga_clk : std_logic := '0';
 signal vx : std_logic_vector(9 downto 0) := (others => '0');
 signal vx_inc : std_logic_vector(9 downto 0) := "0000000001";
@@ -60,7 +65,7 @@ begin
 
 	paint_realization : paint port map(
 		clk100m => clk100m,
-		vga_clk => clk25m,
+		vga_clk => vga_clk,
 		vx => vx,
 		vx_inc => vx_inc,
 		vy => vy,
@@ -97,6 +102,14 @@ begin
 		end if;
 	end process;
 	
+	process (clk25m)
+	begin
+		if (clk25m'event and clk25m = '1') then
+			clk12_5m <= not clk12_5m;
+		end if;
+	end process;
+
+	--vga_clk <= clk12_5m;
 	vga_clk <= clk25m;
 
 	--generation cur_frame_buffer_id
