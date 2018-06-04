@@ -1,0 +1,23 @@
+------------------------------------------
+ -- 碰撞模块
+ -- 创建日期：2018-6-2
+ -- 负责人：czk
+ -- 使用时钟为50MHz!
+ -- 信号说明：
+ --
+------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity collide is
+	port(
+		clk: in std_logic; --50MHz
+		rst: in std_logic;
+		graph: in std_logic_vector(959 downto 0);
+		com: out std_logic;
+		res: out std_logic_vector(959 downto 0);
+	);
+end collide;

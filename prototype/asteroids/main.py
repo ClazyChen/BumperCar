@@ -158,8 +158,10 @@ def update(dt):
         v2perp = np.dot(v2, o12perp)
 
         _v1para, _v2para = elasticCollision1D(player_1.mess, v1para, player_2.mess, v2para)
-        player_1.omega += sign((np.cross(o1 - intersect, o12perp * (v2perp - v1perp)))) * math.fabs(v1para - _v1para) * collision_constant
-        player_2.omega += sign((np.cross(o2 - intersect, o12perp * (v1perp - v2perp)))) * math.fabs(v2para - _v2para) * collision_constant
+        player_1.omega += math.asin(max(-1,min(1,sign((np.cross(o1 - intersect, o12perp * (v2perp - v1perp)))) * math.fabs(v1para - _v1para) * collision_constant))) / math.pi * 180
+        print( sign((np.cross(o1 - intersect, o12perp * (v2perp - v1perp)))) * math.fabs(v1para - _v1para) * collision_constant * math.pi / 180)
+        player_2.omega += math.asin(max(-1,min(1,sign((np.cross(o2 - intersect, o12perp * (v1perp - v2perp)))) * math.fabs(v2para - _v2para) * collision_constant))) / math.pi * 180
+        print( sign((np.cross(o2 - intersect, o12perp * (v1perp - v2perp)))) * math.fabs(v2para - _v2para) * collision_constant * math.pi / 180);
         _v1 = _v1para * o12 + v1perp * o12perp
         _v2 = _v2para * o12 + v2perp * o12perp
         player_1.vx, player_1.vy = _v1[0], _v1[1]
