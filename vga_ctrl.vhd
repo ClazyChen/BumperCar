@@ -11,7 +11,7 @@ entity vga_ctrl is
 
 		--game status
 		p1_x_0, p2_x_0, p1_x_1, p2_x_1 : in std_logic_vector(9 downto 0);
-		p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(8 downto 0);
+		p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(9 downto 0);
 
 		--base_ram ports
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
@@ -30,12 +30,12 @@ component paint is
 		--VGA control signals
 		vga_clk : in std_logic;
 		vx, vx_inc : in std_logic_vector(9 downto 0);
-		vy, vy_inc : in std_logic_vector(8 downto 0);
+		vy, vy_inc : in std_logic_vector(9 downto 0);
 		cur_frame_buffer_id : in std_logic;
 
 		--game status
 		p1_x_0, p2_x_0, p1_x_1, p2_x_1 : in std_logic_vector(9 downto 0);
-		p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(8 downto 0);
+		p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(9 downto 0);
 
 		--output to VGA
 		rt, gt, bt : out std_logic_vector(2 downto 0);
@@ -55,8 +55,8 @@ signal clk12_5m : std_logic := '0';
 signal vga_clk : std_logic := '0';
 signal vx : std_logic_vector(9 downto 0) := (others => '0');
 signal vx_inc : std_logic_vector(9 downto 0) := "0000000001";
-signal vy : std_logic_vector(8 downto 0) := (others => '0');
-signal vy_inc : std_logic_vector(8 downto 0) := (others => '0'); 
+signal vy : std_logic_vector(9 downto 0) := (others => '0');
+signal vy_inc : std_logic_vector(9 downto 0) := (others => '0'); 
 signal hst, vst, hst_inc, vst_inc : std_logic;
 signal cur_frame_buffer_id : std_logic := '0';
 signal rt, gt, bt : std_logic_vector(2 downto 0);
@@ -116,7 +116,7 @@ begin
 	process (vga_clk)
 	begin
 		if (vga_clk'event and vga_clk = '1') then
-			if (vx = 0 and vy = 0) then
+			if (vx = 799 and vy = 524) then
 				cur_frame_buffer_id <= not cur_frame_buffer_id;
 			end if;
 		end if;

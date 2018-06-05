@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Jun 04 15:02:14 2018
+Analysis & Synthesis Status : Successful - Tue Jun 05 17:14:22 2018
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : BumperCar
 Top-level Entity Name : BumperCar
 Family : Cyclone II
-Total logic elements : 747
-    Total combinational functions : 595
-    Dedicated logic registers : 376
-Total registers : 376
+Total logic elements : 810
+    Total combinational functions : 659
+    Dedicated logic registers : 289
+Total registers : 289
 Total pins : 67
 Total virtual pins : 0
 Total memory bits : 0

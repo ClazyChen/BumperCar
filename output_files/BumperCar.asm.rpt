@@ -1,5 +1,5 @@
 Assembler report for BumperCar
-Mon Jun 04 15:02:32 2018
+Tue Jun 05 17:14:42 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Jun 04 15:02:32 2018 ;
+; Assembler Status      ; Successful - Tue Jun 05 17:14:42 2018 ;
 ; Revision Name         ; BumperCar                             ;
 ; Top-level Entity Name ; BumperCar                             ;
 ; Family                ; Cyclone II                            ;
@@ -94,8 +94,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                   ;
 +----------------+---------------------------------------------------------------------------+
 ; Device         ; EP2C70F672C8                                                              ;
-; JTAG usercode  ; 0x0066CDEA                                                                ;
-; Checksum       ; 0x0066CDEA                                                                ;
+; JTAG usercode  ; 0x0067B57F                                                                ;
+; Checksum       ; 0x0067B57F                                                                ;
 +----------------+---------------------------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+-----------------------------------------------------------------------+
 ; Device             ; EPCS16                                                                ;
 ; JTAG usercode      ; 0x00000000                                                            ;
-; Checksum           ; 0x186EEB70                                                            ;
+; Checksum           ; 0x186BCB46                                                            ;
 ; Compression Ratio  ; 3                                                                     ;
 +--------------------+-----------------------------------------------------------------------+
 
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Jun 04 15:02:29 2018
+    Info: Processing started: Tue Jun 05 17:14:38 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off BumperCar -c BumperCar
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 419 megabytes
-    Info: Processing ended: Mon Jun 04 15:02:32 2018
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 428 megabytes
+    Info: Processing ended: Tue Jun 05 17:14:42 2018
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:03
 
 

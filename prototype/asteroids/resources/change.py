@@ -25,22 +25,17 @@ with open(target, 'wb') as f:
 
         print(pix[0, 0])
         for y in range(height):
-            for x in range(0, width, 2):
+            for x in range(width):
                 R = pix[x, y][0] // 32
                 G = pix[x, y][1] // 32
                 B = pix[x, y][2] // 32
-                _R = pix[x + 1, y][0] // 32
-                _G = pix[x + 1, y][1] // 32
-                _B = pix[x + 1, y][2] // 32
-                A, _A = 0, 0
+                A = 0
                 if mode == 'RGB':
-                    A, _A = 1, 1
+                    A = 1
                 else:
                     A = pix[x, y][3] // 255
-                    _A = pix[x + 1, y][3] // 255
                 s = binstr(R, 3) + binstr(G, 3) + binstr(B, 3) + binstr(A, 1) + '000000'
-                _s = binstr(_R, 3) + binstr(_G, 3) + binstr(_B, 3) + binstr(_A, 1) + '000000'
-                s = s + _s
+                s = s + '0' * 16
                 f.write(struct.pack('B', int(s[24:], 2)))
                 f.write(struct.pack('B', int(s[16:24], 2)))
                 f.write(struct.pack('B', int(s[8:16], 2)))

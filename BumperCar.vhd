@@ -27,22 +27,22 @@ component vga_ctrl is
 		r, g, b : out std_logic_vector(2 downto 0);
 	
 		p1_x_0, p2_x_0, p1_x_1, p2_x_1 : in std_logic_vector(9 downto 0);
-		p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(8 downto 0);
+		p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(9 downto 0);
 
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
 		base_sram_addr : out std_logic_vector(19 downto 0);
 		base_sram_data : inout std_logic_vector(31 downto 0)
 	);
 end component;
-signal p1_x_0 : std_logic_vector(9 downto 0) := "0000010000";
-signal p1_x_1 : std_logic_vector(9 downto 0) := "0000010000";
-signal p1_y_0 : std_logic_vector(8 downto 0) := "000010000";
-signal p1_y_1 : std_logic_vector(8 downto 0) := "000010000";
+signal p1_x_0 : std_logic_vector(9 downto 0) := "0000000000";
+signal p1_x_1 : std_logic_vector(9 downto 0) := "0000000000";
+signal p1_y_0 : std_logic_vector(9 downto 0) := "0000000000";
+signal p1_y_1 : std_logic_vector(9 downto 0) := "0000000000";
 
 signal p2_x_0 : std_logic_vector(9 downto 0) := "0010000000";
 signal p2_x_1 : std_logic_vector(9 downto 0) := "0010000000";
-signal p2_y_0 : std_logic_vector(8 downto 0) := "010000000";
-signal p2_y_1 : std_logic_vector(8 downto 0) := "010000000";
+signal p2_y_0 : std_logic_vector(9 downto 0) := "0010000000";
+signal p2_y_1 : std_logic_vector(9 downto 0) := "0010000000";
 
 begin
 	vga_ctrl_realization : vga_ctrl port map(
