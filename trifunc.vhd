@@ -1,7 +1,8 @@
 ------------------------------------------
- -- 三角函数计算模块（暂时废弃）
+ -- 三角函数计算模块
  -- 创建日期：2018-5-29
  -- 负责人：czk
+ -- 使用50MHz的时钟
  -- 信号说明：
  --
 ------------------------------------------
@@ -40,7 +41,7 @@ architecture bhv of trifunc is
 		);
 	end component;
 	
-	signal cnt:std_logic_vector(7 downto 0):=(others=>'0');
+	signal cnt:std_logic_vector(6 downto 0):=(others=>'0');
 	
 	signal a1,a2,a3,m1,m2,m3: std_logic_vector(31 downto 0);
 	
@@ -52,9 +53,6 @@ architecture bhv of trifunc is
 	signal k5:std_logic_vector(31 downto 0):="00111100000010001000100010001001";
 	signal k6:std_logic_vector(31 downto 0):="10111010101101100000101101100001";
 	signal k7:std_logic_vector(31 downto 0):="10111001010100000000110100000001";
-	
-	signal sinres,cosres:std_logic_vector(31 downto 0);
-	signal pow:std_logic_vector(31 downto 0);
 	
 	-- sinx = x + k3*x^3 + k5*x^5 + k7*x^7
 	-- cosx = k0 + k2*x^2 + k4*x^4 + k6*x^6
@@ -69,9 +67,13 @@ architecture bhv of trifunc is
 	-- s024<=a3; a1<=s13; m1<=m3(t^5); m2<=k5
 	-- a2 <= m3; m2 <= t
 	-- s135 <=a3; a1 <=s024; m1 <=m3(t^6); m2<=k6
-	-- sinx <= 
-	--
-	--
+	-- a2 <= m3; m2 <= t
+	-- cosx <= a3; a1 <= s135; m1 <= m3(t^7); m2 <= k7
+	-- a2 <= m3;
+	-- sinx <= a3;
+	-- 需要93个时钟周期
+	
+	signal s02, s13, s024, s135: std_logic_vector(31 downto 0);
 	
 begin
 	p1: add port map(clk, a1, a2, a3);
@@ -80,11 +82,63 @@ begin
 	begin
 		if rst = '0' then
 			com <= '0';
-			cnt <= "00000000";
+			cnt <= "0000000";
 		elsif rising_edge(clk) then
 			cnt <= cnt + 1;
 			case cnt is
-				when "00000001" => --1
+				when "0000001" => --1
+					m1 <= t;
+					m2 <= t;
+				when "0001000" => --8
+					m1 <= m3;
+					m2 <= k2;
+				when "0001111" => --15
+					m2 <= t;
+					a1 <= k0;
+					a2 <= m3;
+				when "0010110" => --22
+					s02 <= a3;
+					m1 <= m3;
+					m2 <= k3;
+				when "0011101" => --29
+					a1 <= t;
+					a2 <= m3;
+					m2 <= t;
+				when "0100100" => --36
+					s13 <= a3;
+					m1 <= m3;
+					m2 <= k4;
+				when "0101011" => --43
+					a1 <= s02;
+					a2 <= m3;
+					m2 <= t;
+				when "0110010" => --50
+					s024 <= a3;
+					m1 <= m3;
+					m2 <= k5;
+				when "0111001" => --57
+					a1 <= s13;
+					a2 <= m3;
+					m2 <= t;
+				when "1000000" => --64
+					s135 <= a3;
+					m1 <= m3;
+					m2 <= k6;
+				when "1000111" => --71
+					a1 <= s024;
+					a2 <= m3;
+					m2 <= t;
+				when "1001110" => --78
+					cos <= a3;
+					m1 <= m3;
+					m2 <= k7;
+				when "1010101" => --85
+					a1 <= s135;
+					a2 <= m3;
+				when "1011100" => --92
+					sin <= a3;
+					com <= '1';
+				when others =>
 			end case;
 		end if;
 	end process;

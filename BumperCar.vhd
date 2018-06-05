@@ -92,6 +92,15 @@ architecture bhv of BumperCar is
 			res: out std_logic_vector(959 downto 0)
 		);
 	end component;
+	component collide
+		port(
+			clk: in std_logic; --50MHz
+			rst: in std_logic;
+			graph: in std_logic_vector(959 downto 0);
+			com: out std_logic;
+			res: out std_logic_vector(959 downto 0)
+		);
+	end component;
 signal color: std_logic_vector(8 downto 0):=(others=>'1');
 signal clk25: std_logic;
 signal x: std_logic_vector(9 downto 0);
@@ -106,11 +115,13 @@ signal initial_rst:std_logic:='0';
 signal modify_rst:std_logic:='0';
 signal waiting_rst:std_logic:='0';
 signal motion_rst:std_logic:='0';
+signal collide_rst:std_logic:='0';
 
 signal initial_com:std_logic:='0';
 signal modify_com:std_logic:='0';
 signal waiting_com:std_logic:='0';
 signal motion_com:std_logic:='0';
+signal collide_com:std_logic:='0';
 
 signal initial_con:std_logic_vector(1 downto 0);
 
@@ -120,6 +131,7 @@ signal graph: std_logic_vector(959 downto 0):=(others =>'0');
 signal modify_res: std_logic_vector(959 downto 0); --可以减少！
 signal waiting_res: std_logic_vector(959 downto 0); --可以减少！
 signal motion_res: std_logic_vector(959 downto 0); --可以减少！
+signal collide_res: std_logic_vector(959 downto 0);
 
 signal test:std_logic_vector(7 downto 0):=(others =>'0');
 begin
@@ -131,7 +143,7 @@ begin
 	p2: modify port map(clk, clk_0, modify_rst, key_data, graph, modify_com, modify_res);
 	p3: waiting port map(clk, waiting_rst, initial_con, waiting_com, waiting_res);
 	p4: motion port map(clk50, motion_rst, graph, motion_com, motion_res);
-	
+	p5: collide port map(clk50, collide_rst, graph, collide_com, collide_res);
 	test_out <= test;
 	
 	process(clk)
@@ -165,9 +177,16 @@ begin
 				when "0010" =>
 					graph(959 downto 0) <= waiting_res(959 downto 0);
 					state <= "0011";
-				when "0011" =>
-					state <= "0100";
+				when "0011" => --计算碰撞模块
+					if collide_rst = '0' then
+						collide_rst <= '1';
+					elsif collide_com = '1' then
+						collide_rst <= '0';
+						state <= "0100";
+					end if;
 				when "0100" =>
+					graph(959 downto 832) <= collide_res(959 downto 832);
+					graph(479 downto 352) <= collide_res(479 downto 352);
 					state <= "0101";
 				when "0101" => --等待键盘状态，运行modify模块
 					if modify_rst = '0' then
