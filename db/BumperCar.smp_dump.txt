@@ -1,4 +1,11 @@
 
+State Machine - |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|iostate
+Name iostate.updating iostate.receiving iostate.reading iostate.waiting 
+iostate.waiting 0 0 0 0 
+iostate.reading 0 0 1 1 
+iostate.receiving 0 1 0 1 
+iostate.updating 1 0 0 1 
+
 State Machine - |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|state
 Name state.p2 state.p2_del state.p1 state.p1_del state.nul 
 state.nul 0 0 0 0 0 

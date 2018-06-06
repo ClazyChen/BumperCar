@@ -28,12 +28,9 @@ class interval:
             print(_[1][0])
 
 I = interval(c)
-I.insert_head('p1_del', 19200)
-I.insert_head('v1', 200)
-I.insert_head('p2_del', 19200)
+I.insert_head('p1_del', 19300)
+I.insert_head('p2_del', 19300)
 
-I.insert_tail('v3', 200)
-I.insert_tail('p2', 19200)
-I.insert_tail('v2', 200)
-I.insert_tail('p1', 19200)
+I.insert_tail('p2', 19300)
+I.insert_tail('p1', 19300)
 I.paint()

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BumperCar
-Wed Jun 06 17:11:32 2018
+Wed Jun 06 21:33:26 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,14 +13,15 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|state
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Port Connectivity Checks: "vga_ctrl:vga_ctrl_realization"
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. State Machine - |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|iostate
+  9. State Machine - |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "vga_ctrl:vga_ctrl_realization"
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -46,15 +47,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 06 17:11:32 2018           ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 06 21:33:26 2018           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; BumperCar                                       ;
 ; Top-level Entity Name              ; BumperCar                                       ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 618                                             ;
-;     Total combinational functions  ; 468                                             ;
-;     Dedicated logic registers      ; 283                                             ;
-; Total registers                    ; 283                                             ;
+; Total logic elements               ; 561                                             ;
+;     Total combinational functions  ; 411                                             ;
+;     Dedicated logic registers      ; 282                                             ;
+; Total registers                    ; 282                                             ;
 ; Total pins                         ; 67                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -182,28 +183,28 @@ applicable agreement for further details.
 +---------------------------------------------+--------------------------------------+
 ; Resource                                    ; Usage                                ;
 +---------------------------------------------+--------------------------------------+
-; Estimated Total logic elements              ; 618                                  ;
+; Estimated Total logic elements              ; 561                                  ;
 ;                                             ;                                      ;
-; Total combinational functions               ; 468                                  ;
+; Total combinational functions               ; 411                                  ;
 ; Logic element usage by number of LUT inputs ;                                      ;
-;     -- 4 input functions                    ; 132                                  ;
-;     -- 3 input functions                    ; 83                                   ;
-;     -- <=2 input functions                  ; 253                                  ;
+;     -- 4 input functions                    ; 164                                  ;
+;     -- 3 input functions                    ; 40                                   ;
+;     -- <=2 input functions                  ; 207                                  ;
 ;                                             ;                                      ;
 ; Logic elements by mode                      ;                                      ;
-;     -- normal mode                          ; 250                                  ;
-;     -- arithmetic mode                      ; 218                                  ;
+;     -- normal mode                          ; 237                                  ;
+;     -- arithmetic mode                      ; 174                                  ;
 ;                                             ;                                      ;
-; Total registers                             ; 283                                  ;
-;     -- Dedicated logic registers            ; 283                                  ;
+; Total registers                             ; 282                                  ;
+;     -- Dedicated logic registers            ; 282                                  ;
 ;     -- I/O registers                        ; 0                                    ;
 ;                                             ;                                      ;
 ; I/O pins                                    ; 67                                   ;
 ; Embedded Multiplier 9-bit elements          ; 0                                    ;
 ; Maximum fan-out node                        ; vga_ctrl:vga_ctrl_realization|clk25m ;
-; Maximum fan-out                             ; 164                                  ;
-; Total fan-out                               ; 2263                                 ;
-; Average fan-out                             ; 2.77                                 ;
+; Maximum fan-out                             ; 163                                  ;
+; Total fan-out                               ; 2180                                 ;
+; Average fan-out                             ; 2.87                                 ;
 +---------------------------------------------+--------------------------------------+
 
 
@@ -212,12 +213,25 @@ applicable agreement for further details.
 +--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                 ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                              ; Library Name ;
 +--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
-; |BumperCar                                 ; 468 (0)           ; 283 (0)      ; 0           ; 0            ; 0       ; 0         ; 67   ; 0            ; |BumperCar                                                                                       ; work         ;
-;    |vga_ctrl:vga_ctrl_realization|         ; 468 (50)          ; 283 (27)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:vga_ctrl_realization                                                         ; work         ;
-;       |paint:paint_realization|            ; 418 (415)         ; 256 (137)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization                                 ; work         ;
+; |BumperCar                                 ; 411 (0)           ; 282 (0)      ; 0           ; 0            ; 0       ; 0         ; 67   ; 0            ; |BumperCar                                                                                       ; work         ;
+;    |vga_ctrl:vga_ctrl_realization|         ; 411 (50)          ; 282 (27)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:vga_ctrl_realization                                                         ; work         ;
+;       |paint:paint_realization|            ; 361 (358)         ; 255 (136)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization                                 ; work         ;
 ;          |sram_ctrl:sram_ctrl_realization| ; 3 (3)             ; 119 (119)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization ; work         ;
 +--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------+
+; State Machine - |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|iostate     ;
++-------------------+------------------+-------------------+-----------------+-----------------+
+; Name              ; iostate.updating ; iostate.receiving ; iostate.reading ; iostate.waiting ;
++-------------------+------------------+-------------------+-----------------+-----------------+
+; iostate.waiting   ; 0                ; 0                 ; 0               ; 0               ;
+; iostate.reading   ; 0                ; 0                 ; 1               ; 1               ;
+; iostate.receiving ; 0                ; 1                 ; 0               ; 1               ;
+; iostate.updating  ; 1                ; 0                 ; 0               ; 1               ;
++-------------------+------------------+-------------------+-----------------+-----------------+
 
 
 Encoding Type:  One-Hot
@@ -234,18 +248,20 @@ Encoding Type:  One-Hot
 +--------------+----------+--------------+----------+--------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                             ;
-+---------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
-; Register name                                                                                                 ; Reason for Removal                                                             ;
-+---------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
-; vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p2_del                                            ; Merged with vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p1_del ;
-; vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p1_del                                            ; Stuck at GND due to stuck port data_in                                         ;
-; vga_ctrl:vga_ctrl_realization|paint:paint_realization|recover_state[0,1]                                      ; Stuck at GND due to stuck port clock_enable                                    ;
-; vga_ctrl:vga_ctrl_realization|paint:paint_realization|write_data[22]                                          ; Stuck at VCC due to stuck port data_in                                         ;
-; vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[22]~reg0 ; Stuck at VCC due to stuck port data_in                                         ;
-; Total Number of Removed Registers = 6                                                                         ;                                                                                ;
-+---------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                     ;
++---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+; Register name                                                                                                 ; Reason for Removal                                                                     ;
++---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+; vga_ctrl:vga_ctrl_realization|paint:paint_realization|p_addr_count[0]                                         ; Merged with vga_ctrl:vga_ctrl_realization|paint:paint_realization|p_addr_count_self[0] ;
+; vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p2                                                ; Merged with vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p1_del         ;
+; vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p2_del                                            ; Merged with vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p1_del         ;
+; vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p1_del                                            ; Stuck at GND due to stuck port data_in                                                 ;
+; vga_ctrl:vga_ctrl_realization|paint:paint_realization|write_data[22]                                          ; Stuck at VCC due to stuck port data_in                                                 ;
+; vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|base_sram_data[22]~reg0 ; Stuck at VCC due to stuck port data_in                                                 ;
+; vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.p1                                                ; Merged with vga_ctrl:vga_ctrl_realization|paint:paint_realization|state.nul            ;
+; Total Number of Removed Registers = 7                                                                         ;                                                                                        ;
++---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -263,12 +279,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 283   ;
-; Number of registers using Synchronous Clear  ; 20    ;
-; Number of registers using Synchronous Load   ; 31    ;
+; Total registers                              ; 282   ;
+; Number of registers using Synchronous Clear  ; 21    ;
+; Number of registers using Synchronous Load   ; 39    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 251   ;
+; Number of registers using Clock Enable       ; 244   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -278,14 +294,16 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
-; 6:1                ; 31 bits   ; 124 LEs       ; 0 LEs                ; 124 LEs                ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|write_data[31]       ;
-; 9:1                ; 20 bits   ; 120 LEs       ; 20 LEs               ; 100 LEs                ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|p_addr_count_self[7] ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|write_state[0]       ;
-; 10:1               ; 20 bits   ; 120 LEs       ; 20 LEs               ; 100 LEs                ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|p_addr_count[15]     ;
-; 10:1               ; 10 bits   ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|scan_x[3]            ;
-; 19:1               ; 13 bits   ; 156 LEs       ; 91 LEs               ; 65 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|addr[15]             ;
-; 17:1               ; 7 bits    ; 77 LEs        ; 35 LEs               ; 42 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|addr[4]              ;
-; 12:1               ; 5 bits    ; 40 LEs        ; 30 LEs               ; 10 LEs                 ; No         ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|state                ;
+; 6:1                ; 20 bits   ; 80 LEs        ; 20 LEs               ; 60 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|p_addr_count_self[0] ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|scan_x[8]            ;
+; 7:1                ; 19 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|p_addr_count[19]     ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 0 LEs                ; 124 LEs                ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|write_data[8]        ;
+; 18:1               ; 6 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|addr[3]              ;
+; 21:1               ; 11 bits   ; 154 LEs       ; 110 LEs              ; 44 LEs                 ; Yes        ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|addr[14]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|iostate              ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; No         ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|iostate              ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|state                ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |BumperCar|vga_ctrl:vga_ctrl_realization|paint:paint_realization|iostate              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
 
 
@@ -318,7 +336,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -328,9 +346,8 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jun 06 17:11:29 2018
+    Info: Processing started: Wed Jun 06 21:33:22 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BumperCar -c BumperCar
-Critical Warning (138067): Current license file does not support incremental compilation. The Quartus II software removes all the user-specified design partitions in the design automatically.
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file bumpercar.vhd
     Info (12022): Found design unit 1: BumperCar-implementation
@@ -377,6 +394,7 @@ Warning (10492): VHDL Process Statement warning at vga_ctrl.vhd(214): signal "rt
 Warning (10492): VHDL Process Statement warning at vga_ctrl.vhd(215): signal "gt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at vga_ctrl.vhd(216): signal "bt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "paint" for hierarchy "vga_ctrl:vga_ctrl_realization|paint:paint_realization"
+Warning (10036): Verilog HDL or VHDL warning at paint.vhd(97): object "p2_cur_addr_bias" assigned a value but never read
 Warning (10492): VHDL Process Statement warning at paint.vhd(127): signal "p1_x_0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at paint.vhd(128): signal "p1_y_0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at paint.vhd(129): signal "p1_x_1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -393,23 +411,22 @@ Warning (10492): VHDL Process Statement warning at paint.vhd(142): signal "p2_x_
 Warning (10492): VHDL Process Statement warning at paint.vhd(143): signal "p2_y_1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at paint.vhd(144): signal "p2_x_0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at paint.vhd(145): signal "p2_y_0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10037): Verilog HDL or VHDL warning at paint.vhd(185): conditional expression evaluates to a constant
+Warning (10037): Verilog HDL or VHDL warning at paint.vhd(183): conditional expression evaluates to a constant
 Warning (10037): Verilog HDL or VHDL warning at paint.vhd(200): conditional expression evaluates to a constant
-Warning (10037): Verilog HDL or VHDL warning at paint.vhd(215): conditional expression evaluates to a constant
-Warning (10037): Verilog HDL or VHDL warning at paint.vhd(231): conditional expression evaluates to a constant
+Warning (10037): Verilog HDL or VHDL warning at paint.vhd(220): conditional expression evaluates to a constant
+Warning (10037): Verilog HDL or VHDL warning at paint.vhd(237): conditional expression evaluates to a constant
 Info (12128): Elaborating entity "sram_ctrl" for hierarchy "vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization"
-Critical Warning (138067): Current license file does not support incremental compilation. The Quartus II software removes all the user-specified design partitions in the design automatically.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 702 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 645 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 34 output pins
     Info (21060): Implemented 32 bidirectional pins
-    Info (21061): Implemented 635 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 36 warnings
-    Info: Peak virtual memory: 504 megabytes
-    Info: Processing ended: Wed Jun 06 17:11:32 2018
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info (21061): Implemented 578 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 35 warnings
+    Info: Peak virtual memory: 500 megabytes
+    Info: Processing ended: Wed Jun 06 21:33:26 2018
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
