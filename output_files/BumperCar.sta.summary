@@ -3,35 +3,35 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'vga_ctrl:vga_ctrl_realization|clk25m'
-Slack : -11.543
-TNS   : -1201.078
+Slack : -9.951
+TNS   : -1126.874
 
 Type  : Slow Model Setup 'vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|distilled_clk'
-Slack : -2.672
-TNS   : -200.809
+Slack : -3.247
+TNS   : -216.200
 
 Type  : Slow Model Setup 'vga_ctrl:vga_ctrl_realization|clk50m'
-Slack : 1.091
+Slack : 1.092
 TNS   : 0.000
 
 Type  : Slow Model Setup 'clk100m'
-Slack : 3.157
+Slack : 3.127
 TNS   : 0.000
 
 Type  : Slow Model Hold 'clk100m'
-Slack : -3.169
-TNS   : -6.092
+Slack : -3.137
+TNS   : -6.030
 
 Type  : Slow Model Hold 'vga_ctrl:vga_ctrl_realization|clk50m'
-Slack : -0.857
-TNS   : -0.857
+Slack : -0.858
+TNS   : -0.858
 
 Type  : Slow Model Hold 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : 0.499
 TNS   : 0.000
 
 Type  : Slow Model Hold 'vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|distilled_clk'
-Slack : 0.745
+Slack : 0.743
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clk100m'
@@ -40,46 +40,46 @@ TNS   : -4.909
 
 Type  : Slow Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : -0.742
-TNS   : -247.828
+TNS   : -240.408
 
 Type  : Slow Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|distilled_clk'
 Slack : -0.742
-TNS   : -176.596
+TNS   : -175.112
 
 Type  : Slow Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk50m'
 Slack : -0.742
 TNS   : -1.484
 
 Type  : Fast Model Setup 'vga_ctrl:vga_ctrl_realization|clk25m'
-Slack : -2.872
-TNS   : -281.239
+Slack : -2.649
+TNS   : -271.393
 
 Type  : Fast Model Setup 'vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|distilled_clk'
-Slack : -0.275
-TNS   : -2.900
+Slack : -0.559
+TNS   : -9.997
 
 Type  : Fast Model Setup 'vga_ctrl:vga_ctrl_realization|clk50m'
-Slack : 0.773
+Slack : 0.774
 TNS   : 0.000
 
 Type  : Fast Model Setup 'clk100m'
-Slack : 2.104
+Slack : 2.070
 TNS   : 0.000
 
 Type  : Fast Model Hold 'clk100m'
-Slack : -1.748
-TNS   : -3.472
+Slack : -1.714
+TNS   : -3.404
 
 Type  : Fast Model Hold 'vga_ctrl:vga_ctrl_realization|clk50m'
-Slack : -0.393
-TNS   : -0.393
+Slack : -0.394
+TNS   : -0.394
 
 Type  : Fast Model Hold 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : 0.215
 TNS   : 0.000
 
 Type  : Fast Model Hold 'vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|distilled_clk'
-Slack : 0.241
+Slack : 0.238
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clk100m'
@@ -88,11 +88,11 @@ TNS   : -3.380
 
 Type  : Fast Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk25m'
 Slack : -0.500
-TNS   : -167.000
+TNS   : -162.000
 
 Type  : Fast Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|paint:paint_realization|sram_ctrl:sram_ctrl_realization|distilled_clk'
 Slack : -0.500
-TNS   : -119.000
+TNS   : -118.000
 
 Type  : Fast Model Minimum Pulse Width 'vga_ctrl:vga_ctrl_realization|clk50m'
 Slack : -0.500

@@ -101,8 +101,8 @@ signal write_state : std_logic_vector(1 downto 0);
 signal scan_x : std_logic_vector(9 downto 0);
 
 --debug
-constant p1_del_en : std_logic := '1';
-constant p2_del_en : std_logic := '1';
+constant p1_del_en : std_logic := '0';
+constant p2_del_en : std_logic := '0';
 constant p1_en : std_logic := '1';
 constant p2_en : std_logic := '1';
 
@@ -179,192 +179,195 @@ begin
 				bt <= "000";
 
 
+				if (vx < 799) then
+					--change state
+					if (vx = 640 and vy = 0) then
+						if (p1_del_en = '0') then
+							state <= nul;
+							io <= "11";
+						else
+							state <= p1_del;
+							p_addr_count <= (others => '0');
+							recover_state <= (others => '0');
+							scan_x <= (others => '0');
+							io <= "00";
+							addr <= b_addr_bias + p1_last_addr_bias;
+						end if;
+					elsif (vx = 760 and vy = 120) then
+						state <= nul;
+						io <= "11";
+					elsif (vx = 642 and vy = 122) then
+						if (p2_del_en = '0') then
+							state <= nul;
+							io <= "11";
+						else
+							state <= p2_del;
+							p_addr_count <= (others => '0');
+							recover_state <= (others => '0');
+							scan_x <= (others => '0');
+							io <= "00";
+							addr <= b_addr_bias + p2_last_addr_bias;
+						end if;
+					elsif (vx = 762 and vy = 242) then
+						state <= nul;
+						io <= "11";
+					elsif (vx = 657 and vy = 462) then
+						if (p1_en = '0') then
+							state <= nul;
+							io <= "11";
+						else
+							state <= p1;
+							p_addr_count <= (others => '0');
+							p_addr_count_self <= (others => '0');
+							write_state <= "00";
+							scan_x <= (others => '0');
+							io <= "00";
+							addr <= p1_addr_bias;
+						end if;
+					elsif (vx = 375 and vy = 500) then
+						state <= nul;
+						io <= "11";
+					elsif (vx = 575 and vy = 500) then
+						if (p2_en = '0') then
+							state <= nul;
+							io <= "11";
+						else
+							state <= p2;
+							p_addr_count <= (others => '0');
+							p_addr_count_self <= (others => '0');
+							write_state <= "00";
+							scan_x <= (others => '0');
+							io <= "00";
+							addr <= p2_addr_bias;
+						end if;
+					elsif (vx = 599 and vy = 524) then
+						state <= nul;
+						io <= "11";
+					end if;
 
-				--change state
-				if (vx = 640 and vy = 0) then
-					if (p1_del_en = '0') then
-						state <= nul;
-						io <= "11";
-					else
-						state <= p1_del;
-						p_addr_count <= (others => '0');
-						recover_state <= (others => '0');
-						scan_x <= (others => '0');
-						io <= "00";
-						addr <= b_addr_bias + p1_last_addr_bias;
-					end if;
-				elsif (vx = 640 and vy = 120) then
-					state <= nul;
-					io <= "11";
-				elsif (vx = 680 and vy = 121) then
-					if (p2_del_en = '0') then
-						state <= nul;
-						io <= "11";
-					else
-						state <= p2_del;
-						p_addr_count <= (others => '0');
-						recover_state <= (others => '0');
-						scan_x <= (others => '0');
-						io <= "00";
-						addr <= b_addr_bias + p2_last_addr_bias;
-					end if;
-				elsif (vx = 680 and vy = 241) then
-					state <= nul;
-					io <= "11";
-				elsif (vx = 760 and vy = 448) then
-					if (p1_en = '0') then
-						state <= nul;
-						io <= "11";
-					else
-						state <= p1;
-						p_addr_count <= (others => '0');
-						p_addr_count_self <= (others => '0');
-						write_state <= "00";
-						scan_x <= (others => '0');
-						io <= "00";
-						addr <= p1_addr_bias;
-					end if;
-				elsif (vx = 600 and vy = 497) then
-					state <= nul;
-					io <= "11";
-				elsif (vx = 0 and vy = 498) then
-					if (p2_en = '0') then
-						state <= nul;
-						io <= "11";
-					else
-						state <= p2;
-						p_addr_count <= (others => '0');
-						p_addr_count_self <= (others => '0');
-						write_state <= "00";
-						scan_x <= (others => '0');
-						io <= "00";
-						addr <= p2_addr_bias;
-					end if;
-				elsif (vx = 0 and vy = 522) then
-					state <= nul;
+					--state decision
+					case (state) is
+						when p1_del =>
+							case (recover_state) is
+								when "00" =>
+									recover_state <= "01";
+								when "01" =>
+									io <= "01";
+									addr <= oth_f_addr_bias + p1_last_addr_bias + p_addr_count;
+									write_data <= read_data;
+									recover_state <= "10";
+								when "10" =>
+									io <= "00";
+									if (scan_x + 1 = p_width) then
+										scan_x <= (others => '0');
+										p_addr_count <= p_addr_count + width - p_width + 1;
+										addr <= b_addr_bias + p1_last_addr_bias + p_addr_count + width - p_width + 1;
+									else
+										scan_x <= scan_x + 1;
+										p_addr_count <= p_addr_count + 1;
+										addr <= b_addr_bias + p1_last_addr_bias + p_addr_count + 1;
+									end if;
+									recover_state <= "00";
+								when others =>
+							end case;
+
+						when p2_del =>
+							case (recover_state) is
+								when "00" =>
+									recover_state <= "01";
+								when "01" =>
+									io <= "01";
+									addr <= oth_f_addr_bias + p2_last_addr_bias + p_addr_count;
+									write_data <= read_data;
+									recover_state <= "10";
+								when "10" =>
+									io <= "00";
+									if (scan_x + 1 = p_width) then
+										scan_x <= (others => '0');
+										p_addr_count <= p_addr_count + width - p_width + 1;
+										addr <= b_addr_bias + p2_last_addr_bias + p_addr_count + width - p_width + 1;
+									else
+										scan_x <= scan_x + 1;
+										p_addr_count <= p_addr_count + 1;
+										addr <= b_addr_bias + p2_last_addr_bias + p_addr_count + 1;
+									end if;
+									recover_state <= "00";
+								when others =>
+
+							end case;
+									
+						when p1 =>
+
+							case write_state is
+								when "00" =>
+									write_state <= "01";
+								when "01" =>
+									if (read_data(22) = '0') then
+										io <= "11";
+									else
+										io <= "01";
+										addr <= oth_f_addr_bias + p1_cur_addr_bias + p_addr_count;
+										write_data <= read_data;
+									end if;
+									write_state <= "10";
+								when "10" =>
+									if (p_addr_count_self + 1 = p_addr_num) then
+										state <= nul;
+										io <= "11";
+									else
+										io <= "00";	
+										p_addr_count_self <= p_addr_count_self + 1;
+										addr <= p1_addr_bias + p_addr_count_self + 1;
+										if (scan_x + 1 = p_width) then
+											scan_x <= (others => '0');
+											p_addr_count <= p_addr_count + width - p_width + 1;
+										else
+											scan_x <= scan_x + 1;
+											p_addr_count <= p_addr_count + 1;
+										end if;
+										write_state <= "00";
+									end if;
+								when others =>
+							end case;
+						when p2 =>
+
+							case write_state is
+								when "00" =>
+									write_state <= "01";
+								when "01" =>
+									if (read_data(22) = '0') then
+										io <= "11";
+									else
+										io <= "01";
+										addr <= oth_f_addr_bias + p2_cur_addr_bias + p_addr_count;
+										write_data <= read_data;
+									end if;
+									write_state <= "10";
+								when "10" =>
+									if (p_addr_count_self + 1 = p_addr_num) then
+										state <= nul;
+										io <= "11";
+									else
+										io <= "00";
+										p_addr_count_self <= p_addr_count_self + 1;
+										addr <= p2_addr_bias + p_addr_count_self + 1;
+										if (scan_x + 1 = p_width) then
+											scan_x <= (others => '0');
+											p_addr_count <= p_addr_count + width - p_width + 1;
+										else
+											scan_x <= scan_x + 1;
+											p_addr_count <= p_addr_count + 1;
+										end if;
+										write_state <= "00";
+									end if;
+								when others =>
+							end case;
+						when nul =>
+							io <= "11";
+					end case;
+				else
 					io <= "11";
 				end if;
-
-				--state decision
-				case (state) is
-					when p1_del =>
-						case (recover_state) is
-							when "00" =>
-								recover_state <= "01";
-							when "01" =>
-								io <= "01";
-								addr <= oth_f_addr_bias + p1_last_addr_bias + p_addr_count;
-								write_data <= read_data;
-								recover_state <= "10";
-							when "10" =>
-								io <= "00";
-								if (scan_x + 1 = p_width) then
-									scan_x <= (others => '0');
-									p_addr_count <= p_addr_count + width - p_width + 1;
-									addr <= b_addr_bias + p1_last_addr_bias + p_addr_count + width - p_width + 1;
-								else
-									scan_x <= scan_x + 1;
-									p_addr_count <= p_addr_count + 1;
-									addr <= b_addr_bias + p1_last_addr_bias + p_addr_count + 1;
-								end if;
-								recover_state <= "00";
-							when others =>
-						end case;
-
-					when p2_del =>
-						case (recover_state) is
-							when "00" =>
-								recover_state <= "01";
-							when "01" =>
-								io <= "01";
-								addr <= oth_f_addr_bias + p2_last_addr_bias + p_addr_count;
-								write_data <= read_data;
-								recover_state <= "10";
-							when "10" =>
-								io <= "00";
-								if (scan_x + 1 = p_width) then
-									scan_x <= (others => '0');
-									p_addr_count <= p_addr_count + width - p_width + 1;
-									addr <= b_addr_bias + p2_last_addr_bias + p_addr_count + width - p_width + 1;
-								else
-									scan_x <= scan_x + 1;
-									p_addr_count <= p_addr_count + 1;
-									addr <= b_addr_bias + p2_last_addr_bias + p_addr_count + 1;
-								end if;
-								recover_state <= "00";
-							when others =>
-
-						end case;
-								
-					when p1 =>
-
-						case write_state is
-							when "00" =>
-								write_state <= "01";
-							when "01" =>
-								if (read_data(22) = '0') then
-									io <= "11";
-								else
-									io <= "01";
-									addr <= oth_f_addr_bias + p1_cur_addr_bias + p_addr_count;
-									write_data <= read_data;
-								end if;
-								write_state <= "10";
-							when "10" =>
-								if (p_addr_count_self + 2 = p_addr_num) then
-									state <= nul;
-									io <= "11";
-								else
-									io <= "00";	
-									p_addr_count_self <= p_addr_count_self + 1;
-									addr <= p1_addr_bias + p_addr_count_self + 1;
-									if (scan_x + 1 = p_width) then
-										scan_x <= (others => '0');
-										p_addr_count <= p_addr_count + width - p_width + 1;
-									else
-										scan_x <= scan_x + 1;
-										p_addr_count <= p_addr_count + 1;
-									end if;
-									write_state <= "00";
-								end if;
-							when others =>
-						end case;
-					when p2 =>
-
-						case write_state is
-							when "00" =>
-								write_state <= "01";
-							when "01" =>
-								if (read_data(22) = '0') then
-									io <= "11";
-								else
-									io <= "01";
-									addr <= oth_f_addr_bias + p2_cur_addr_bias + p_addr_count;
-									write_data <= read_data;
-								end if;
-								write_state <= "10";
-							when "10" =>
-								if (p_addr_count_self + 2 = p_addr_num) then
-									state <= nul;
-									io <= "11";
-								else
-									io <= "00";
-									p_addr_count_self <= p_addr_count_self + 1;
-									addr <= p2_addr_bias + p_addr_count_self + 1;
-									if (scan_x + 1 = p_width) then
-										scan_x <= (others => '0');
-										p_addr_count <= p_addr_count + width - p_width + 1;
-									else
-										scan_x <= scan_x + 1;
-										p_addr_count <= p_addr_count + 1;
-									end if;
-									write_state <= "00";
-								end if;
-							when others =>
-						end case;
-					when nul =>
-				end case;
-
 			end if;
 		end if;
 	end process;

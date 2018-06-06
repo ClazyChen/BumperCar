@@ -1,31 +1,39 @@
 c = []
 for j in range(525):
     for i in range(800):
-        if (not(i < 640 and j < 480)):
+        if (not(i < 640 and j < 480) and i < 799):
             c.append((i, j))
 
-print(len(c))
-p1_del = c[:19200]
-v1 = c[19200:19400]
-p2_del = c[19400:38600]
-v2 = c[38600:71800]
-p1 = c[71800:91000]
-v3 = c[91000:91200]
-p2 = c[91200:110400]
-remain = c[110400:]
-print('p1_del start when '),
-print(p1_del[0])
-print('v1 start when '),
-print(v1[0])
-print('p2_del start when '),
-print(p2_del[0])
-print('v2 start when '),
-print(v2[0])
-print('p1 start when '),
-print(p1[0])
-print('v3 start when '),
-print(v3[0])
-print('p2 start when '),
-print(p2[0])
-print('remain start when '),
-print(remain[0])
+class interval:
+    def __init__(self, I):
+        self._I = I
+        self.head = []
+        self.tail = []
+    def insert_head(self, s, length):
+        arr = self._I[:length]
+        self._I = self._I[length:]
+        self.head.append((s, arr))
+    def insert_tail(self, s, length):
+        arr = self._I[-length:]
+        self._I = self._I[:-length]
+        self.tail = [(s, arr)] + self.tail
+    def paint(self):
+        for _ in self.head:
+            print('%s starts when' % _[0]),
+            print(_[1][0])
+        print('middle starts when'),
+        print(self._I[0])
+        for _ in self.tail:
+            print('%s starts when' % _[0]),
+            print(_[1][0])
+
+I = interval(c)
+I.insert_head('p1_del', 19200)
+I.insert_head('v1', 200)
+I.insert_head('p2_del', 19200)
+
+I.insert_tail('v3', 200)
+I.insert_tail('p2', 19200)
+I.insert_tail('v2', 200)
+I.insert_tail('p1', 19200)
+I.paint()
