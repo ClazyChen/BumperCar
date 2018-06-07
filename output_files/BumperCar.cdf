@@ -3,8 +3,8 @@ JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
-	P ActionCode(Ign)
-		Device PartName(EP2C70F672) MfrSpec(OpMask(0) FullPath("C:/Users/cslab9-422/Desktop/BumperCar/output_files/BumperCar.sof"));
+	P ActionCode(Cfg)
+		Device PartName(EP2C70F672) Path("C:/Users/cslab9-422/Desktop/qwq/BumperCar/output_files/") File("BumperCar.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

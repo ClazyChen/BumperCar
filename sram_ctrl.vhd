@@ -51,6 +51,7 @@ begin
 				base_sram_we <= '1';
 				base_sram_oe <= '1';
 				base_sram_ce <= '1';
+				base_sram_data <= (others => 'Z');
 			end if;
 		end if;
 	end process;

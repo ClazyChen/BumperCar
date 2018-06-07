@@ -5,9 +5,9 @@ from PIL import Image, ImageDraw
 
 seq = sys.argv[1:-1]
 target = sys.argv[-1]
-print('seq = '),
+print('seq = ', end = '')
 print(seq)
-print('target = '),
+print('target = ', end = '')
 print(target)
 
 def binstr(x, length):
@@ -18,7 +18,7 @@ with open(target, 'wb') as f:
     for img in seq:
         im = Image.open(img)
         width, height = im.size
-        print('%s : width = %d, height = %d mode = ' % (img, width, height)),
+        print('%s : width = %d, height = %d mode = ' % (img, width, height), end = '')
         print(im.mode)
         pix = im.load()
         mode = im.mode
@@ -40,5 +40,6 @@ with open(target, 'wb') as f:
                 f.write(struct.pack('B', int(s[16:24], 2)))
                 f.write(struct.pack('B', int(s[8:16], 2)))
                 f.write(struct.pack('B', int(s[:8], 2)))
+
 
 

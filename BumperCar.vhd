@@ -12,6 +12,9 @@ entity BumperCar is
 		hs, vs : out std_logic;
 		r, g, b : out std_logic_vector(2 downto 0);
 
+		--Keyboard input signals
+		ps2_clk_in, ps2_data_in : in std_logic;
+		
 		--sram control signals
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
 		base_sram_addr : out std_logic_vector(19 downto 0);
@@ -26,23 +29,12 @@ component vga_ctrl is
 		hs, vs : out std_logic;
 		r, g, b : out std_logic_vector(2 downto 0);
 	
-		p1_x_0, p2_x_0, p1_x_1, p2_x_1 : in std_logic_vector(9 downto 0);
-		p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(9 downto 0);
-
+		ps2_clk_in, ps2_data_in : in std_logic;
 		base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
 		base_sram_addr : out std_logic_vector(19 downto 0);
 		base_sram_data : inout std_logic_vector(31 downto 0)
 	);
 end component;
-signal p1_x_0 : std_logic_vector(9 downto 0) := "0000000000";
-signal p1_x_1 : std_logic_vector(9 downto 0) := "0000000000";
-signal p1_y_0 : std_logic_vector(9 downto 0) := "0000000000";
-signal p1_y_1 : std_logic_vector(9 downto 0) := "0000000000";
-
-signal p2_x_0 : std_logic_vector(9 downto 0) := "0010000000";
-signal p2_x_1 : std_logic_vector(9 downto 0) := "0010000000";
-signal p2_y_0 : std_logic_vector(9 downto 0) := "0010000000";
-signal p2_y_1 : std_logic_vector(9 downto 0) := "0010000000";
 
 begin
 	vga_ctrl_realization : vga_ctrl port map(
@@ -52,14 +44,8 @@ begin
 		r => r,
 		g => g,
 		b => b,
-		p1_x_0 => p1_x_0,
-		p1_y_0 => p1_y_0,
-		p2_x_0 => p2_x_0,
-		p2_y_0 => p2_y_0,
-		p1_x_1 => p1_x_1,
-		p1_y_1 => p1_y_1,
-		p2_x_1 => p2_x_1,
-		p2_y_1 => p2_y_1,
+		ps2_clk_in => ps2_clk_in,
+		ps2_data_in => ps2_data_in,
 		base_sram_we => base_sram_we,
 		base_sram_oe => base_sram_oe,
 		base_sram_ce => base_sram_ce,
