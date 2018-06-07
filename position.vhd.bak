@@ -1,0 +1,55 @@
+------------------------------------------
+ -- 选择模式状态
+ -- 创建日期：2018-6-7
+ -- 50MHz
+ -- 负责人：czk
+ -- 信号说明：
+ --
+------------------------------------------
+
+library ieee; 
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity position is
+	port(
+		clk: in std_logic;
+		rst: in std_logic;
+		x1,y1,x2,y2: in std_logic_vector(31 downto 0); --两个圆的圆心
+		t1,t2: in std_logic_vector(31 downto 0); --两个圆的旋转角
+		precom: out std_logic; --预处理完毕
+		com: out std_logic; --整个计算结束
+		data: out std_logic; --25MHz
+	);
+end position;
+
+architecture bhv of position is
+	component add
+		port(
+			clock: in std_logic;
+			dataa: in std_logic_vector(31 downto 0);
+			datab: in std_logic_vector(31 downto 0);
+			result: out std_logic_vector(31 downto 0)
+		);
+	end component;
+	
+	component mult7
+		port(
+			clock: in std_logic;
+			dataa: in std_logic_vector(31 downto 0);
+			datab: in std_logic_vector(31 downto 0);
+			result: out std_logic_vector(31 downto 0)
+		);
+	end component;
+	
+	component ftoi
+		port(
+			clock: in std_logic ;
+			dataa: in std_logic_vector (31 downto 0);
+			result: out std_logic_vector (31 downto 0)
+		);
+	end component;
+	
+begin
+end bhv;

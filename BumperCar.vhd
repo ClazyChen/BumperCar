@@ -29,14 +29,20 @@ end BumperCar;
 architecture bhv of BumperCar is
 	component vga_ctrl
 		port(
-			clk: in std_logic;
-			rst: in std_logic;
-			rgb: in std_logic_vector(8 downto 0);
-			clk25: out std_logic;
-			hs, vs: out std_logic;
-			r, g, b: out std_logic_vector(2 downto 0);
-			x: out std_logic_vector(9 downto 0);
-			y: out std_logic_vector(8 downto 0)
+			clk100m : in std_logic;
+			hs, vs : out std_logic;
+			r, g, b : out std_logic_vector(2 downto 0);
+
+			--game status
+			p1_x_0, p2_x_0, p1_x_1, p2_x_1 : in std_logic_vector(9 downto 0);
+			p1_y_0, p2_y_0, p1_y_1, p2_y_1 : in std_logic_vector(9 downto 0);
+
+			--base_ram ports
+			base_sram_we, base_sram_oe, base_sram_ce : out std_logic;
+			base_sram_addr : out std_logic_vector(19 downto 0);
+			base_sram_data : inout std_logic_vector(31 downto 0)
+
+			--debug
 		);
 	end component;
 	component keyboard_ctrl
