@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C70F672) Path("C:/Users/cslab9-422/Desktop/qwq/BumperCar/output_files/") File("BumperCar.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C70F672) Path("C:/Users/cslab9-422/Desktop/BumperCar/output_files/") File("BumperCar.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

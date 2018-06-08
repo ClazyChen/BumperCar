@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "06/08/2018 03:24:48"
+-- DATE "06/08/2018 21:36:32"
 
 -- 
 -- Device: Altera EP2C70F672C8 Package FBGA672
@@ -2312,22 +2312,21 @@ SIGNAL \vga_ctrl_realization|paint_realization|addr~338_combout\ : std_logic;
 SIGNAL \vga_ctrl_realization|keyboard_ctrl_realization|ps2_keyboard_realization|scancode\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|keyboard_ctrl_realization|ps2_keyboard_realization|count\ : std_logic_vector(4 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|keyboard_ctrl_realization|ps2_keyboard_realization|code\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|scan_x\ : std_logic_vector(9 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|p1_last_addr_bias\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|bt\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|sram_ctrl_realization|base_sram_addr\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|rt\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|paint_realization|p1_cur_addr_bias\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|io\ : std_logic_vector(1 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|p_addr_count_self\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|paint_realization|addr\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|io\ : std_logic_vector(1 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|gt\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|p_addr_count\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|sram_ctrl_realization|read_data\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|p1_last_addr_bias\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|paint_realization|p2_cur_addr_bias\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|paint_realization|p2_last_addr_bias\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|p_addr_count\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|rt\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|cur_f_addr_count\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|p_addr_count_self\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|bt\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|keyboard_ctrl_realization|key_pressing_vector\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|sram_ctrl_realization|read_data\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \vga_ctrl_realization|paint_realization|gt\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|sram_ctrl_realization|base_sram_addr\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|cur_f_addr_count\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|vy\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|vx\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|p2_y_buf\ : std_logic_vector(9 DOWNTO 0);
@@ -2343,6 +2342,7 @@ SIGNAL \vga_ctrl_realization|p1_x_buf\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|p1_x_1\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|p1_x_0\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|paint_realization|write_data\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \vga_ctrl_realization|paint_realization|scan_x\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \vga_ctrl_realization|keyboard_ctrl_realization|ps2_keyboard_realization|ALT_INV_ps2_clk~clkctrl_outclk\ : std_logic;
 SIGNAL \vga_ctrl_realization|paint_realization|ALT_INV_io\ : std_logic_vector(1 DOWNTO 1);
 
