@@ -199,18 +199,18 @@ begin
 						modify_rst <= '1';
 					elsif modify_com = '1' then
 						modify_rst <= '0';
-						state <= "0101";
+						state <= "0110";
 					end if;
 				when "0110" => --根据键盘更新graph
 					graph(831 downto 704) <= modify_res(831 downto 704);
 					graph(351 downto 224) <= modify_res(351 downto 224);
-					state <= "0110";
+					state <= "0111";
 				when "0111" => --模拟运动，motion
 					if motion_rst = '0' then
 						motion_rst <= '1';
 					elsif motion_com = '1' then
 						motion_rst <= '0';
-						state <= "0111";
+						state <= "1000";
 					end if;
 				when "1000" => --根据运动更新graph
 					graph(959 downto 832) <= motion_res(959 downto 832);
